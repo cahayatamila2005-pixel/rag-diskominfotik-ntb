@@ -1,0 +1,10 @@
+# Dependensi inti (wajib)
+numpy
+scikit-learn
+streamlit
+
+# Opsional: aktifkan untuk embedding berkualitas lebih tinggi (mode "sentence-transformers")
+# sentence-transformers
+
+# Opsional: hanya dibutuhkan kalau memakai mode generation "llm"
+# requests

@@ -1,0 +1,120 @@
+﻿"""
+Antarmuka web untuk chatbot RAG, menggunakan Streamlit.
+
+Cara menjalankan (di laptop dengan Python & internet, dari folder root proyek):
+    pip install -r requirements.txt
+    streamlit run src/app.py
+"""
+
+import os
+import streamlit as st
+from styles import CUSTOM_CSS, skor_ke_kelas
+from pipeline_loader import load_pipeline
+from logger import log_question
+
+st.set_page_config(page_title="Tanya NTB — Layanan Publik", page_icon="🏛️", layout="centered")
+st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div class="ntb-banner">
+        <div class="eyebrow">Portal Layanan Publik · Provinsi NTB</div>
+        <h1>Tanya NTB</h1>
+        <div class="subtitle">Asisten informasi layanan publik berbasis pencarian dokumen resmi (RAG)</div>
+    </div>
+    <div class="ntb-weave"></div>
+    """,
+    unsafe_allow_html=True,
+)
+
+with st.sidebar:
+    st.markdown("#### Pengaturan")
+    mode = st.radio(
+        "Mode jawaban",
+        options=["extractive (offline)", "llm (butuh API key)"],
+        help="Extractive: tampilkan potongan dokumen langsung. LLM: jawaban dirangkai natural oleh AI.",
+    )
+    generation_mode = "extractive" if mode.startswith("extractive") else "llm"
+
+    embedder_choice = st.radio(
+        "Metode pencarian (embedding)",
+        options=["TF-IDF (offline, cepat)", "Sentence-Transformers (lebih akurat, butuh internet)"],
+        help="TF-IDF cocokkan kata persis. Sentence-Transformers memahami makna kalimat, lebih baik untuk pertanyaan dengan kata berbeda dari dokumen.",
+    )
+    embedder_type = "tfidf" if embedder_choice.startswith("TF-IDF") else "sentence-transformers"
+
+    if generation_mode == "llm":
+        api_key_input = st.text_input("LLM_API_KEY", type="password")
+        if api_key_input:
+            os.environ["LLM_API_KEY"] = api_key_input
+
+    top_k = st.slider("Jumlah dokumen sumber yang dicari", 1, 5, 3)
+
+    st.divider()
+    st.caption("Basis pengetahuan: 48 entry layanan Portal NTB")
+    st.caption("🔐 Panel admin ada di menu halaman (sidebar atas)")
+
+
+pipeline = load_pipeline(generation_mode, embedder_type)
+
+
+def render_answer(answer: str, sources: list[dict]):
+    if "tidak menemukan" in answer.lower():
+        st.markdown(
+            f"""
+            <div class="kartu-kosong">
+                <span class="label">Tidak ditemukan</span>
+                {answer}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        return
+
+    st.write(answer)
+
+    with st.expander("📄 Lihat sumber dokumen yang digunakan"):
+        for src in sources:
+            kelas_skor = skor_ke_kelas(src["score"])
+            st.markdown(
+                f"""
+                <div class="kartu-sumber">
+                    <span class="sumber-label">{src['source']}</span>
+                    <span class="skor-badge {kelas_skor}">skor {src['score']}</span>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            st.text(src["text"])
+
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        if msg["role"] == "assistant":
+            render_answer(msg["content"], msg.get("sources", []))
+        else:
+            st.write(msg["content"])
+
+if question := st.chat_input("Tanyakan sesuatu, misal: 'Apa itu DDSS?'"):
+    st.session_state.messages.append({"role": "user", "content": question})
+    with st.chat_message("user"):
+        st.write(question)
+
+    with st.chat_message("assistant"):
+        with st.spinner("Mencari jawaban..."):
+            result = pipeline.generate_answer(question, top_k=top_k)
+            render_answer(result["answer"], result["sources"])
+
+            terjawab = "tidak menemukan" not in result["answer"].lower()
+            skor_teratas = result["sources"][0]["score"] if result["sources"] else 0.0
+            sumber_teratas = result["sources"][0]["source"] if (terjawab and result["sources"]) else ""
+            log_question(question, terjawab, skor_teratas, sumber_teratas)
+
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": result["answer"],
+        "sources": result["sources"],
+    })
