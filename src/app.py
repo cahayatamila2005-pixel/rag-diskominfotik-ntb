@@ -11,6 +11,7 @@ import streamlit as st
 from styles import CUSTOM_CSS, skor_ke_kelas
 from pipeline_loader import load_pipeline, KB_PATH
 from logger import log_question
+from feedback_logger import log_feedback
 from kb_parser import parse_kb_file
 
 st.set_page_config(page_title="Tanya NTB — Layanan Publik", page_icon="🏛️", layout="centered")
@@ -58,6 +59,14 @@ with st.sidebar:
 
 pipeline = load_pipeline(generation_mode, embedder_type)
 
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+try:
+    kb_entries = parse_kb_file(KB_PATH)
+except FileNotFoundError:
+    kb_entries = []
+
 
 def render_answer(answer: str, sources: list[dict]):
     if "tidak menemukan" in answer.lower():
@@ -89,6 +98,32 @@ def render_answer(answer: str, sources: list[dict]):
             st.text(src["text"])
 
 
+def render_feedback_widget(idx: int):
+    msg = st.session_state.messages[idx]
+
+    if "tidak menemukan" in msg["content"].lower():
+        return
+
+    if msg.get("feedback"):
+        emoji = "👍" if msg["feedback"] == "like" else "👎"
+        st.caption(f"Anda menilai jawaban ini {emoji} — terima kasih atas masukannya!")
+        return
+
+    col1, col2, _ = st.columns([1, 1, 8])
+    pertanyaan_terkait = st.session_state.messages[idx - 1]["content"] if idx > 0 else ""
+
+    with col1:
+        if st.button("👍", key=f"like_{idx}"):
+            msg["feedback"] = "like"
+            log_feedback(pertanyaan_terkait, msg["content"], "like")
+            st.rerun()
+    with col2:
+        if st.button("👎", key=f"dislike_{idx}"):
+            msg["feedback"] = "dislike"
+            log_feedback(pertanyaan_terkait, msg["content"], "dislike")
+            st.rerun()
+
+
 def ajukan_pertanyaan(pertanyaan: str):
     st.session_state.messages.append({"role": "user", "content": pertanyaan})
     result = pipeline.generate_answer(pertanyaan, top_k=top_k)
@@ -102,15 +137,11 @@ def ajukan_pertanyaan(pertanyaan: str):
         "role": "assistant",
         "content": result["answer"],
         "sources": result["sources"],
+        "feedback": None,
     })
 
 
 with st.expander("📚 Jelajahi berdasarkan kategori"):
-    try:
-        kb_entries = parse_kb_file(KB_PATH)
-    except FileNotFoundError:
-        kb_entries = []
-
     if not kb_entries:
         st.caption("Basis pengetahuan belum tersedia.")
     else:
@@ -133,19 +164,35 @@ with st.expander("📚 Jelajahi berdasarkan kategori"):
                         st.session_state.pending_question = pertanyaan_wakil
                         st.rerun()
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+if not st.session_state.messages and kb_entries:
+    st.markdown("**💡 Pertanyaan populer:**")
+    suggested = []
+    seen_categories = set()
+    for e in kb_entries:
+        if e.category not in seen_categories and e.questions:
+            suggested.append(e.questions[0])
+            seen_categories.add(e.category)
+        if len(suggested) >= 4:
+            break
 
-for msg in st.session_state.messages:
+    cols_sugg = st.columns(2)
+    for i, q in enumerate(suggested):
+        with cols_sugg[i % 2]:
+            if st.button(q, key=f"suggest_{i}", use_container_width=True):
+                st.session_state.pending_question = q
+                st.rerun()
+
+for i, msg in enumerate(st.session_state.messages):
     with st.chat_message(msg["role"]):
         if msg["role"] == "assistant":
             render_answer(msg["content"], msg.get("sources", []))
+            render_feedback_widget(i)
         else:
             st.write(msg["content"])
 
 pertanyaan_ketik = st.chat_input("Tanyakan sesuatu, misal: 'Apa itu DDSS?'")
-pertanyaan_dari_kategori = st.session_state.pop("pending_question", None)
-pertanyaan_final = pertanyaan_dari_kategori or pertanyaan_ketik
+pertanyaan_dari_klik = st.session_state.pop("pending_question", None)
+pertanyaan_final = pertanyaan_dari_klik or pertanyaan_ketik
 
 if pertanyaan_final:
     with st.chat_message("user"):
@@ -154,5 +201,7 @@ if pertanyaan_final:
     with st.chat_message("assistant"):
         with st.spinner("Mencari jawaban..."):
             ajukan_pertanyaan(pertanyaan_final)
-            last_result = st.session_state.messages[-1]
+            idx_terbaru = len(st.session_state.messages) - 1
+            last_result = st.session_state.messages[idx_terbaru]
             render_answer(last_result["content"], last_result.get("sources", []))
+            render_feedback_widget(idx_terbaru)

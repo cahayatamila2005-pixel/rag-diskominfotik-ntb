@@ -7,7 +7,7 @@ Fitur:
   - Tambah entry baru
   - Edit / hapus entry yang sudah ada
   - Re-index otomatis setelah perubahan disimpan
-  - Riwayat & statistik pertanyaan warga
+  - Riwayat & statistik pertanyaan warga (termasuk feedback like/dislike)
   - Backup & restore otomatis
 
 Ganti password default di bagian ADMIN_PASSWORD sebelum dipakai sungguhan,
@@ -25,6 +25,7 @@ from kb_parser import parse_kb_file, KBEntry
 from kb_writer import save_kb_file, next_kb_id, list_backups, restore_backup
 from pipeline_loader import load_pipeline, KB_PATH
 from logger import read_logs
+from feedback_logger import read_feedback_logs
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "admin123")
 
@@ -232,6 +233,34 @@ with tab_log:
             with st.expander(f"❓ {len(tidak_terjawab_unik)} pertanyaan unik yang belum terjawab"):
                 for q in tidak_terjawab_unik:
                     st.markdown(f"- {q}")
+
+    st.divider()
+    st.markdown("#### 👍👎 Feedback Warga terhadap Jawaban")
+
+    feedback_logs = read_feedback_logs()
+    if not feedback_logs:
+        st.info("Belum ada feedback yang masuk dari warga.")
+    else:
+        total_fb = len(feedback_logs)
+        suka = sum(1 for r in feedback_logs if r["feedback"] == "like")
+        tidak_suka = total_fb - suka
+        persen_suka = round(suka / total_fb * 100, 1) if total_fb else 0
+
+        colf1, colf2, colf3 = st.columns(3)
+        colf1.metric("Total Feedback", total_fb)
+        colf2.metric("👍 Suka", f"{suka} ({persen_suka}%)")
+        colf3.metric("👎 Tidak Suka", tidak_suka)
+
+        with st.expander(f"Lihat semua {total_fb} feedback"):
+            st.dataframe(feedback_logs, use_container_width=True, hide_index=True)
+
+        dislike_list = [r for r in feedback_logs if r["feedback"] == "dislike"]
+        if dislike_list:
+            with st.expander(f"👎 {len(dislike_list)} jawaban yang mendapat dislike (perlu ditinjau)"):
+                for r in dislike_list:
+                    st.markdown(f"**Q:** {r['pertanyaan']}")
+                    st.caption(f"A: {r['jawaban_singkat']}")
+                    st.divider()
 
 with tab_backup:
     st.markdown("#### Backup & Restore Data")
