@@ -8,6 +8,7 @@ Fitur:
   - Edit / hapus entry yang sudah ada
   - Re-index otomatis setelah perubahan disimpan
   - Riwayat & statistik pertanyaan warga (termasuk feedback like/dislike)
+  - Grafik ringkas (pertanyaan per hari, kategori terpopuler)
   - Backup & restore otomatis
 
 Ganti password default di bagian ADMIN_PASSWORD sebelum dipakai sungguhan,
@@ -20,6 +21,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import streamlit as st
+import pandas as pd
+from collections import Counter
 from styles import CUSTOM_CSS
 from kb_parser import parse_kb_file, KBEntry
 from kb_writer import save_kb_file, next_kb_id, list_backups, restore_backup
@@ -233,6 +236,35 @@ with tab_log:
             with st.expander(f"❓ {len(tidak_terjawab_unik)} pertanyaan unik yang belum terjawab"):
                 for q in tidak_terjawab_unik:
                     st.markdown(f"- {q}")
+
+        st.markdown("##### 📈 Grafik Ringkas")
+
+        tanggal_counter = Counter(r["waktu"][:10] for r in logs)
+        tanggal_sorted = dict(sorted(tanggal_counter.items()))
+        df_tanggal = pd.DataFrame(
+            {"Jumlah Pertanyaan": list(tanggal_sorted.values())},
+            index=list(tanggal_sorted.keys()),
+        )
+        st.caption("Jumlah pertanyaan per hari")
+        st.line_chart(df_tanggal)
+
+        id_to_category = {e.id: e.category for e in entries}
+        kategori_counter = Counter()
+        for r in logs:
+            sumber = r.get("sumber", "")
+            if sumber:
+                kb_id = sumber.split(" - ")[0].strip()
+                kategori = id_to_category.get(kb_id, "Lainnya")
+            else:
+                kategori = "Tidak Terjawab"
+            kategori_counter[kategori] += 1
+
+        df_kategori = pd.DataFrame(
+            {"Jumlah": list(kategori_counter.values())},
+            index=list(kategori_counter.keys()),
+        )
+        st.caption("Kategori paling sering ditanya")
+        st.bar_chart(df_kategori)
 
     st.divider()
     st.markdown("#### 👍👎 Feedback Warga terhadap Jawaban")
