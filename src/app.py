@@ -9,8 +9,9 @@ Cara menjalankan (di laptop dengan Python & internet, dari folder root proyek):
 import os
 import streamlit as st
 from styles import CUSTOM_CSS, skor_ke_kelas
-from pipeline_loader import load_pipeline
+from pipeline_loader import load_pipeline, KB_PATH
 from logger import log_question
+from kb_parser import parse_kb_file
 
 st.set_page_config(page_title="Tanya NTB — Layanan Publik", page_icon="🏛️", layout="centered")
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
@@ -51,7 +52,7 @@ with st.sidebar:
     top_k = st.slider("Jumlah dokumen sumber yang dicari", 1, 5, 3)
 
     st.divider()
-    st.caption("Basis pengetahuan: 48 entry layanan Portal NTB")
+    st.caption("Basis pengetahuan: layanan Portal NTB")
     st.caption("🔐 Panel admin ada di menu halaman (sidebar atas)")
 
 
@@ -88,6 +89,50 @@ def render_answer(answer: str, sources: list[dict]):
             st.text(src["text"])
 
 
+def ajukan_pertanyaan(pertanyaan: str):
+    st.session_state.messages.append({"role": "user", "content": pertanyaan})
+    result = pipeline.generate_answer(pertanyaan, top_k=top_k)
+
+    terjawab = "tidak menemukan" not in result["answer"].lower()
+    skor_teratas = result["sources"][0]["score"] if result["sources"] else 0.0
+    sumber_teratas = result["sources"][0]["source"] if (terjawab and result["sources"]) else ""
+    log_question(pertanyaan, terjawab, skor_teratas, sumber_teratas)
+
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": result["answer"],
+        "sources": result["sources"],
+    })
+
+
+with st.expander("📚 Jelajahi berdasarkan kategori"):
+    try:
+        kb_entries = parse_kb_file(KB_PATH)
+    except FileNotFoundError:
+        kb_entries = []
+
+    if not kb_entries:
+        st.caption("Basis pengetahuan belum tersedia.")
+    else:
+        kategori_list = sorted(set(e.category for e in kb_entries))
+        kategori_dipilih = st.selectbox(
+            "Pilih kategori layanan",
+            options=["-- Pilih kategori --"] + kategori_list,
+            key="jelajah_kategori",
+        )
+
+        if kategori_dipilih != "-- Pilih kategori --":
+            topik_kategori = [e for e in kb_entries if e.category == kategori_dipilih]
+            st.caption(f"{len(topik_kategori)} topik dalam kategori ini — klik untuk langsung bertanya:")
+
+            cols = st.columns(2)
+            for i, entry in enumerate(topik_kategori):
+                pertanyaan_wakil = entry.questions[0] if entry.questions else entry.title
+                with cols[i % 2]:
+                    if st.button(entry.title, key=f"topik_{entry.id}", use_container_width=True):
+                        st.session_state.pending_question = pertanyaan_wakil
+                        st.rerun()
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -98,23 +143,16 @@ for msg in st.session_state.messages:
         else:
             st.write(msg["content"])
 
-if question := st.chat_input("Tanyakan sesuatu, misal: 'Apa itu DDSS?'"):
-    st.session_state.messages.append({"role": "user", "content": question})
+pertanyaan_ketik = st.chat_input("Tanyakan sesuatu, misal: 'Apa itu DDSS?'")
+pertanyaan_dari_kategori = st.session_state.pop("pending_question", None)
+pertanyaan_final = pertanyaan_dari_kategori or pertanyaan_ketik
+
+if pertanyaan_final:
     with st.chat_message("user"):
-        st.write(question)
+        st.write(pertanyaan_final)
 
     with st.chat_message("assistant"):
         with st.spinner("Mencari jawaban..."):
-            result = pipeline.generate_answer(question, top_k=top_k)
-            render_answer(result["answer"], result["sources"])
-
-            terjawab = "tidak menemukan" not in result["answer"].lower()
-            skor_teratas = result["sources"][0]["score"] if result["sources"] else 0.0
-            sumber_teratas = result["sources"][0]["source"] if (terjawab and result["sources"]) else ""
-            log_question(question, terjawab, skor_teratas, sumber_teratas)
-
-    st.session_state.messages.append({
-        "role": "assistant",
-        "content": result["answer"],
-        "sources": result["sources"],
-    })
+            ajukan_pertanyaan(pertanyaan_final)
+            last_result = st.session_state.messages[-1]
+            render_answer(last_result["content"], last_result.get("sources", []))
