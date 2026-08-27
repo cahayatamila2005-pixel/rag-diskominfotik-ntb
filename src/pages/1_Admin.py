@@ -8,7 +8,7 @@ Fitur:
   - Edit / hapus entry yang sudah ada
   - Re-index otomatis setelah perubahan disimpan
   - Riwayat & statistik pertanyaan warga (termasuk feedback like/dislike)
-  - Grafik ringkas (pertanyaan per hari, kategori terpopuler)
+  - Grafik & Statistik (tab terpisah)
   - Backup & restore otomatis
 
 Ganti password default di bagian ADMIN_PASSWORD sebelum dipakai sungguhan,
@@ -73,8 +73,8 @@ with col_b:
 entries = parse_kb_file(KB_PATH)
 st.caption(f"Total entry saat ini: {len(entries)}")
 
-tab_lihat, tab_tambah, tab_edit, tab_log, tab_backup = st.tabs(
-    ["📋 Lihat Semua", "➕ Tambah Entry", "✏️ Edit / Hapus", "📊 Riwayat Pertanyaan", "🗂️ Backup & Restore"]
+tab_lihat, tab_tambah, tab_edit, tab_log, tab_grafik, tab_backup = st.tabs(
+    ["📋 Lihat Semua", "➕ Tambah Entry", "✏️ Edit / Hapus", "📊 Riwayat Pertanyaan", "📈 Grafik & Statistik", "🗂️ Backup & Restore"]
 )
 
 with tab_lihat:
@@ -237,35 +237,6 @@ with tab_log:
                 for q in tidak_terjawab_unik:
                     st.markdown(f"- {q}")
 
-        st.markdown("##### 📈 Grafik Ringkas")
-
-        tanggal_counter = Counter(r["waktu"][:10] for r in logs)
-        tanggal_sorted = dict(sorted(tanggal_counter.items()))
-        df_tanggal = pd.DataFrame(
-            {"Jumlah Pertanyaan": list(tanggal_sorted.values())},
-            index=list(tanggal_sorted.keys()),
-        )
-        st.caption("Jumlah pertanyaan per hari")
-        st.line_chart(df_tanggal)
-
-        id_to_category = {e.id: e.category for e in entries}
-        kategori_counter = Counter()
-        for r in logs:
-            sumber = r.get("sumber", "")
-            if sumber:
-                kb_id = sumber.split(" - ")[0].strip()
-                kategori = id_to_category.get(kb_id, "Lainnya")
-            else:
-                kategori = "Tidak Terjawab"
-            kategori_counter[kategori] += 1
-
-        df_kategori = pd.DataFrame(
-            {"Jumlah": list(kategori_counter.values())},
-            index=list(kategori_counter.keys()),
-        )
-        st.caption("Kategori paling sering ditanya")
-        st.bar_chart(df_kategori)
-
     st.divider()
     st.markdown("#### 👍👎 Feedback Warga terhadap Jawaban")
 
@@ -293,6 +264,64 @@ with tab_log:
                     st.markdown(f"**Q:** {r['pertanyaan']}")
                     st.caption(f"A: {r['jawaban_singkat']}")
                     st.divider()
+
+with tab_grafik:
+    st.markdown("#### Grafik & Statistik")
+
+    logs = read_logs()
+
+    if not logs:
+        st.info("Belum ada data pertanyaan untuk ditampilkan sebagai grafik.")
+    else:
+        tanggal_counter = Counter(r["waktu"][:10] for r in logs)
+        tanggal_sorted = dict(sorted(tanggal_counter.items()))
+        df_tanggal = pd.DataFrame(
+            {"Jumlah Pertanyaan": list(tanggal_sorted.values())},
+            index=list(tanggal_sorted.keys()),
+        )
+        st.markdown("##### 📅 Jumlah Pertanyaan per Hari")
+        st.line_chart(df_tanggal)
+
+        id_to_category = {e.id: e.category for e in entries}
+        kategori_counter = Counter()
+        for r in logs:
+            sumber = r.get("sumber", "")
+            if sumber:
+                kb_id = sumber.split(" - ")[0].strip()
+                kategori = id_to_category.get(kb_id, "Lainnya")
+            else:
+                kategori = "Tidak Terjawab"
+            kategori_counter[kategori] += 1
+
+        df_kategori = pd.DataFrame(
+            {"Jumlah": list(kategori_counter.values())},
+            index=list(kategori_counter.keys()),
+        )
+        st.markdown("##### 🏷️ Kategori Paling Sering Ditanya")
+        st.bar_chart(df_kategori)
+
+        total_logs = len(logs)
+        terjawab_logs = sum(1 for r in logs if r["terjawab"] == "Ya")
+        tidak_terjawab_logs = total_logs - terjawab_logs
+
+        df_status = pd.DataFrame(
+            {"Jumlah": [terjawab_logs, tidak_terjawab_logs]},
+            index=["Terjawab", "Tidak Terjawab"],
+        )
+        st.markdown("##### ✅❌ Rasio Pertanyaan Terjawab vs Tidak")
+        st.bar_chart(df_status)
+
+    feedback_logs = read_feedback_logs()
+    if feedback_logs:
+        st.divider()
+        suka = sum(1 for r in feedback_logs if r["feedback"] == "like")
+        tidak_suka = len(feedback_logs) - suka
+        df_feedback = pd.DataFrame(
+            {"Jumlah": [suka, tidak_suka]},
+            index=["👍 Suka", "👎 Tidak Suka"],
+        )
+        st.markdown("##### 👍👎 Distribusi Feedback Warga")
+        st.bar_chart(df_feedback)
 
 with tab_backup:
     st.markdown("#### Backup & Restore Data")
