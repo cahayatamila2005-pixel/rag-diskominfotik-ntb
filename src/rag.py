@@ -1,16 +1,5 @@
 ﻿"""
 Pipeline RAG (Retrieval-Augmented Generation) utama.
-
-Alurnya:
-  1. INDEXING  : dokumen -> chunk -> embedding -> simpan di vector store
-  2. RETRIEVAL : pertanyaan user -> embedding -> cari chunk paling mirip
-  3. GENERATION: chunk relevan + pertanyaan -> jawaban akhir
-
-Ada 2 mode generation:
-  - "extractive" : langsung tampilkan potongan dokumen paling relevan,
-                   tanpa LLM sama sekali. 100% offline.
-  - "llm"        : kirim chunk + pertanyaan ke LLM API supaya jawabannya
-                   dirangkai jadi kalimat yang natural. Butuh API key & internet.
 """
 
 from __future__ import annotations
@@ -55,13 +44,13 @@ class RAGPipeline:
         results = self.store.search(query_vec, top_k=top_k)
         return results
 
-    def generate_answer(self, question: str, top_k: int = 3) -> dict:
+    def generate_answer(self, question: str, top_k: int = 3, llm_api_key: str | None = None) -> dict:
         results = self.retrieve(question, top_k=top_k)
 
         if self.generation_mode == "extractive":
             answer = self._generate_extractive(results)
         elif self.generation_mode == "llm":
-            answer = self._generate_with_llm(question, results)
+            answer = self._generate_with_llm(question, results, llm_api_key)
         else:
             raise ValueError(f"generation_mode tidak dikenal: {self.generation_mode}")
 
@@ -81,15 +70,19 @@ class RAGPipeline:
         best_chunk, score = results[0]
         return best_chunk.text
 
-    def _generate_with_llm(self, question: str, results) -> str:
+    def _generate_with_llm(self, question: str, results, llm_api_key: str | None = None) -> str:
         import requests
 
-        api_key = os.environ.get("LLM_API_KEY")
+        api_key = llm_api_key or os.environ.get("LLM_API_KEY")
         api_base = os.environ.get("LLM_API_BASE", "https://api.openai.com/v1")
         model = os.environ.get("LLM_MODEL", "gpt-4o-mini")
 
         if not api_key:
-            return "[ERROR] LLM_API_KEY belum diset. Set environment variable dulu untuk pakai mode ini."
+            return (
+                "Mode LLM belum bisa dipakai karena API key belum diisi. "
+                "Silakan isi kolom LLM_API_KEY di sidebar terlebih dahulu, "
+                "atau gunakan mode 'extractive' yang tidak memerlukan API key."
+            )
 
         context = "\n\n".join([f"- {c.text}" for c, _ in results])
         prompt = f"""Kamu adalah asisten layanan publik Diskominfotik NTB.
@@ -103,18 +96,25 @@ Pertanyaan warga: {question}
 
 Jawaban (singkat, jelas, sopan):"""
 
-        response = requests.post(
-            f"{api_base}/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}"},
-            json={
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.2,
-            },
-            timeout=30,
-        )
-        response.raise_for_status()
-        return response.json()["choices"][0]["message"]["content"]
+        try:
+            response = requests.post(
+                f"{api_base}/chat/completions",
+                headers={"Authorization": f"Bearer {api_key}"},
+                json={
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.2,
+                },
+                timeout=30,
+            )
+            response.raise_for_status()
+            return response.json()["choices"][0]["message"]["content"]
+        except requests.exceptions.RequestException:
+            return (
+                "Maaf, terjadi masalah saat menghubungi layanan LLM eksternal "
+                "(API key mungkin tidak valid, kadaluarsa, atau ada gangguan jaringan). "
+                "Coba periksa kembali API key kamu, atau gunakan mode 'extractive' sebagai alternatif."
+            )
 
 
 if __name__ == "__main__":
@@ -128,14 +128,9 @@ if __name__ == "__main__":
     pertanyaan_uji = [
         "Apa itu DDSS?",
         "Bagaimana cara lapor keluhan ke pemerintah?",
-        "Saya mau daftar berobat ke rumah sakit gimana caranya?",
-        "Aplikasi apa yang dipakai ASN buat absen?",
-        "Bagaimana cara mengurus izin usaha UMKM?",
-        "Wisata apa saja yang terkenal di NTB?",
     ]
 
     for q in pertanyaan_uji:
         result = pipeline.generate_answer(q, top_k=1)
         print(f"\nQ: {result['question']}")
         print(f"A: {result['answer'][:300]}...")
-        print(f"   (sumber: {result['sources'][0]['source']}, skor: {result['sources'][0]['score']})")

@@ -1,9 +1,5 @@
 ﻿"""
 Antarmuka web untuk chatbot RAG, menggunakan Streamlit.
-
-Cara menjalankan (di laptop dengan Python & internet, dari folder root proyek):
-    pip install -r requirements.txt
-    streamlit run src/app.py
 """
 
 import os
@@ -45,10 +41,9 @@ with st.sidebar:
     )
     embedder_type = "tfidf" if embedder_choice.startswith("TF-IDF") else "sentence-transformers"
 
+    llm_api_key_sesi = None
     if generation_mode == "llm":
-        api_key_input = st.text_input("LLM_API_KEY", type="password")
-        if api_key_input:
-            os.environ["LLM_API_KEY"] = api_key_input
+        llm_api_key_sesi = st.text_input("LLM_API_KEY", type="password")
 
     top_k = st.slider("Jumlah dokumen sumber yang dicari", 1, 5, 3)
 
@@ -69,11 +64,11 @@ except FileNotFoundError:
 
 
 def render_answer(answer: str, sources: list[dict]):
-    if "tidak menemukan" in answer.lower():
+    if "tidak menemukan" in answer.lower() or "belum bisa dipakai" in answer.lower() or "terjadi masalah" in answer.lower():
         st.markdown(
             f"""
             <div class="kartu-kosong">
-                <span class="label">Tidak ditemukan</span>
+                <span class="label">Info</span>
                 {answer}
             </div>
             """,
@@ -124,9 +119,9 @@ def render_feedback_widget(idx: int):
             st.rerun()
 
 
-def ajukan_pertanyaan(pertanyaan: str):
+def ajukan_pertanyaan(pertanyaan: str, llm_api_key: str | None = None):
     st.session_state.messages.append({"role": "user", "content": pertanyaan})
-    result = pipeline.generate_answer(pertanyaan, top_k=top_k)
+    result = pipeline.generate_answer(pertanyaan, top_k=top_k, llm_api_key=llm_api_key)
 
     terjawab = "tidak menemukan" not in result["answer"].lower()
     skor_teratas = result["sources"][0]["score"] if result["sources"] else 0.0
@@ -200,7 +195,7 @@ if pertanyaan_final:
 
     with st.chat_message("assistant"):
         with st.spinner("Mencari jawaban..."):
-            ajukan_pertanyaan(pertanyaan_final)
+            ajukan_pertanyaan(pertanyaan_final, llm_api_key=llm_api_key_sesi)
             idx_terbaru = len(st.session_state.messages) - 1
             last_result = st.session_state.messages[idx_terbaru]
             render_answer(last_result["content"], last_result.get("sources", []))
