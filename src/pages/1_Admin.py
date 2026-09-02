@@ -10,6 +10,8 @@ Fitur:
   - Riwayat & statistik pertanyaan warga (termasuk feedback like/dislike)
   - Grafik & Statistik (tab terpisah)
   - Backup & restore otomatis
+  - Sinkronisasi otomatis ke GitHub (supaya perubahan permanen meski
+    dilakukan lewat versi publik/cloud)
 
 Ganti password default di bagian ADMIN_PASSWORD sebelum dipakai sungguhan,
 atau set environment variable ADMIN_PASSWORD supaya tidak tertulis di kode.
@@ -29,6 +31,7 @@ from kb_writer import save_kb_file, next_kb_id, list_backups, restore_backup
 from pipeline_loader import load_pipeline, KB_PATH
 from logger import read_logs
 from feedback_logger import read_feedback_logs
+from github_sync import sync_to_github
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "admin123")
 
@@ -72,6 +75,17 @@ with col_b:
 
 entries = parse_kb_file(KB_PATH)
 st.caption(f"Total entry saat ini: {len(entries)}")
+
+
+def simpan_dan_tampilkan_status(pesan_sukses: str):
+    load_pipeline.clear()
+    berhasil_sync, pesan_sync = sync_to_github(KB_PATH)
+    st.success(pesan_sukses)
+    if berhasil_sync:
+        st.success(f"🔗 {pesan_sync}")
+    else:
+        st.warning(f"⚠️ {pesan_sync}")
+
 
 tab_lihat, tab_tambah, tab_edit, tab_log, tab_grafik, tab_backup = st.tabs(
     ["📋 Lihat Semua", "➕ Tambah Entry", "✏️ Edit / Hapus", "📊 Riwayat Pertanyaan", "📈 Grafik & Statistik", "🗂️ Backup & Restore"]
@@ -128,8 +142,7 @@ with tab_tambah:
             )
             entries.append(new_entry)
             save_kb_file(KB_PATH, entries)
-            load_pipeline.clear()
-            st.success(f"Entry {new_entry.id} berhasil disimpan dan basis pengetahuan sudah di-reindex.")
+            simpan_dan_tampilkan_status(f"Entry {new_entry.id} berhasil disimpan dan basis pengetahuan sudah di-reindex.")
             st.rerun()
 
 with tab_edit:
@@ -164,8 +177,7 @@ with tab_edit:
             if st.button("🗑️ Hapus Entry", type="secondary", disabled=not konfirmasi_hapus):
                 entries.pop(idx)
                 save_kb_file(KB_PATH, entries)
-                load_pipeline.clear()
-                st.success(f"Entry {target.id} berhasil dihapus dan basis pengetahuan sudah di-reindex.")
+                simpan_dan_tampilkan_status(f"Entry {target.id} berhasil dihapus dan basis pengetahuan sudah di-reindex.")
                 st.rerun()
 
         st.divider()
@@ -195,8 +207,7 @@ with tab_edit:
                     keywords=[k.strip() for k in keywords_edit.split(",") if k.strip()],
                 )
                 save_kb_file(KB_PATH, entries)
-                load_pipeline.clear()
-                st.success(f"Entry {target.id} berhasil diperbarui dan basis pengetahuan sudah di-reindex.")
+                simpan_dan_tampilkan_status(f"Entry {target.id} berhasil diperbarui dan basis pengetahuan sudah di-reindex.")
                 st.rerun()
 
 with tab_log:
@@ -346,6 +357,5 @@ with tab_backup:
         )
         if st.button("♻️ Pulihkan dari Backup Ini", type="primary", disabled=not konfirmasi_restore):
             restore_backup(KB_PATH, target_backup["path"])
-            load_pipeline.clear()
-            st.success(f"Berhasil dipulihkan ke kondisi {target_backup['waktu']}. Data sudah di-reindex.")
+            simpan_dan_tampilkan_status(f"Berhasil dipulihkan ke kondisi {target_backup['waktu']}.")
             st.rerun()
