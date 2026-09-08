@@ -1794,3 +1794,15 @@ Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungki
 Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungkinkan sistem komputer melakukan tugas yang biasanya membutuhkan kemampuan manusia, seperti memahami bahasa, mengenali pola, melakukan prediksi, dan menghasilkan informasi.
 
 **Keywords:** AI, artificial intelligence, kecerdasan buatan, teknologi AI, machine learning
+
+### KB-094: Chatbot
+
+**Pertanyaan:**
+- Apa itu chatbot?
+- Bagaimana chatbot bekerja?
+- Apa fungsi chatbot?
+
+**Jawaban:**
+Chatbot adalah sistem perangkat lunak yang dirancang untuk berinteraksi dengan pengguna melalui percakapan dalam bentuk teks atau suara. Chatbot dapat digunakan untuk memberikan informasi, menjawab pertanyaan, dan membantu pengguna mengakses layanan secara otomatis.
+
+**Keywords:** chatbot, bot percakapan, asisten virtual, AI chatbot, layanan otomatis
