@@ -1,20 +1,5 @@
 ﻿"""
 Panel Admin — kelola knowledge base tanpa perlu edit kode.
-
-Fitur:
-  - Login sederhana pakai password
-  - Lihat semua entry KB
-  - Tambah entry baru
-  - Edit / hapus entry yang sudah ada
-  - Re-index otomatis setelah perubahan disimpan
-  - Riwayat & statistik pertanyaan warga (termasuk feedback like/dislike)
-  - Grafik & Statistik (tab terpisah)
-  - Backup & restore otomatis
-  - Sinkronisasi otomatis ke GitHub (supaya perubahan permanen meski
-    dilakukan lewat versi publik/cloud)
-
-Ganti password default di bagian ADMIN_PASSWORD sebelum dipakai sungguhan,
-atau set environment variable ADMIN_PASSWORD supaya tidak tertulis di kode.
 """
 
 import os
@@ -73,6 +58,14 @@ with col_b:
         st.session_state.admin_logged_in = False
         st.rerun()
 
+if "flash_messages" in st.session_state:
+    for jenis, teks in st.session_state.flash_messages:
+        if jenis == "success":
+            st.success(teks)
+        else:
+            st.warning(teks)
+    del st.session_state["flash_messages"]
+
 entries = parse_kb_file(KB_PATH)
 st.caption(f"Total entry saat ini: {len(entries)}")
 
@@ -80,11 +73,14 @@ st.caption(f"Total entry saat ini: {len(entries)}")
 def simpan_dan_tampilkan_status(pesan_sukses: str):
     load_pipeline.clear()
     berhasil_sync, pesan_sync = sync_to_github(KB_PATH)
-    st.success(pesan_sukses)
+
+    pesan = [("success", pesan_sukses)]
     if berhasil_sync:
-        st.success(f"🔗 {pesan_sync}")
+        pesan.append(("success", f"🔗 {pesan_sync}"))
     else:
-        st.warning(f"⚠️ {pesan_sync}")
+        pesan.append(("warning", f"⚠️ {pesan_sync}"))
+
+    st.session_state.flash_messages = pesan
 
 
 tab_lihat, tab_tambah, tab_edit, tab_log, tab_grafik, tab_backup = st.tabs(
