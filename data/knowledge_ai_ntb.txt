@@ -1060,6 +1060,18 @@ PPID akan memproses permohonan sesuai waktu yang diatur dalam peraturan dan memb
 
 **Keywords:** permohonan informasi, cara mengajukan informasi, formulir ppid, layanan informasi ntb
 
+### KB-081: Informasi Publik
+
+**Pertanyaan:**
+- Apa itu informasi publik?
+- Informasi apa yang bisa diakses masyarakat?
+- Apa yang dimaksud keterbukaan informasi?
+
+**Jawaban:**
+Informasi publik adalah informasi yang dihasilkan, disimpan, dikelola, dikirim, atau diterima oleh badan publik yang berkaitan dengan penyelenggaraan pemerintahan dan dapat diakses oleh masyarakat sesuai dengan ketentuan yang berlaku.
+
+**Keywords:** informasi publik, keterbukaan informasi, informasi pemerintah, layanan informasi, transparansi
+
 ## KATEGORI 13: PARIWISATA & KAWASAN
 
 ### KB-043: Layanan Pemesanan Tiket Kawasan Wisata
