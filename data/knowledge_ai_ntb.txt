@@ -1501,3 +1501,15 @@ Manajemen SPBE merupakan bagian dari penyelenggaraan SPBE yang mendukung pengelo
 Tata kelola SPBE merupakan pengaturan dan pengendalian penyelenggaraan Sistem Pemerintahan Berbasis Elektronik agar pelaksanaannya terarah, terintegrasi, aman, dan sesuai dengan tujuan transformasi digital pemerintahan.
 
 **Keywords:** tata kelola SPBE, governance SPBE, pengelolaan digital, pemerintahan elektronik, transformasi digital
+
+### KB-071: Transformasi Digital Pemerintahan
+
+**Pertanyaan:**
+- Apa itu transformasi digital pemerintahan?
+- Apa tujuan digitalisasi pemerintahan?
+- Bagaimana transformasi digital pemerintah?
+
+**Jawaban:**
+Transformasi digital pemerintahan adalah proses pemanfaatan teknologi digital untuk meningkatkan kualitas proses kerja, pelayanan publik, pengelolaan data, komunikasi, dan pengambilan keputusan dalam penyelenggaraan pemerintahan.
+
+**Keywords:** transformasi digital, digitalisasi pemerintah, pemerintahan digital, SPBE, teknologi digital
