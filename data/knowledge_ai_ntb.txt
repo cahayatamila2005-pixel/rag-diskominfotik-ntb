@@ -1754,3 +1754,15 @@ Infrastruktur TIK merupakan perangkat dan sumber daya teknologi yang mendukung o
 Sistem informasi adalah kombinasi dari manusia, teknologi, prosedur, data, dan proses yang digunakan untuk mengumpulkan, mengolah, menyimpan, dan menyajikan informasi guna mendukung kegiatan organisasi dan pengambilan keputusan.
 
 **Keywords:** sistem informasi, informasi digital, aplikasi, pengolahan data, teknologi informasi
+
+### KB-091: Komputasi Awan
+
+**Pertanyaan:**
+- Apa itu cloud computing?
+- Apa itu komputasi awan?
+- Apa manfaat cloud computing?
+
+**Jawaban:**
+Komputasi awan atau cloud computing adalah penyediaan sumber daya komputasi seperti penyimpanan, server, aplikasi, dan layanan melalui jaringan internet sehingga sumber daya dapat digunakan secara fleksibel sesuai kebutuhan.
+
+**Keywords:** cloud computing, komputasi awan, cloud, server online, penyimpanan cloud
