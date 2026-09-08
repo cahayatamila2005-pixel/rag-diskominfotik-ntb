@@ -1566,3 +1566,15 @@ Pengelolaan data pemerintah meliputi proses pengumpulan, penyimpanan, pemutakhir
 Layanan digital pemerintah merupakan layanan yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan kemudahan akses kepada masyarakat maupun aparatur dalam memperoleh informasi dan layanan pemerintahan secara elektronik.
 
 **Keywords:** layanan digital, layanan pemerintah online, pemerintahan elektronik, aplikasi pemerintah, SPBE
+
+### KB-076: Integrasi Sistem Pemerintah
+
+**Pertanyaan:**
+- Apa itu integrasi aplikasi pemerintah?
+- Mengapa aplikasi pemerintah perlu terintegrasi?
+- Apa manfaat integrasi sistem?
+
+**Jawaban:**
+Integrasi sistem merupakan proses menghubungkan berbagai aplikasi dan layanan agar dapat saling bertukar data serta mendukung proses kerja yang lebih efisien. Integrasi membantu mengurangi duplikasi data dan meningkatkan keterpaduan layanan digital.
+
+**Keywords:** integrasi sistem, integrasi aplikasi, interoperabilitas, pertukaran data, aplikasi pemerintah
