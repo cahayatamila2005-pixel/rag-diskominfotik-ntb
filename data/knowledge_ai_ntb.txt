@@ -1781,3 +1781,16 @@ Komputasi awan atau cloud computing adalah penyediaan sumber daya komputasi sepe
 Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungkinkan sistem komputer melakukan tugas yang biasanya membutuhkan kemampuan manusia, seperti memahami bahasa, mengenali pola, melakukan prediksi, dan menghasilkan informasi.
 
 **Keywords:** AI, artificial intelligence, kecerdasan buatan, teknologi AI, machine learning
+
+### KB-093: Artificial Intelligence
+
+**Pertanyaan:**
+- Apa itu AI?
+- Apa itu kecerdasan buatan?
+- Jelaskan artificial intelligence
+- Apa fungsi AI?
+
+**Jawaban:**
+Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungkinkan sistem komputer melakukan tugas yang biasanya membutuhkan kemampuan manusia, seperti memahami bahasa, mengenali pola, melakukan prediksi, dan menghasilkan informasi.
+
+**Keywords:** AI, artificial intelligence, kecerdasan buatan, teknologi AI, machine learning
