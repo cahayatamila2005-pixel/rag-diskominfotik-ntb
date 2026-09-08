@@ -1728,3 +1728,17 @@ SRIKANDI merupakan aplikasi yang digunakan untuk mendukung pengelolaan arsip dan
 JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyediakan akses terhadap dokumen dan informasi hukum, seperti peraturan dan produk hukum, untuk memudahkan masyarakat memperoleh informasi hukum.
 
 **Keywords:** JDIH, jaringan dokumentasi hukum, informasi hukum, peraturan daerah, dokumen hukum
+
+## KATEGORI 34: TEKNOLOGI INFORMASI
+
+### KB-089: Infrastruktur TIK
+
+**Pertanyaan:**
+- Apa itu infrastruktur TIK?
+- Apa yang dimaksud infrastruktur teknologi informasi?
+- Mengapa infrastruktur TIK penting?
+
+**Jawaban:**
+Infrastruktur TIK merupakan perangkat dan sumber daya teknologi yang mendukung operasional sistem informasi, seperti jaringan komputer, server, pusat data, perangkat keras, perangkat lunak, dan fasilitas komunikasi.
+
+**Keywords:** infrastruktur TIK, teknologi informasi, server, jaringan komputer, pusat data
