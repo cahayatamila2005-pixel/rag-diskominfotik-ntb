@@ -1956,3 +1956,17 @@ Dokumen elektronik adalah dokumen yang dibuat, disimpan, dikirim, dan dikelola d
 Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses administrasi konvensional menjadi berbasis teknologi digital untuk meningkatkan efisiensi, kecepatan, ketepatan, dan kemudahan pengelolaan informasi.
 
 **Keywords:** digitalisasi administrasi, administrasi digital, transformasi digital, pemerintahan elektronik
+
+## KATEGORI 38: INFRASTRUKTUR
+
+### KB-107: Pusat Data
+
+**Pertanyaan:**
+- Apa itu pusat data?
+- Apa fungsi data center?
+- Mengapa pemerintah membutuhkan pusat data?
+
+**Jawaban:**
+Pusat data atau data center merupakan fasilitas yang digunakan untuk menyimpan, mengelola, dan menjalankan sistem serta data digital. Pusat data mendukung ketersediaan layanan teknologi informasi secara terpusat dan berkelanjutan.
+
+**Keywords:** pusat data, data center, server, penyimpanan data, infrastruktur digital
