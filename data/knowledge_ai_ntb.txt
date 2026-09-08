@@ -1868,3 +1868,17 @@ Embedding adalah representasi data dalam bentuk vektor numerik yang memungkinkan
 Large Language Model atau LLM adalah model kecerdasan buatan yang dilatih menggunakan data teks dalam jumlah besar untuk memahami, memproses, dan menghasilkan bahasa manusia. Dalam sistem RAG, LLM dapat digunakan untuk menyusun jawaban berdasarkan informasi yang ditemukan.
 
 **Keywords:** LLM, Large Language Model, model bahasa, AI generatif, GPT, generation
+
+## KATEGORI 36: CHATBOT
+
+### KB-100: Tanya NTB
+
+**Pertanyaan:**
+- Apa itu Tanya NTB?
+- Apa fungsi chatbot Tanya NTB?
+- Untuk apa Tanya NTB dibuat?
+
+**Jawaban:**
+Tanya NTB merupakan prototipe chatbot informasi yang dirancang untuk membantu pengguna memperoleh informasi melalui interaksi percakapan. Sistem memanfaatkan basis pengetahuan dan metode Retrieval-Augmented Generation untuk mencari informasi yang relevan sebelum memberikan jawaban.
+
+**Keywords:** Tanya NTB, chatbot NTB, chatbot RAG, layanan informasi, asisten digital
