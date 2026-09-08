@@ -1627,6 +1627,18 @@ Interoperabilitas adalah kemampuan antar sistem atau aplikasi untuk saling berko
 
 **Keywords:** interoperabilitas, integrasi sistem, pertukaran data, aplikasi terintegrasi, sistem pemerintah
 
+### KB-088: Tanda Tangan Elektronik
+
+**Pertanyaan:**
+- Apa itu tanda tangan elektronik?
+- Apa fungsi TTE?
+- Untuk apa tanda tangan elektronik digunakan?
+
+**Jawaban:**
+Tanda Tangan Elektronik atau TTE merupakan tanda tangan dalam bentuk elektronik yang digunakan untuk melakukan autentikasi dan verifikasi terhadap identitas penanda tangan serta menjamin keaslian dokumen elektronik sesuai ketentuan yang berlaku.
+
+**Keywords:** TTE, tanda tangan elektronik, dokumen elektronik, digital signature, sertifikat elektronik
+
 ## KATEGORI 31: KEAMANAN INFORMASI
 
 ### KB-078: Keamanan Informasi
