@@ -1704,3 +1704,15 @@ SP4N-LAPOR merupakan sistem pengelolaan pengaduan pelayanan publik yang digunaka
 SRIKANDI merupakan aplikasi yang digunakan untuk mendukung pengelolaan arsip dan persuratan secara elektronik dalam lingkungan instansi pemerintah sebagai bagian dari transformasi digital administrasi pemerintahan.
 
 **Keywords:** SRIKANDI, arsip digital, persuratan elektronik, administrasi pemerintah, aplikasi pemerintah
+
+### KB-087: JDIH
+
+**Pertanyaan:**
+- Apa itu JDIH?
+- Apa fungsi JDIH?
+- Dimana mencari dokumen hukum pemerintah?
+
+**Jawaban:**
+JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyediakan akses terhadap dokumen dan informasi hukum, seperti peraturan dan produk hukum, untuk memudahkan masyarakat memperoleh informasi hukum.
+
+**Keywords:** JDIH, jaringan dokumentasi hukum, informasi hukum, peraturan daerah, dokumen hukum
