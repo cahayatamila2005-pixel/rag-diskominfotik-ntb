@@ -1930,3 +1930,17 @@ Tanya NTB merupakan prototipe chatbot informasi yang dirancang untuk membantu pe
 Pengguna dapat menggunakan chatbot dengan mengetikkan pertanyaan pada kolom percakapan. Sistem kemudian akan memproses pertanyaan, mencari informasi yang relevan dari basis pengetahuan, dan menampilkan jawaban kepada pengguna.
 
 **Keywords:** cara menggunakan chatbot, cara bertanya, Tanya NTB, penggunaan chatbot, bantuan chatbot
+
+## KATEGORI 37: ADMINISTRASI DIGITAL
+
+### KB-105: Dokumen Elektronik
+
+**Pertanyaan:**
+- Apa itu dokumen elektronik?
+- Apa fungsi dokumen digital?
+- Bagaimana penggunaan dokumen elektronik?
+
+**Jawaban:**
+Dokumen elektronik adalah dokumen yang dibuat, disimpan, dikirim, dan dikelola dalam format digital. Penggunaan dokumen elektronik mendukung proses administrasi yang lebih cepat, efisien, dan mudah diakses.
+
+**Keywords:** dokumen elektronik, dokumen digital, administrasi digital, arsip elektronik
