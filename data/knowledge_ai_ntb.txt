@@ -1678,3 +1678,15 @@ Perlindungan data dilakukan melalui pengelolaan akses, penggunaan autentikasi, p
 Masyarakat dapat menyampaikan aspirasi atau pengaduan terkait pelayanan publik melalui kanal pengaduan resmi yang disediakan oleh pemerintah. Pengaduan sebaiknya disampaikan dengan informasi yang jelas agar dapat diteruskan kepada pihak yang berwenang.
 
 **Keywords:** pengaduan masyarakat, layanan pengaduan, aspirasi masyarakat, keluhan publik, pelayanan publik
+
+### KB-085: SP4N-LAPOR
+
+**Pertanyaan:**
+- Apa itu SP4N LAPOR?
+- Apa fungsi LAPOR?
+- Bagaimana cara menyampaikan pengaduan melalui LAPOR?
+
+**Jawaban:**
+SP4N-LAPOR merupakan sistem pengelolaan pengaduan pelayanan publik yang digunakan sebagai sarana penyampaian aspirasi dan pengaduan masyarakat kepada instansi pemerintah sesuai dengan mekanisme yang berlaku.
+
+**Keywords:** SP4N LAPOR, LAPOR, pengaduan online, aspirasi masyarakat, pengaduan publik
