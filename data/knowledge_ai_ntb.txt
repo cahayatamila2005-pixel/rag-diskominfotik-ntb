@@ -1513,3 +1513,18 @@ Tata kelola SPBE merupakan pengaturan dan pengendalian penyelenggaraan Sistem Pe
 Transformasi digital pemerintahan adalah proses pemanfaatan teknologi digital untuk meningkatkan kualitas proses kerja, pelayanan publik, pengelolaan data, komunikasi, dan pengambilan keputusan dalam penyelenggaraan pemerintahan.
 
 **Keywords:** transformasi digital, digitalisasi pemerintah, pemerintahan digital, SPBE, teknologi digital
+
+## KATEGORI 29: DATA
+
+### KB-072: NTB Satu Data
+
+**Pertanyaan:**
+- Apa itu NTB Satu Data?
+- Apa fungsi NTB Satu Data?
+- Untuk apa NTB Satu Data?
+- Jelaskan NTB Satu Data
+
+**Jawaban:**
+NTB Satu Data merupakan inisiatif pengelolaan dan penyediaan data pemerintah yang bertujuan mendukung ketersediaan data yang terintegrasi, akurat, dan dapat digunakan sebagai dasar dalam perencanaan serta pengambilan kebijakan pembangunan di Provinsi Nusa Tenggara Barat.
+
+**Keywords:** NTB Satu Data, satu data, data NTB, data pemerintah, dataset, informasi pembangunan
