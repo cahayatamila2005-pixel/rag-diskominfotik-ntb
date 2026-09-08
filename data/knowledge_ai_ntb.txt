@@ -1970,3 +1970,15 @@ Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses ad
 Pusat data atau data center merupakan fasilitas yang digunakan untuk menyimpan, mengelola, dan menjalankan sistem serta data digital. Pusat data mendukung ketersediaan layanan teknologi informasi secara terpusat dan berkelanjutan.
 
 **Keywords:** pusat data, data center, server, penyimpanan data, infrastruktur digital
+
+### KB-108: Jaringan Komputer
+
+**Pertanyaan:**
+- Apa itu jaringan komputer?
+- Apa fungsi jaringan komputer?
+- Mengapa jaringan penting?
+
+**Jawaban:**
+Jaringan komputer adalah sistem yang menghubungkan perangkat komputer dan perangkat digital lainnya agar dapat berkomunikasi serta berbagi data dan sumber daya.
+
+**Keywords:** jaringan komputer, network, koneksi jaringan, infrastruktur TIK
