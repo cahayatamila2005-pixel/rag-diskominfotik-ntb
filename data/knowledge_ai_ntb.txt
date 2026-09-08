@@ -1855,3 +1855,16 @@ Knowledge base atau basis pengetahuan merupakan kumpulan informasi yang disusun 
 Embedding adalah representasi data dalam bentuk vektor numerik yang memungkinkan sistem komputer memahami hubungan dan kemiripan makna antar teks. Dalam RAG, embedding digunakan untuk membantu menemukan dokumen yang relevan dengan pertanyaan pengguna.
 
 **Keywords:** embedding, vector embedding, vektor teks, semantic search, RAG
+
+### KB-099: Large Language Model
+
+**Pertanyaan:**
+- Apa itu LLM?
+- Apa kepanjangan LLM?
+- Apa fungsi Large Language Model?
+- Bagaimana LLM bekerja?
+
+**Jawaban:**
+Large Language Model atau LLM adalah model kecerdasan buatan yang dilatih menggunakan data teks dalam jumlah besar untuk memahami, memproses, dan menghasilkan bahasa manusia. Dalam sistem RAG, LLM dapat digunakan untuk menyusun jawaban berdasarkan informasi yang ditemukan.
+
+**Keywords:** LLM, Large Language Model, model bahasa, AI generatif, GPT, generation
