@@ -1451,3 +1451,15 @@ SPBE adalah Sistem Pemerintahan Berbasis Elektronik, yaitu penyelenggaraan pemer
 SPBE bertujuan untuk meningkatkan keterpaduan, efektivitas, efisiensi, transparansi, dan kualitas penyelenggaraan pemerintahan melalui pemanfaatan teknologi informasi dan komunikasi.
 
 **Keywords:** tujuan SPBE, manfaat SPBE, penerapan SPBE, pemerintahan digital, transformasi digital
+
+### KB-067: Manfaat SPBE
+
+**Pertanyaan:**
+- Apa manfaat SPBE?
+- Apa keuntungan menggunakan SPBE?
+- Bagaimana SPBE membantu pemerintahan?
+
+**Jawaban:**
+SPBE memberikan manfaat berupa peningkatan efisiensi proses pemerintahan, kemudahan akses layanan, integrasi informasi, peningkatan transparansi, serta mendukung pelayanan publik yang lebih cepat dan efektif.
+
+**Keywords:** manfaat SPBE, keuntungan SPBE, layanan digital, efisiensi pemerintah, pemerintahan elektronik
