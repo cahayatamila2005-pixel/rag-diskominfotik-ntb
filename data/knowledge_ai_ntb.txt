@@ -1084,6 +1084,18 @@ Keterbukaan informasi publik merupakan upaya memberikan akses informasi kepada m
 
 **Keywords:** keterbukaan informasi, informasi publik, transparansi, akuntabilitas, pemerintah terbuka
 
+### KB-083: Permohonan Informasi Publik
+
+**Pertanyaan:**
+- Bagaimana cara meminta informasi publik?
+- Bagaimana mengajukan permohonan informasi?
+- Dimana saya bisa meminta informasi pemerintah?
+
+**Jawaban:**
+Masyarakat dapat mengajukan permohonan informasi kepada badan publik melalui mekanisme layanan informasi yang tersedia. Permohonan biasanya dilakukan dengan menyampaikan informasi yang dibutuhkan sesuai prosedur dan ketentuan yang berlaku.
+
+**Keywords:** permohonan informasi, meminta informasi publik, layanan informasi, PPID, keterbukaan informasi
+
 ## KATEGORI 13: PARIWISATA & KAWASAN
 
 ### KB-043: Layanan Pemesanan Tiket Kawasan Wisata
