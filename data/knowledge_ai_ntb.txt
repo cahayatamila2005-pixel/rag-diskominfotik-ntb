@@ -1396,3 +1396,18 @@ Dinas Perpustakaan dan Kearsipan Provinsi NTB mengelola perpustakaan daerah yang
 Dinas Perdagangan Provinsi NTB mengawasi stabilitas harga dan distribusi barang kebutuhan pokok, termasuk mengadakan operasi pasar murah menjelang hari besar keagamaan. Laporan terkait kelangkaan atau kenaikan harga tidak wajar dapat disampaikan ke Dinas Perdagangan setempat atau dipantau lewat layanan Panel Harga yang sudah ada di Portal NTB.
 
 **Keywords:** perdagangan, pasar murah, sembako, harga, distribusi
+
+## KATEGORI 27: PROFIL
+
+### KB-063: Tugas Diskominfotik NTB
+
+**Pertanyaan:**
+- Apa tugas Diskominfotik NTB?
+- Apa tugas utama Diskominfotik?
+- Diskominfotik NTB bertugas apa?
+- Apa fungsi utama Diskominfotik?
+
+**Jawaban:**
+Diskominfotik NTB memiliki tugas membantu penyelenggaraan urusan pemerintahan daerah yang berkaitan dengan komunikasi dan informatika, statistik, persandian, pengelolaan teknologi informasi, serta mendukung transformasi digital pemerintahan.
+
+**Keywords:** tugas Diskominfotik, fungsi Diskominfotik, Kominfo NTB, teknologi informasi, komunikasi informatika
