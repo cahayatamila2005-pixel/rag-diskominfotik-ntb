@@ -1766,3 +1766,18 @@ Sistem informasi adalah kombinasi dari manusia, teknologi, prosedur, data, dan p
 Komputasi awan atau cloud computing adalah penyediaan sumber daya komputasi seperti penyimpanan, server, aplikasi, dan layanan melalui jaringan internet sehingga sumber daya dapat digunakan secara fleksibel sesuai kebutuhan.
 
 **Keywords:** cloud computing, komputasi awan, cloud, server online, penyimpanan cloud
+
+## KATEGORI 35: TEKNOLOGI AI
+
+### KB-092: Artificial Intelligence
+
+**Pertanyaan:**
+- Apa itu AI?
+- Apa itu kecerdasan buatan?
+- Jelaskan artificial intelligence
+- Apa fungsi AI?
+
+**Jawaban:**
+Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungkinkan sistem komputer melakukan tugas yang biasanya membutuhkan kemampuan manusia, seperti memahami bahasa, mengenali pola, melakukan prediksi, dan menghasilkan informasi.
+
+**Keywords:** AI, artificial intelligence, kecerdasan buatan, teknologi AI, machine learning
