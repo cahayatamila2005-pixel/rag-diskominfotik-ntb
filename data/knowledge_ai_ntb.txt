@@ -1882,3 +1882,15 @@ Large Language Model atau LLM adalah model kecerdasan buatan yang dilatih menggu
 Tanya NTB merupakan prototipe chatbot informasi yang dirancang untuk membantu pengguna memperoleh informasi melalui interaksi percakapan. Sistem memanfaatkan basis pengetahuan dan metode Retrieval-Augmented Generation untuk mencari informasi yang relevan sebelum memberikan jawaban.
 
 **Keywords:** Tanya NTB, chatbot NTB, chatbot RAG, layanan informasi, asisten digital
+
+### KB-101: Cara Menggunakan Chatbot
+
+**Pertanyaan:**
+- Bagaimana cara menggunakan chatbot?
+- Bagaimana cara bertanya ke chatbot?
+- Cara memakai Tanya NTB bagaimana?
+
+**Jawaban:**
+Pengguna dapat menggunakan chatbot dengan mengetikkan pertanyaan pada kolom percakapan. Sistem kemudian akan memproses pertanyaan, mencari informasi yang relevan dari basis pengetahuan, dan menampilkan jawaban kepada pengguna.
+
+**Keywords:** cara menggunakan chatbot, cara bertanya, Tanya NTB, penggunaan chatbot, bantuan chatbot
