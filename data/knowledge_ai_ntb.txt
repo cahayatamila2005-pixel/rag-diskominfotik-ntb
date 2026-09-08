@@ -1664,3 +1664,17 @@ Keamanan siber merupakan upaya perlindungan sistem, jaringan, perangkat, dan dat
 Perlindungan data dilakukan melalui pengelolaan akses, penggunaan autentikasi, pengamanan sistem, pencadangan data, serta penerapan kebijakan keamanan untuk mengurangi risiko kehilangan, kebocoran, atau penyalahgunaan informasi.
 
 **Keywords:** perlindungan data, keamanan data, privasi data, backup data, akses data
+
+## KATEGORI 32: PENGADUAN
+
+### KB-084: Layanan Pengaduan Masyarakat
+
+**Pertanyaan:**
+- Bagaimana cara mengadu ke pemerintah?
+- Dimana saya bisa menyampaikan pengaduan?
+- Bagaimana layanan pengaduan masyarakat?
+
+**Jawaban:**
+Masyarakat dapat menyampaikan aspirasi atau pengaduan terkait pelayanan publik melalui kanal pengaduan resmi yang disediakan oleh pemerintah. Pengaduan sebaiknya disampaikan dengan informasi yang jelas agar dapat diteruskan kepada pihak yang berwenang.
+
+**Keywords:** pengaduan masyarakat, layanan pengaduan, aspirasi masyarakat, keluhan publik, pelayanan publik
