@@ -1742,3 +1742,15 @@ JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyedi
 Infrastruktur TIK merupakan perangkat dan sumber daya teknologi yang mendukung operasional sistem informasi, seperti jaringan komputer, server, pusat data, perangkat keras, perangkat lunak, dan fasilitas komunikasi.
 
 **Keywords:** infrastruktur TIK, teknologi informasi, server, jaringan komputer, pusat data
+
+### KB-090: Sistem Informasi
+
+**Pertanyaan:**
+- Apa itu sistem informasi?
+- Apa fungsi sistem informasi?
+- Mengapa sistem informasi diperlukan?
+
+**Jawaban:**
+Sistem informasi adalah kombinasi dari manusia, teknologi, prosedur, data, dan proses yang digunakan untuk mengumpulkan, mengolah, menyimpan, dan menyajikan informasi guna mendukung kegiatan organisasi dan pengambilan keputusan.
+
+**Keywords:** sistem informasi, informasi digital, aplikasi, pengolahan data, teknologi informasi
