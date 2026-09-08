@@ -1552,3 +1552,17 @@ Tujuan Satu Data adalah menciptakan data pemerintah yang berkualitas, terintegra
 Pengelolaan data pemerintah meliputi proses pengumpulan, penyimpanan, pemutakhiran, pengamanan, integrasi, dan penyediaan data agar dapat digunakan secara efektif dalam mendukung penyelenggaraan pemerintahan dan pelayanan publik.
 
 **Keywords:** pengelolaan data, data pemerintah, integrasi data, data digital, informasi pemerintah
+
+## KATEGORI 30: LAYANAN DIGITAL
+
+### KB-075: Layanan Digital Pemerintah
+
+**Pertanyaan:**
+- Apa itu layanan digital pemerintah?
+- Apa saja layanan digital pemerintah?
+- Bagaimana layanan pemerintah secara online?
+
+**Jawaban:**
+Layanan digital pemerintah merupakan layanan yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan kemudahan akses kepada masyarakat maupun aparatur dalam memperoleh informasi dan layanan pemerintahan secara elektronik.
+
+**Keywords:** layanan digital, layanan pemerintah online, pemerintahan elektronik, aplikasi pemerintah, SPBE
