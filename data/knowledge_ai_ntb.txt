@@ -1438,3 +1438,16 @@ Diskominfotik NTB memiliki tugas membantu penyelenggaraan urusan pemerintahan da
 SPBE adalah Sistem Pemerintahan Berbasis Elektronik, yaitu penyelenggaraan pemerintahan yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan layanan kepada instansi pemerintah, aparatur, masyarakat, dan pihak lainnya secara efektif dan efisien.
 
 **Keywords:** SPBE, sistem pemerintahan berbasis elektronik, pemerintahan digital, digitalisasi pemerintah, transformasi digital
+
+### KB-066: Tujuan SPBE
+
+**Pertanyaan:**
+- Apa tujuan SPBE?
+- Mengapa SPBE diterapkan?
+- Apa manfaat penerapan SPBE?
+- Untuk apa SPBE dibuat?
+
+**Jawaban:**
+SPBE bertujuan untuk meningkatkan keterpaduan, efektivitas, efisiensi, transparansi, dan kualitas penyelenggaraan pemerintahan melalui pemanfaatan teknologi informasi dan komunikasi.
+
+**Keywords:** tujuan SPBE, manfaat SPBE, penerapan SPBE, pemerintahan digital, transformasi digital
