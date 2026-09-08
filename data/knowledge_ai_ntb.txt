@@ -1423,3 +1423,18 @@ Dinas Perdagangan Provinsi NTB mengawasi stabilitas harga dan distribusi barang 
 Diskominfotik NTB memiliki tugas membantu penyelenggaraan urusan pemerintahan daerah yang berkaitan dengan komunikasi dan informatika, statistik, persandian, pengelolaan teknologi informasi, serta mendukung transformasi digital pemerintahan.
 
 **Keywords:** tugas Diskominfotik, fungsi Diskominfotik, Kominfo NTB, teknologi informasi, komunikasi informatika
+
+## KATEGORI 28: SPBE
+
+### KB-065: Pengertian SPBE
+
+**Pertanyaan:**
+- Apa itu SPBE?
+- Apa kepanjangan SPBE?
+- Jelaskan tentang SPBE
+- Apa yang dimaksud Sistem Pemerintahan Berbasis Elektronik?
+
+**Jawaban:**
+SPBE adalah Sistem Pemerintahan Berbasis Elektronik, yaitu penyelenggaraan pemerintahan yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan layanan kepada instansi pemerintah, aparatur, masyarakat, dan pihak lainnya secara efektif dan efisien.
+
+**Keywords:** SPBE, sistem pemerintahan berbasis elektronik, pemerintahan digital, digitalisasi pemerintah, transformasi digital
