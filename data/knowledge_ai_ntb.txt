@@ -1843,3 +1843,15 @@ Retrieval adalah proses pencarian dan pengambilan informasi atau dokumen yang pa
 Knowledge base atau basis pengetahuan merupakan kumpulan informasi yang disusun dan disimpan sebagai sumber referensi bagi suatu sistem. Dalam chatbot RAG, basis pengetahuan digunakan sebagai sumber informasi untuk mencari jawaban yang relevan.
 
 **Keywords:** knowledge base, basis pengetahuan, database informasi, RAG, chatbot knowledge
+
+### KB-098: Embedding
+
+**Pertanyaan:**
+- Apa itu embedding?
+- Apa fungsi embedding dalam RAG?
+- Bagaimana embedding bekerja?
+
+**Jawaban:**
+Embedding adalah representasi data dalam bentuk vektor numerik yang memungkinkan sistem komputer memahami hubungan dan kemiripan makna antar teks. Dalam RAG, embedding digunakan untuk membantu menemukan dokumen yang relevan dengan pertanyaan pengguna.
+
+**Keywords:** embedding, vector embedding, vektor teks, semantic search, RAG
