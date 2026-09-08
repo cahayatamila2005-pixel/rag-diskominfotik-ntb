@@ -1489,3 +1489,15 @@ Arsitektur SPBE merupakan kerangka dasar yang menggambarkan keterkaitan antara p
 Manajemen SPBE merupakan bagian dari penyelenggaraan SPBE yang mendukung pengelolaan pemerintahan digital. Manajemen SPBE mencakup berbagai aspek pengelolaan yang diperlukan untuk mendukung keberlangsungan layanan digital pemerintahan, seperti pengelolaan risiko, keamanan, pengetahuan, perubahan, aset teknologi informasi, dan layanan.
 
 **Keywords:** manajemen SPBE, pengelolaan SPBE, SPBE, sistem pemerintahan berbasis elektronik, pemerintahan digital, tata kelola pemerintahan, manajemen digital, transformasi digital
+
+### KB-070: Tata Kelola SPBE
+
+**Pertanyaan:**
+- Apa itu tata kelola SPBE?
+- Bagaimana tata kelola SPBE?
+- Mengapa tata kelola SPBE diperlukan?
+
+**Jawaban:**
+Tata kelola SPBE merupakan pengaturan dan pengendalian penyelenggaraan Sistem Pemerintahan Berbasis Elektronik agar pelaksanaannya terarah, terintegrasi, aman, dan sesuai dengan tujuan transformasi digital pemerintahan.
+
+**Keywords:** tata kelola SPBE, governance SPBE, pengelolaan digital, pemerintahan elektronik, transformasi digital
