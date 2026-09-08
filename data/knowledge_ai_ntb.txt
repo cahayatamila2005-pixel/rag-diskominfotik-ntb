@@ -1256,6 +1256,18 @@ Sesuai UU Keterbukaan Informasi Publik, masyarakat berhak mengakses informasi pu
 
 **Keywords:** informasi publik, ppid, keterbukaan informasi, transparansi
 
+### KB-064: Layanan Digital Diskominfotik
+
+**Pertanyaan:**
+- Apa saja layanan Diskominfotik NTB?
+- Layanan apa yang tersedia di Diskominfotik?
+- Apa layanan digital pemerintah NTB?
+
+**Jawaban:**
+Diskominfotik NTB mendukung berbagai layanan yang berkaitan dengan informasi publik, teknologi informasi dan komunikasi, Sistem Pemerintahan Berbasis Elektronik, pengelolaan data, aplikasi pemerintahan, keamanan informasi, serta transformasi digital.
+
+**Keywords:** layanan Diskominfotik, layanan digital, layanan publik NTB, aplikasi pemerintah, teknologi informasi
+
 ## KATEGORI 17: TRANSPORTASI
 
 ### KB-052: Informasi Angkutan Umum di NTB
