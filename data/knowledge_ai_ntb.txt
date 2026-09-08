@@ -1806,3 +1806,16 @@ Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungki
 Chatbot adalah sistem perangkat lunak yang dirancang untuk berinteraksi dengan pengguna melalui percakapan dalam bentuk teks atau suara. Chatbot dapat digunakan untuk memberikan informasi, menjawab pertanyaan, dan membantu pengguna mengakses layanan secara otomatis.
 
 **Keywords:** chatbot, bot percakapan, asisten virtual, AI chatbot, layanan otomatis
+
+### KB-095: Retrieval-Augmented Generation
+
+**Pertanyaan:**
+- Apa itu RAG?
+- Apa kepanjangan RAG?
+- Bagaimana cara kerja RAG?
+- Apa itu Retrieval Augmented Generation?
+
+**Jawaban:**
+Retrieval-Augmented Generation atau RAG adalah metode kecerdasan buatan yang menggabungkan proses pencarian informasi dari basis pengetahuan dengan kemampuan model bahasa untuk menghasilkan jawaban. Sistem terlebih dahulu mencari informasi yang relevan sebelum menyusun jawaban.
+
+**Keywords:** RAG, Retrieval Augmented Generation, retrieval, generation, AI, chatbot RAG, knowledge base
