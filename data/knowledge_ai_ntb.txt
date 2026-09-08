@@ -1578,3 +1578,15 @@ Layanan digital pemerintah merupakan layanan yang memanfaatkan teknologi informa
 Integrasi sistem merupakan proses menghubungkan berbagai aplikasi dan layanan agar dapat saling bertukar data serta mendukung proses kerja yang lebih efisien. Integrasi membantu mengurangi duplikasi data dan meningkatkan keterpaduan layanan digital.
 
 **Keywords:** integrasi sistem, integrasi aplikasi, interoperabilitas, pertukaran data, aplikasi pemerintah
+
+### KB-077: Interoperabilitas Sistem
+
+**Pertanyaan:**
+- Apa itu interoperabilitas?
+- Apa fungsi interoperabilitas sistem?
+- Mengapa sistem pemerintah harus interoperabel?
+
+**Jawaban:**
+Interoperabilitas adalah kemampuan antar sistem atau aplikasi untuk saling berkomunikasi, bertukar data, dan menggunakan informasi secara bersama sesuai dengan standar yang telah ditetapkan.
+
+**Keywords:** interoperabilitas, integrasi sistem, pertukaran data, aplikasi terintegrasi, sistem pemerintah
