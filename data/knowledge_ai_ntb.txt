@@ -1819,3 +1819,15 @@ Chatbot adalah sistem perangkat lunak yang dirancang untuk berinteraksi dengan p
 Retrieval-Augmented Generation atau RAG adalah metode kecerdasan buatan yang menggabungkan proses pencarian informasi dari basis pengetahuan dengan kemampuan model bahasa untuk menghasilkan jawaban. Sistem terlebih dahulu mencari informasi yang relevan sebelum menyusun jawaban.
 
 **Keywords:** RAG, Retrieval Augmented Generation, retrieval, generation, AI, chatbot RAG, knowledge base
+
+### KB-096: Retrieval
+
+**Pertanyaan:**
+- Apa itu retrieval?
+- Apa fungsi retrieval dalam RAG?
+- Bagaimana proses retrieval?
+
+**Jawaban:**
+Retrieval adalah proses pencarian dan pengambilan informasi atau dokumen yang paling relevan dari basis pengetahuan berdasarkan pertanyaan pengguna. Dalam sistem RAG, hasil retrieval digunakan sebagai konteks sebelum jawaban dihasilkan.
+
+**Keywords:** retrieval, pencarian informasi, RAG, dokumen relevan, information retrieval
