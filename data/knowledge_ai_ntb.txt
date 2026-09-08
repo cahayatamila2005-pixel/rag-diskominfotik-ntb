@@ -1072,6 +1072,18 @@ Informasi publik adalah informasi yang dihasilkan, disimpan, dikelola, dikirim, 
 
 **Keywords:** informasi publik, keterbukaan informasi, informasi pemerintah, layanan informasi, transparansi
 
+### KB-082: Keterbukaan Informasi Publik
+
+**Pertanyaan:**
+- Apa itu keterbukaan informasi publik?
+- Mengapa informasi publik penting?
+- Apa tujuan keterbukaan informasi?
+
+**Jawaban:**
+Keterbukaan informasi publik merupakan upaya memberikan akses informasi kepada masyarakat untuk meningkatkan transparansi, akuntabilitas, dan partisipasi masyarakat dalam penyelenggaraan pemerintahan.
+
+**Keywords:** keterbukaan informasi, informasi publik, transparansi, akuntabilitas, pemerintah terbuka
+
 ## KATEGORI 13: PARIWISATA & KAWASAN
 
 ### KB-043: Layanan Pemesanan Tiket Kawasan Wisata
