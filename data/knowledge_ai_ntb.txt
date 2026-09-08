@@ -1528,3 +1528,15 @@ Transformasi digital pemerintahan adalah proses pemanfaatan teknologi digital un
 NTB Satu Data merupakan inisiatif pengelolaan dan penyediaan data pemerintah yang bertujuan mendukung ketersediaan data yang terintegrasi, akurat, dan dapat digunakan sebagai dasar dalam perencanaan serta pengambilan kebijakan pembangunan di Provinsi Nusa Tenggara Barat.
 
 **Keywords:** NTB Satu Data, satu data, data NTB, data pemerintah, dataset, informasi pembangunan
+
+### KB-073: Tujuan Satu Data
+
+**Pertanyaan:**
+- Apa tujuan Satu Data?
+- Mengapa pemerintah membutuhkan Satu Data?
+- Apa manfaat integrasi data pemerintah?
+
+**Jawaban:**
+Tujuan Satu Data adalah menciptakan data pemerintah yang berkualitas, terintegrasi, mudah diakses, dan dapat digunakan bersama untuk mendukung perencanaan, pelaksanaan, evaluasi, serta pengambilan kebijakan.
+
+**Keywords:** satu data, integrasi data, data pemerintah, kualitas data, kebijakan berbasis data
