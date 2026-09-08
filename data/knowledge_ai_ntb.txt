@@ -1690,3 +1690,17 @@ Masyarakat dapat menyampaikan aspirasi atau pengaduan terkait pelayanan publik m
 SP4N-LAPOR merupakan sistem pengelolaan pengaduan pelayanan publik yang digunakan sebagai sarana penyampaian aspirasi dan pengaduan masyarakat kepada instansi pemerintah sesuai dengan mekanisme yang berlaku.
 
 **Keywords:** SP4N LAPOR, LAPOR, pengaduan online, aspirasi masyarakat, pengaduan publik
+
+## KATEGORI 33: APLIKASI PEMERINTAH
+
+### KB-086: Aplikasi SRIKANDI
+
+**Pertanyaan:**
+- Apa itu SRIKANDI?
+- Aplikasi SRIKANDI untuk apa?
+- Apa fungsi aplikasi SRIKANDI?
+
+**Jawaban:**
+SRIKANDI merupakan aplikasi yang digunakan untuk mendukung pengelolaan arsip dan persuratan secara elektronik dalam lingkungan instansi pemerintah sebagai bagian dari transformasi digital administrasi pemerintahan.
+
+**Keywords:** SRIKANDI, arsip digital, persuratan elektronik, administrasi pemerintah, aplikasi pemerintah
