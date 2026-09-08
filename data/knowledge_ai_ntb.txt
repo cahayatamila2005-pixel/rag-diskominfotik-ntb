@@ -1540,3 +1540,15 @@ NTB Satu Data merupakan inisiatif pengelolaan dan penyediaan data pemerintah yan
 Tujuan Satu Data adalah menciptakan data pemerintah yang berkualitas, terintegrasi, mudah diakses, dan dapat digunakan bersama untuk mendukung perencanaan, pelaksanaan, evaluasi, serta pengambilan kebijakan.
 
 **Keywords:** satu data, integrasi data, data pemerintah, kualitas data, kebijakan berbasis data
+
+### KB-074: Pengelolaan Data Pemerintah
+
+**Pertanyaan:**
+- Bagaimana data pemerintah dikelola?
+- Apa itu pengelolaan data pemerintah?
+- Mengapa data pemerintah penting?
+
+**Jawaban:**
+Pengelolaan data pemerintah meliputi proses pengumpulan, penyimpanan, pemutakhiran, pengamanan, integrasi, dan penyediaan data agar dapat digunakan secara efektif dalam mendukung penyelenggaraan pemerintahan dan pelayanan publik.
+
+**Keywords:** pengelolaan data, data pemerintah, integrasi data, data digital, informasi pemerintah
