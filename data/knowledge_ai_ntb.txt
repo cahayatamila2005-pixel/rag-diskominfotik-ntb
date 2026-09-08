@@ -1616,3 +1616,15 @@ Keamanan informasi adalah upaya untuk melindungi data dan informasi dari akses, 
 Keamanan siber merupakan upaya perlindungan sistem, jaringan, perangkat, dan data digital dari ancaman atau serangan yang dapat mengganggu kerahasiaan, integritas, dan ketersediaan informasi.
 
 **Keywords:** keamanan informasi, keamanan data, cyber security, perlindungan data, keamanan digital
+
+### KB-080: Perlindungan Data
+
+**Pertanyaan:**
+- Bagaimana cara melindungi data?
+- Mengapa data perlu dilindungi?
+- Apa itu perlindungan data?
+
+**Jawaban:**
+Perlindungan data dilakukan melalui pengelolaan akses, penggunaan autentikasi, pengamanan sistem, pencadangan data, serta penerapan kebijakan keamanan untuk mengurangi risiko kehilangan, kebocoran, atau penyalahgunaan informasi.
+
+**Keywords:** perlindungan data, keamanan data, privasi data, backup data, akses data
