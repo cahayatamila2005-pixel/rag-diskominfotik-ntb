@@ -1604,3 +1604,15 @@ Interoperabilitas adalah kemampuan antar sistem atau aplikasi untuk saling berko
 Keamanan informasi adalah upaya untuk melindungi data dan informasi dari akses, penggunaan, perubahan, pengungkapan, atau kerusakan yang tidak sah sehingga kerahasiaan, integritas, dan ketersediaan informasi tetap terjaga.
 
 **Keywords:** keamanan informasi, keamanan data, cyber security, perlindungan data, keamanan digital
+
+### KB-079: Keamanan Siber
+
+**Pertanyaan:**
+- Apa itu keamanan siber?
+- Apa fungsi keamanan siber?
+- Mengapa cybersecurity penting?
+
+**Jawaban:**
+Keamanan siber merupakan upaya perlindungan sistem, jaringan, perangkat, dan data digital dari ancaman atau serangan yang dapat mengganggu kerahasiaan, integritas, dan ketersediaan informasi.
+
+**Keywords:** keamanan informasi, keamanan data, cyber security, perlindungan data, keamanan digital
