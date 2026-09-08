@@ -1590,3 +1590,17 @@ Integrasi sistem merupakan proses menghubungkan berbagai aplikasi dan layanan ag
 Interoperabilitas adalah kemampuan antar sistem atau aplikasi untuk saling berkomunikasi, bertukar data, dan menggunakan informasi secara bersama sesuai dengan standar yang telah ditetapkan.
 
 **Keywords:** interoperabilitas, integrasi sistem, pertukaran data, aplikasi terintegrasi, sistem pemerintah
+
+## KATEGORI 31: KEAMANAN INFORMASI
+
+### KB-078: Keamanan Informasi
+
+**Pertanyaan:**
+- Apa itu keamanan informasi?
+- Mengapa keamanan informasi penting?
+- Bagaimana menjaga keamanan informasi?
+
+**Jawaban:**
+Keamanan informasi adalah upaya untuk melindungi data dan informasi dari akses, penggunaan, perubahan, pengungkapan, atau kerusakan yang tidak sah sehingga kerahasiaan, integritas, dan ketersediaan informasi tetap terjaga.
+
+**Keywords:** keamanan informasi, keamanan data, cyber security, perlindungan data, keamanan digital
