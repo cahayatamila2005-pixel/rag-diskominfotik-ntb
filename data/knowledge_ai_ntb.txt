@@ -1382,3 +1382,17 @@ Layanan pemadam kebakaran (Damkar) di NTB dikelola oleh masing-masing kabupaten/
 Dinas Perpustakaan dan Kearsipan Provinsi NTB mengelola perpustakaan daerah yang terbuka untuk umum secara gratis. Warga dapat mendaftar jadi anggota dengan membawa KTP. Selain layanan fisik, tersedia juga layanan perpustakaan digital (e-library) yang bisa diakses melalui aplikasi resmi untuk membaca buku secara online.
 
 **Keywords:** perpustakaan, buku, e-library, kearsipan, baca
+
+## KATEGORI 26: PERDAGANGAN
+
+### KB-062: Pengawasan Pasar dan Distribusi Barang Kebutuhan Pokok
+
+**Pertanyaan:**
+- Kemana lapor harga sembako yang mencurigakan/mahal?
+- Dinas Perdagangan NTB ngurus apa?
+- Ada operasi pasar murah tidak?
+
+**Jawaban:**
+Dinas Perdagangan Provinsi NTB mengawasi stabilitas harga dan distribusi barang kebutuhan pokok, termasuk mengadakan operasi pasar murah menjelang hari besar keagamaan. Laporan terkait kelangkaan atau kenaikan harga tidak wajar dapat disampaikan ke Dinas Perdagangan setempat atau dipantau lewat layanan Panel Harga yang sudah ada di Portal NTB.
+
+**Keywords:** perdagangan, pasar murah, sembako, harga, distribusi
