@@ -1475,3 +1475,17 @@ SPBE memberikan manfaat berupa peningkatan efisiensi proses pemerintahan, kemuda
 Arsitektur SPBE merupakan kerangka dasar yang menggambarkan keterkaitan antara proses bisnis, data dan informasi, aplikasi, infrastruktur, keamanan, serta layanan dalam penyelenggaraan Sistem Pemerintahan Berbasis Elektronik.
 
 **Keywords:** arsitektur SPBE, kerangka SPBE, proses bisnis, aplikasi pemerintah, infrastruktur SPBE
+
+### KB-069: Arsitektur SPBE
+
+**Pertanyaan:**
+- Apa itu manajemen SPBE?
+- Apa saja yang termasuk manajemen SPBE?
+- Mengapa manajemen SPBE penting?
+- Bagaimana pengelolaan SPBE dilakukan?
+- Apa fungsi manajemen dalam SPBE?
+
+**Jawaban:**
+Manajemen SPBE merupakan bagian dari penyelenggaraan SPBE yang mendukung pengelolaan pemerintahan digital. Manajemen SPBE mencakup berbagai aspek pengelolaan yang diperlukan untuk mendukung keberlangsungan layanan digital pemerintahan, seperti pengelolaan risiko, keamanan, pengetahuan, perubahan, aset teknologi informasi, dan layanan.
+
+**Keywords:** manajemen SPBE, pengelolaan SPBE, SPBE, sistem pemerintahan berbasis elektronik, pemerintahan digital, tata kelola pemerintahan, manajemen digital, transformasi digital
