@@ -1944,3 +1944,15 @@ Pengguna dapat menggunakan chatbot dengan mengetikkan pertanyaan pada kolom perc
 Dokumen elektronik adalah dokumen yang dibuat, disimpan, dikirim, dan dikelola dalam format digital. Penggunaan dokumen elektronik mendukung proses administrasi yang lebih cepat, efisien, dan mudah diakses.
 
 **Keywords:** dokumen elektronik, dokumen digital, administrasi digital, arsip elektronik
+
+### KB-106: Digitalisasi Administrasi
+
+**Pertanyaan:**
+- Apa itu digitalisasi administrasi?
+- Mengapa administrasi pemerintah didigitalisasi?
+- Apa manfaat administrasi digital?
+
+**Jawaban:**
+Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses administrasi konvensional menjadi berbasis teknologi digital untuk meningkatkan efisiensi, kecepatan, ketepatan, dan kemudahan pengelolaan informasi.
+
+**Keywords:** digitalisasi administrasi, administrasi digital, transformasi digital, pemerintahan elektronik
