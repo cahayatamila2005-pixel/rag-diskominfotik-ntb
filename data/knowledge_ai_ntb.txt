@@ -1710,6 +1710,18 @@ Metadata adalah informasi yang menjelaskan karakteristik atau konteks suatu data
 
 **Keywords:** metadata, informasi data, data pemerintah, pengelolaan data, kualitas data
 
+### KB-121: Kualitas Data
+
+**Pertanyaan:**
+- Apa itu kualitas data?
+- Mengapa kualitas data penting?
+- Bagaimana mengetahui data berkualitas?
+
+**Jawaban:**
+Kualitas data menunjukkan tingkat ketepatan dan kelayakan data untuk digunakan. Data yang berkualitas perlu memiliki informasi yang akurat, lengkap, konsisten, relevan, dan dapat diperbarui sesuai kebutuhan.
+
+**Keywords:** kualitas data, data akurat, data lengkap, data konsisten, pengelolaan data
+
 ## KATEGORI 30: LAYANAN DIGITAL
 
 ### KB-075: Layanan Digital Pemerintah
