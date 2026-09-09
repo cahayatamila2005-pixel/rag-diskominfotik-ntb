@@ -1586,6 +1586,18 @@ Transformasi digital pemerintahan adalah proses pemanfaatan teknologi digital un
 
 **Keywords:** transformasi digital, digitalisasi pemerintah, pemerintahan digital, SPBE, teknologi digital
 
+### KB-115: Domain SPBE
+
+**Pertanyaan:**
+- Apa saja domain SPBE?
+- Apa yang dimaksud domain SPBE?
+- Komponen SPBE apa saja?
+
+**Jawaban:**
+Penyelenggaraan SPBE mencakup berbagai aspek yang saling berkaitan, antara lain tata kelola, manajemen, layanan, aplikasi, infrastruktur, data dan informasi, serta keamanan. Keseluruhan aspek tersebut mendukung penyelenggaraan pemerintahan berbasis elektronik.
+
+**Keywords:** domain SPBE, komponen SPBE, tata kelola SPBE, layanan SPBE, infrastruktur SPBE
+
 ## KATEGORI 29: DATA
 
 ### KB-072: NTB Satu Data
