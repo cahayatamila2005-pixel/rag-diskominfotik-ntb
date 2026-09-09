@@ -1610,6 +1610,18 @@ Layanan SPBE merupakan layanan yang diselenggarakan dengan memanfaatkan teknolog
 
 **Keywords:** layanan SPBE, SPBE, layanan elektronik, layanan pemerintah, pemerintahan digital
 
+### KB-117: Evaluasi SPBE
+
+**Pertanyaan:**
+- Apa itu evaluasi SPBE?
+- Mengapa SPBE perlu dievaluasi?
+- Bagaimana evaluasi SPBE dilakukan?
+
+**Jawaban:**
+Evaluasi SPBE dilakukan untuk mengetahui tingkat kematangan dan kualitas penyelenggaraan SPBE serta mengidentifikasi aspek yang perlu ditingkatkan dalam pengelolaan pemerintahan berbasis elektronik.
+
+**Keywords:** evaluasi SPBE, penilaian SPBE, indeks SPBE, kualitas SPBE, pemerintahan digital
+
 ## KATEGORI 29: DATA
 
 ### KB-072: NTB Satu Data
