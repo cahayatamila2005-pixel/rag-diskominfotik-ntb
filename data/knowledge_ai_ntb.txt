@@ -2009,3 +2009,15 @@ Bidang PTIK merupakan bagian yang berkaitan dengan pengelolaan dan pemanfaatan t
 Infrastruktur digital merupakan berbagai perangkat, jaringan, server, pusat data, perangkat lunak, dan teknologi pendukung yang digunakan untuk menjalankan layanan digital pemerintahan.
 
 **Keywords:** infrastruktur digital, infrastruktur TIK, server, jaringan, layanan digital
+
+### KB-111: Jaringan Internet
+
+**Pertanyaan:**
+- Apa fungsi jaringan internet pemerintah?
+- Mengapa jaringan internet penting?
+- Apa itu jaringan pemerintah?
+
+**Jawaban:**
+Jaringan internet mendukung komunikasi, pertukaran data, akses aplikasi, dan penggunaan berbagai layanan digital dalam lingkungan pemerintahan.
+
+**Keywords:** jaringan internet, jaringan pemerintah, internet, konektivitas, TIK
