@@ -1598,6 +1598,18 @@ Penyelenggaraan SPBE mencakup berbagai aspek yang saling berkaitan, antara lain 
 
 **Keywords:** domain SPBE, komponen SPBE, tata kelola SPBE, layanan SPBE, infrastruktur SPBE
 
+### KB-116: Layanan SPBE
+
+**Pertanyaan:**
+- Apa itu layanan SPBE?
+- Apa saja layanan SPBE?
+- Apa fungsi layanan SPBE?
+
+**Jawaban:**
+Layanan SPBE merupakan layanan yang diselenggarakan dengan memanfaatkan teknologi informasi untuk mendukung layanan administrasi pemerintahan dan pelayanan publik secara elektronik.
+
+**Keywords:** layanan SPBE, SPBE, layanan elektronik, layanan pemerintah, pemerintahan digital
+
 ## KATEGORI 29: DATA
 
 ### KB-072: NTB Satu Data
