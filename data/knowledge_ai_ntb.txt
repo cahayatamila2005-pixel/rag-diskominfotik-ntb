@@ -1997,3 +1997,15 @@ Jaringan komputer adalah sistem yang menghubungkan perangkat komputer dan perang
 Bidang PTIK merupakan bagian yang berkaitan dengan pengelolaan dan pemanfaatan teknologi informasi dan komunikasi untuk mendukung penyelenggaraan pemerintahan dan layanan digital.
 
 **Keywords:** PTIK, bidang PTIK, teknologi informasi, komunikasi, Diskominfotik
+
+### KB-110: Infrastruktur Digital
+
+**Pertanyaan:**
+- Apa itu infrastruktur digital?
+- Apa fungsi infrastruktur digital pemerintah?
+- Mengapa infrastruktur digital penting?
+
+**Jawaban:**
+Infrastruktur digital merupakan berbagai perangkat, jaringan, server, pusat data, perangkat lunak, dan teknologi pendukung yang digunakan untuk menjalankan layanan digital pemerintahan.
+
+**Keywords:** infrastruktur digital, infrastruktur TIK, server, jaringan, layanan digital
