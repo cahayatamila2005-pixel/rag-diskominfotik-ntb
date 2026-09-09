@@ -1625,6 +1625,19 @@ Pengelolaan data pemerintah meliputi proses pengumpulan, penyimpanan, pemutakhir
 
 **Keywords:** pengelolaan data, data pemerintah, integrasi data, data digital, informasi pemerintah
 
+### KB-113: Database
+
+**Pertanyaan:**
+- Apa itu database?
+- Apa fungsi database?
+- Untuk apa database digunakan?
+- Apa fungsi database dalam sistem informasi?
+
+**Jawaban:**
+Database atau basis data merupakan kumpulan data yang disimpan dan dikelola secara terstruktur sehingga dapat dicari, diolah, diperbarui, dan digunakan oleh sistem sesuai kebutuhan.
+
+**Keywords:** database, basis data, penyimpanan data, data digital, sistem informasi
+
 ## KATEGORI 30: LAYANAN DIGITAL
 
 ### KB-075: Layanan Digital Pemerintah
