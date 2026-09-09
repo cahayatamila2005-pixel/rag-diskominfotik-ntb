@@ -1982,3 +1982,18 @@ Pusat data atau data center merupakan fasilitas yang digunakan untuk menyimpan, 
 Jaringan komputer adalah sistem yang menghubungkan perangkat komputer dan perangkat digital lainnya agar dapat berkomunikasi serta berbagi data dan sumber daya.
 
 **Keywords:** jaringan komputer, network, koneksi jaringan, infrastruktur TIK
+
+## KATEGORI 39: PTIK
+
+### KB-109: Bidang PTIK
+
+**Pertanyaan:**
+- Apa itu bidang PTIK?
+- Apa tugas bidang PTIK?
+- PTIK menangani apa?
+- Apa fungsi PTIK di Diskominfotik?
+
+**Jawaban:**
+Bidang PTIK merupakan bagian yang berkaitan dengan pengelolaan dan pemanfaatan teknologi informasi dan komunikasi untuk mendukung penyelenggaraan pemerintahan dan layanan digital.
+
+**Keywords:** PTIK, bidang PTIK, teknologi informasi, komunikasi, Diskominfotik
