@@ -1722,6 +1722,18 @@ Kualitas data menunjukkan tingkat ketepatan dan kelayakan data untuk digunakan. 
 
 **Keywords:** kualitas data, data akurat, data lengkap, data konsisten, pengelolaan data
 
+### KB-122: Integrasi Data
+
+**Pertanyaan:**
+- Apa itu integrasi data?
+- Bagaimana integrasi data dilakukan?
+- Apa manfaat integrasi data?
+
+**Jawaban:**
+Integrasi data merupakan proses menggabungkan atau menghubungkan data dari berbagai sumber agar dapat digunakan secara terpadu. Integrasi membantu mengurangi duplikasi dan memudahkan pemanfaatan data untuk kebutuhan pemerintahan.
+
+**Keywords:** integrasi data, data terintegrasi, pertukaran data, satu data, interoperabilitas
+
 ## KATEGORI 30: LAYANAN DIGITAL
 
 ### KB-075: Layanan Digital Pemerintah
