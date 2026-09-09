@@ -1726,6 +1726,19 @@ Perlindungan data dilakukan melalui pengelolaan akses, penggunaan autentikasi, p
 
 **Keywords:** perlindungan data, keamanan data, privasi data, backup data, akses data
 
+### KB-114: Backup Data
+
+**Pertanyaan:**
+- Apa itu backup data?
+- Mengapa data perlu dibackup?
+- Apa manfaat backup?
+- Bagaimana menjaga data agar tidak hilang?
+
+**Jawaban:**
+Backup data merupakan proses membuat salinan data untuk mengantisipasi kehilangan atau kerusakan data. Backup membantu memastikan data dapat dipulihkan ketika terjadi gangguan, kerusakan sistem, atau kehilangan data.
+
+**Keywords:** backup data, pencadangan data, pemulihan data, keamanan data, data recovery
+
 ## KATEGORI 32: PENGADUAN
 
 ### KB-084: Layanan Pengaduan Masyarakat
