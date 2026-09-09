@@ -1634,6 +1634,18 @@ Indeks SPBE merupakan ukuran yang digunakan untuk menggambarkan tingkat penerapa
 
 **Keywords:** indeks SPBE, nilai SPBE, evaluasi SPBE, kematangan SPBE
 
+### KB-119: Proses Bisnis SPBE
+
+**Pertanyaan:**
+- Apa itu proses bisnis SPBE?
+- Apa fungsi proses bisnis?
+- Mengapa proses bisnis penting dalam SPBE?
+
+**Jawaban:**
+Proses bisnis SPBE menggambarkan rangkaian aktivitas dan hubungan kerja dalam penyelenggaraan pemerintahan yang menjadi dasar untuk pengembangan layanan, aplikasi, dan sistem digital secara terintegrasi.
+
+**Keywords:** proses bisnis SPBE, bisnis proses, SPBE, layanan pemerintah, sistem digital
+
 ## KATEGORI 29: DATA
 
 ### KB-072: NTB Satu Data
