@@ -1622,6 +1622,18 @@ Evaluasi SPBE dilakukan untuk mengetahui tingkat kematangan dan kualitas penyele
 
 **Keywords:** evaluasi SPBE, penilaian SPBE, indeks SPBE, kualitas SPBE, pemerintahan digital
 
+### KB-118: Indeks SPBE
+
+**Pertanyaan:**
+- Apa itu indeks SPBE?
+- Apa fungsi indeks SPBE?
+- Mengapa indeks SPBE penting?
+
+**Jawaban:**
+Indeks SPBE merupakan ukuran yang digunakan untuk menggambarkan tingkat penerapan dan kematangan Sistem Pemerintahan Berbasis Elektronik pada suatu instansi pemerintah.
+
+**Keywords:** indeks SPBE, nilai SPBE, evaluasi SPBE, kematangan SPBE
+
 ## KATEGORI 29: DATA
 
 ### KB-072: NTB Satu Data
