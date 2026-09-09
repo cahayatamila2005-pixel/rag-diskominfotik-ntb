@@ -1698,6 +1698,18 @@ Database atau basis data merupakan kumpulan data yang disimpan dan dikelola seca
 
 **Keywords:** database, basis data, penyimpanan data, data digital, sistem informasi
 
+### KB-120: Metadata
+
+**Pertanyaan:**
+- Apa itu metadata?
+- Apa fungsi metadata?
+- Mengapa metadata penting?
+
+**Jawaban:**
+Metadata adalah informasi yang menjelaskan karakteristik atau konteks suatu data, seperti nama data, sumber data, waktu pembuatan, format, dan informasi lain yang membantu memahami serta mengelola data.
+
+**Keywords:** metadata, informasi data, data pemerintah, pengelolaan data, kualitas data
+
 ## KATEGORI 30: LAYANAN DIGITAL
 
 ### KB-075: Layanan Digital Pemerintah
