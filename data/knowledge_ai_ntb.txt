@@ -1976,18 +1976,6 @@ Retrieval adalah proses pencarian dan pengambilan informasi atau dokumen yang pa
 
 **Keywords:** retrieval, pencarian informasi, RAG, dokumen relevan, information retrieval
 
-### KB-097: Basis Pengetahuan
-
-**Pertanyaan:**
-- Apa itu knowledge base?
-- Apa itu basis pengetahuan?
-- Apa fungsi knowledge base pada chatbot?
-
-**Jawaban:**
-Knowledge base atau basis pengetahuan merupakan kumpulan informasi yang disusun dan disimpan sebagai sumber referensi bagi suatu sistem. Dalam chatbot RAG, basis pengetahuan digunakan sebagai sumber informasi untuk mencari jawaban yang relevan.
-
-**Keywords:** knowledge base, basis pengetahuan, database informasi, RAG, chatbot knowledge
-
 ## KATEGORI 35: ADMINISTRASI DIGITAL
 
 ### KB-106: Digitalisasi Administrasi
