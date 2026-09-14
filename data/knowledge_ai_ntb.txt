@@ -1911,22 +1911,7 @@ Komputasi awan atau cloud computing adalah penyediaan sumber daya komputasi sepe
 
 **Keywords:** cloud computing, komputasi awan, cloud, server online, penyimpanan cloud
 
-## KATEGORI 34: TEKNOLOGI AI
-
-### KB-092: Artificial Intelligence
-
-**Pertanyaan:**
-- Apa itu AI?
-- Apa itu kecerdasan buatan?
-- Jelaskan artificial intelligence
-- Apa fungsi AI?
-
-**Jawaban:**
-Artificial Intelligence atau kecerdasan buatan merupakan teknologi yang memungkinkan sistem komputer melakukan tugas yang biasanya membutuhkan kemampuan manusia, seperti memahami bahasa, mengenali pola, melakukan prediksi, dan menghasilkan informasi.
-
-**Keywords:** AI, artificial intelligence, kecerdasan buatan, teknologi AI, machine learning
-
-## KATEGORI 35: ADMINISTRASI DIGITAL
+## KATEGORI 34: ADMINISTRASI DIGITAL
 
 ### KB-106: Digitalisasi Administrasi
 
@@ -1940,7 +1925,7 @@ Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses ad
 
 **Keywords:** digitalisasi administrasi, administrasi digital, transformasi digital, pemerintahan elektronik
 
-## KATEGORI 36: INFRASTRUKTUR
+## KATEGORI 35: INFRASTRUKTUR
 
 ### KB-107: Pusat Data
 
@@ -1954,7 +1939,7 @@ Pusat data atau data center merupakan fasilitas yang digunakan untuk menyimpan, 
 
 **Keywords:** pusat data, data center, server, penyimpanan data, infrastruktur digital
 
-## KATEGORI 37: PTIK
+## KATEGORI 36: PTIK
 
 ### KB-109: Bidang PTIK
 
