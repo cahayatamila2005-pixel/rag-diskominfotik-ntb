@@ -1425,21 +1425,7 @@ Pengurusan KTP, Kartu Keluarga, dan dokumen kependudukan lainnya dilayani oleh D
 
 **Keywords:** ktp, kartu keluarga, dukcapil, kependudukan, e-ktp
 
-## KATEGORI 23: PENDIDIKAN
-
-### KB-058: Informasi PPDB Sekolah di NTB
-
-**Pertanyaan:**
-- Kapan PPDB SMA NTB dibuka?
-- Bagaimana cara daftar sekolah negeri di NTB?
-- Jalur zonasi PPDB NTB gimana?
-
-**Jawaban:**
-Penerimaan Peserta Didik Baru (PPDB) untuk jenjang SMA/SMK negeri di NTB dikelola oleh Dinas Pendidikan dan Kebudayaan Provinsi NTB, biasanya dibuka menjelang tahun ajaran baru (sekitar Juni-Juli). Terdapat beberapa jalur pendaftaran: zonasi, afirmasi (ekonomi tidak mampu), perpindahan orang tua, dan prestasi. Informasi resmi dan jadwal terbaru diumumkan melalui website Disdikbud NTB.
-
-**Keywords:** ppdb, sekolah, pendaftaran, sma, smk, zonasi, disdikbud
-
-## KATEGORI 24: KEBENCANAAN
+## KATEGORI 23: KEBENCANAAN
 
 ### KB-059: Layanan Pemadam Kebakaran NTB
 
@@ -1453,7 +1439,7 @@ Layanan pemadam kebakaran (Damkar) di NTB dikelola oleh masing-masing kabupaten/
 
 **Keywords:** damkar, pemadam kebakaran, darurat, 113
 
-## KATEGORI 25: LAYANAN BUDAYA & PERPUSTAKAAN
+## KATEGORI 24: LAYANAN BUDAYA & PERPUSTAKAAN
 
 ### KB-060: Layanan Perpustakaan Daerah Provinsi NTB
 
@@ -1467,7 +1453,7 @@ Dinas Perpustakaan dan Kearsipan Provinsi NTB mengelola perpustakaan daerah yang
 
 **Keywords:** perpustakaan, buku, e-library, kearsipan, baca
 
-## KATEGORI 26: PERDAGANGAN
+## KATEGORI 25: PERDAGANGAN
 
 ### KB-062: Pengawasan Pasar dan Distribusi Barang Kebutuhan Pokok
 
@@ -1481,7 +1467,7 @@ Dinas Perdagangan Provinsi NTB mengawasi stabilitas harga dan distribusi barang 
 
 **Keywords:** perdagangan, pasar murah, sembako, harga, distribusi
 
-## KATEGORI 27: PROFIL
+## KATEGORI 26: PROFIL
 
 ### KB-063: Tugas Diskominfotik NTB
 
@@ -1496,7 +1482,7 @@ Diskominfotik NTB memiliki tugas membantu penyelenggaraan urusan pemerintahan da
 
 **Keywords:** tugas Diskominfotik, fungsi Diskominfotik, Kominfo NTB, teknologi informasi, komunikasi informatika
 
-## KATEGORI 28: SPBE
+## KATEGORI 27: SPBE
 
 ### KB-065: Pengertian SPBE
 
@@ -1646,7 +1632,7 @@ Proses bisnis SPBE menggambarkan rangkaian aktivitas dan hubungan kerja dalam pe
 
 **Keywords:** proses bisnis SPBE, bisnis proses, SPBE, layanan pemerintah, sistem digital
 
-## KATEGORI 29: DATA
+## KATEGORI 28: DATA
 
 ### KB-072: NTB Satu Data
 
@@ -1734,7 +1720,7 @@ Integrasi data merupakan proses menggabungkan atau menghubungkan data dari berba
 
 **Keywords:** integrasi data, data terintegrasi, pertukaran data, satu data, interoperabilitas
 
-## KATEGORI 30: LAYANAN DIGITAL
+## KATEGORI 29: LAYANAN DIGITAL
 
 ### KB-075: Layanan Digital Pemerintah
 
@@ -1784,7 +1770,7 @@ Tanda Tangan Elektronik atau TTE merupakan tanda tangan dalam bentuk elektronik 
 
 **Keywords:** TTE, tanda tangan elektronik, dokumen elektronik, digital signature, sertifikat elektronik
 
-## KATEGORI 31: KEAMANAN INFORMASI
+## KATEGORI 30: KEAMANAN INFORMASI
 
 ### KB-078: Keamanan Informasi
 
@@ -1835,7 +1821,7 @@ Backup data merupakan proses membuat salinan data untuk mengantisipasi kehilanga
 
 **Keywords:** backup data, pencadangan data, pemulihan data, keamanan data, data recovery
 
-## KATEGORI 32: PENGADUAN
+## KATEGORI 31: PENGADUAN
 
 ### KB-084: Layanan Pengaduan Masyarakat
 
@@ -1861,7 +1847,7 @@ SP4N-LAPOR merupakan sistem pengelolaan pengaduan pelayanan publik yang digunaka
 
 **Keywords:** SP4N LAPOR, LAPOR, pengaduan online, aspirasi masyarakat, pengaduan publik
 
-## KATEGORI 33: APLIKASI PEMERINTAH
+## KATEGORI 32: APLIKASI PEMERINTAH
 
 ### KB-086: Aplikasi SRIKANDI
 
@@ -1887,7 +1873,7 @@ JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyedi
 
 **Keywords:** JDIH, jaringan dokumentasi hukum, informasi hukum, peraturan daerah, dokumen hukum
 
-## KATEGORI 34: TEKNOLOGI INFORMASI
+## KATEGORI 33: TEKNOLOGI INFORMASI
 
 ### KB-089: Infrastruktur TIK
 
@@ -1925,7 +1911,7 @@ Komputasi awan atau cloud computing adalah penyediaan sumber daya komputasi sepe
 
 **Keywords:** cloud computing, komputasi awan, cloud, server online, penyimpanan cloud
 
-## KATEGORI 35: TEKNOLOGI AI
+## KATEGORI 34: TEKNOLOGI AI
 
 ### KB-092: Artificial Intelligence
 
@@ -2027,7 +2013,7 @@ Large Language Model atau LLM adalah model kecerdasan buatan yang dilatih menggu
 
 **Keywords:** LLM, Large Language Model, model bahasa, AI generatif, GPT, generation
 
-## KATEGORI 36: CHATBOT
+## KATEGORI 35: CHATBOT
 
 ### KB-100: Tanya NTB
 
@@ -2053,7 +2039,7 @@ Pengguna dapat menggunakan chatbot dengan mengetikkan pertanyaan pada kolom perc
 
 **Keywords:** cara menggunakan chatbot, cara bertanya, Tanya NTB, penggunaan chatbot, bantuan chatbot
 
-## KATEGORI 37: ADMINISTRASI DIGITAL
+## KATEGORI 36: ADMINISTRASI DIGITAL
 
 ### KB-105: Dokumen Elektronik
 
@@ -2079,7 +2065,7 @@ Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses ad
 
 **Keywords:** digitalisasi administrasi, administrasi digital, transformasi digital, pemerintahan elektronik
 
-## KATEGORI 38: INFRASTRUKTUR
+## KATEGORI 37: INFRASTRUKTUR
 
 ### KB-107: Pusat Data
 
@@ -2105,7 +2091,7 @@ Jaringan komputer adalah sistem yang menghubungkan perangkat komputer dan perang
 
 **Keywords:** jaringan komputer, network, koneksi jaringan, infrastruktur TIK
 
-## KATEGORI 39: PTIK
+## KATEGORI 38: PTIK
 
 ### KB-109: Bidang PTIK
 
