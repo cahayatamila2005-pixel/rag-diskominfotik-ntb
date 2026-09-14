@@ -1951,19 +1951,6 @@ Chatbot adalah sistem perangkat lunak yang dirancang untuk berinteraksi dengan p
 
 **Keywords:** chatbot, bot percakapan, asisten virtual, AI chatbot, layanan otomatis
 
-### KB-095: Retrieval-Augmented Generation
-
-**Pertanyaan:**
-- Apa itu RAG?
-- Apa kepanjangan RAG?
-- Bagaimana cara kerja RAG?
-- Apa itu Retrieval Augmented Generation?
-
-**Jawaban:**
-Retrieval-Augmented Generation atau RAG adalah metode kecerdasan buatan yang menggabungkan proses pencarian informasi dari basis pengetahuan dengan kemampuan model bahasa untuk menghasilkan jawaban. Sistem terlebih dahulu mencari informasi yang relevan sebelum menyusun jawaban.
-
-**Keywords:** RAG, Retrieval Augmented Generation, retrieval, generation, AI, chatbot RAG, knowledge base
-
 ## KATEGORI 35: ADMINISTRASI DIGITAL
 
 ### KB-106: Digitalisasi Administrasi
