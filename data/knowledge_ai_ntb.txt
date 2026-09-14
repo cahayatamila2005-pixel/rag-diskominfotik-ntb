@@ -1410,22 +1410,7 @@ Organisasi Perangkat Daerah (OPD) Provinsi NTB terdiri dari Sekretariat Daerah, 
 
 **Keywords:** opd, dinas, struktur organisasi, pemprov, kelembagaan
 
-## KATEGORI 22: KEPENDUDUKAN
-
-### KB-057: Cara Mengurus KTP dan Dokumen Kependudukan
-
-**Pertanyaan:**
-- Bagaimana cara membuat KTP baru?
-- Syarat perpanjang KTP apa saja?
-- KTP hilang harus bagaimana?
-- Cara urus kartu keluarga?
-
-**Jawaban:**
-Pengurusan KTP, Kartu Keluarga, dan dokumen kependudukan lainnya dilayani oleh Dinas Kependudukan dan Catatan Sipil (Dukcapil) kabupaten/kota, bukan tingkat provinsi. Warga dapat datang langsung ke kantor Dukcapil atau kecamatan setempat, atau memanfaatkan layanan online jika tersedia di daerah masing-masing. Untuk KTP hilang, perlu membawa surat kehilangan dari kepolisian sebagai syarat tambahan.
-
-**Keywords:** ktp, kartu keluarga, dukcapil, kependudukan, e-ktp
-
-## KATEGORI 23: KEBENCANAAN
+## KATEGORI 22: KEBENCANAAN
 
 ### KB-059: Layanan Pemadam Kebakaran NTB
 
@@ -1439,7 +1424,7 @@ Layanan pemadam kebakaran (Damkar) di NTB dikelola oleh masing-masing kabupaten/
 
 **Keywords:** damkar, pemadam kebakaran, darurat, 113
 
-## KATEGORI 24: LAYANAN BUDAYA & PERPUSTAKAAN
+## KATEGORI 23: LAYANAN BUDAYA & PERPUSTAKAAN
 
 ### KB-060: Layanan Perpustakaan Daerah Provinsi NTB
 
@@ -1453,7 +1438,7 @@ Dinas Perpustakaan dan Kearsipan Provinsi NTB mengelola perpustakaan daerah yang
 
 **Keywords:** perpustakaan, buku, e-library, kearsipan, baca
 
-## KATEGORI 25: PERDAGANGAN
+## KATEGORI 24: PERDAGANGAN
 
 ### KB-062: Pengawasan Pasar dan Distribusi Barang Kebutuhan Pokok
 
@@ -1467,7 +1452,7 @@ Dinas Perdagangan Provinsi NTB mengawasi stabilitas harga dan distribusi barang 
 
 **Keywords:** perdagangan, pasar murah, sembako, harga, distribusi
 
-## KATEGORI 26: PROFIL
+## KATEGORI 25: PROFIL
 
 ### KB-063: Tugas Diskominfotik NTB
 
@@ -1482,7 +1467,7 @@ Diskominfotik NTB memiliki tugas membantu penyelenggaraan urusan pemerintahan da
 
 **Keywords:** tugas Diskominfotik, fungsi Diskominfotik, Kominfo NTB, teknologi informasi, komunikasi informatika
 
-## KATEGORI 27: SPBE
+## KATEGORI 26: SPBE
 
 ### KB-065: Pengertian SPBE
 
@@ -1632,7 +1617,7 @@ Proses bisnis SPBE menggambarkan rangkaian aktivitas dan hubungan kerja dalam pe
 
 **Keywords:** proses bisnis SPBE, bisnis proses, SPBE, layanan pemerintah, sistem digital
 
-## KATEGORI 28: DATA
+## KATEGORI 27: DATA
 
 ### KB-072: NTB Satu Data
 
@@ -1720,7 +1705,7 @@ Integrasi data merupakan proses menggabungkan atau menghubungkan data dari berba
 
 **Keywords:** integrasi data, data terintegrasi, pertukaran data, satu data, interoperabilitas
 
-## KATEGORI 29: LAYANAN DIGITAL
+## KATEGORI 28: LAYANAN DIGITAL
 
 ### KB-075: Layanan Digital Pemerintah
 
@@ -1770,7 +1755,7 @@ Tanda Tangan Elektronik atau TTE merupakan tanda tangan dalam bentuk elektronik 
 
 **Keywords:** TTE, tanda tangan elektronik, dokumen elektronik, digital signature, sertifikat elektronik
 
-## KATEGORI 30: KEAMANAN INFORMASI
+## KATEGORI 29: KEAMANAN INFORMASI
 
 ### KB-078: Keamanan Informasi
 
@@ -1808,7 +1793,7 @@ Perlindungan data dilakukan melalui pengelolaan akses, penggunaan autentikasi, p
 
 **Keywords:** perlindungan data, keamanan data, privasi data, backup data, akses data
 
-## KATEGORI 31: PENGADUAN
+## KATEGORI 30: PENGADUAN
 
 ### KB-084: Layanan Pengaduan Masyarakat
 
@@ -1834,7 +1819,7 @@ SP4N-LAPOR merupakan sistem pengelolaan pengaduan pelayanan publik yang digunaka
 
 **Keywords:** SP4N LAPOR, LAPOR, pengaduan online, aspirasi masyarakat, pengaduan publik
 
-## KATEGORI 32: APLIKASI PEMERINTAH
+## KATEGORI 31: APLIKASI PEMERINTAH
 
 ### KB-086: Aplikasi SRIKANDI
 
@@ -1860,7 +1845,7 @@ JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyedi
 
 **Keywords:** JDIH, jaringan dokumentasi hukum, informasi hukum, peraturan daerah, dokumen hukum
 
-## KATEGORI 33: TEKNOLOGI INFORMASI
+## KATEGORI 32: TEKNOLOGI INFORMASI
 
 ### KB-089: Infrastruktur TIK
 
@@ -1886,7 +1871,7 @@ Sistem informasi adalah kombinasi dari manusia, teknologi, prosedur, data, dan p
 
 **Keywords:** sistem informasi, informasi digital, aplikasi, pengolahan data, teknologi informasi
 
-## KATEGORI 34: ADMINISTRASI DIGITAL
+## KATEGORI 33: ADMINISTRASI DIGITAL
 
 ### KB-106: Digitalisasi Administrasi
 
@@ -1900,7 +1885,7 @@ Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses ad
 
 **Keywords:** digitalisasi administrasi, administrasi digital, transformasi digital, pemerintahan elektronik
 
-## KATEGORI 35: INFRASTRUKTUR
+## KATEGORI 34: INFRASTRUKTUR
 
 ### KB-107: Pusat Data
 
@@ -1914,7 +1899,7 @@ Pusat data atau data center merupakan fasilitas yang digunakan untuk menyimpan, 
 
 **Keywords:** pusat data, data center, server, penyimpanan data, infrastruktur digital
 
-## KATEGORI 36: PTIK
+## KATEGORI 35: PTIK
 
 ### KB-109: Bidang PTIK
 
