@@ -1899,18 +1899,6 @@ Sistem informasi adalah kombinasi dari manusia, teknologi, prosedur, data, dan p
 
 **Keywords:** sistem informasi, informasi digital, aplikasi, pengolahan data, teknologi informasi
 
-### KB-091: Komputasi Awan
-
-**Pertanyaan:**
-- Apa itu cloud computing?
-- Apa itu komputasi awan?
-- Apa manfaat cloud computing?
-
-**Jawaban:**
-Komputasi awan atau cloud computing adalah penyediaan sumber daya komputasi seperti penyimpanan, server, aplikasi, dan layanan melalui jaringan internet sehingga sumber daya dapat digunakan secara fleksibel sesuai kebutuhan.
-
-**Keywords:** cloud computing, komputasi awan, cloud, server online, penyimpanan cloud
-
 ## KATEGORI 34: ADMINISTRASI DIGITAL
 
 ### KB-106: Digitalisasi Administrasi
