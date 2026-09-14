@@ -2015,18 +2015,6 @@ Large Language Model atau LLM adalah model kecerdasan buatan yang dilatih menggu
 
 ## KATEGORI 35: ADMINISTRASI DIGITAL
 
-### KB-105: Dokumen Elektronik
-
-**Pertanyaan:**
-- Apa itu dokumen elektronik?
-- Apa fungsi dokumen digital?
-- Bagaimana penggunaan dokumen elektronik?
-
-**Jawaban:**
-Dokumen elektronik adalah dokumen yang dibuat, disimpan, dikirim, dan dikelola dalam format digital. Penggunaan dokumen elektronik mendukung proses administrasi yang lebih cepat, efisien, dan mudah diakses.
-
-**Keywords:** dokumen elektronik, dokumen digital, administrasi digital, arsip elektronik
-
 ### KB-106: Digitalisasi Administrasi
 
 **Pertanyaan:**
