@@ -1,5 +1,12 @@
 ﻿"""
 Antarmuka web untuk chatbot RAG, menggunakan Streamlit.
+
+Catatan desain: warga TIDAK perlu memilih metode pencarian (TF-IDF vs
+Sentence-Transformers) -- sistem otomatis memakai Sentence-Transformers
+(lebih akurat), dengan fallback otomatis ke TF-IDF kalau sentence-transformers
+gagal dimuat (misal karena keterbatasan resource di server cloud gratis).
+Fallback ini TIDAK ditampilkan sebagai pilihan ke siapapun -- murni jaring
+pengaman di belakang layar.
 """
 
 import os
@@ -34,13 +41,6 @@ with st.sidebar:
     )
     generation_mode = "extractive" if mode.startswith("extractive") else "llm"
 
-    embedder_choice = st.radio(
-        "Metode pencarian (embedding)",
-        options=["TF-IDF (offline, cepat)", "Sentence-Transformers (lebih akurat, butuh internet)"],
-        help="TF-IDF cocokkan kata persis. Sentence-Transformers memahami makna kalimat, lebih baik untuk pertanyaan dengan kata berbeda dari dokumen.",
-    )
-    embedder_type = "tfidf" if embedder_choice.startswith("TF-IDF") else "sentence-transformers"
-
     llm_api_key_sesi = None
     if generation_mode == "llm":
         llm_api_key_sesi = st.text_input("LLM_API_KEY", type="password")
@@ -52,7 +52,15 @@ with st.sidebar:
     st.caption("🔐 Panel admin ada di menu halaman (sidebar atas)")
 
 
-pipeline = load_pipeline(generation_mode, embedder_type)
+@st.cache_resource
+def load_pipeline_dengan_fallback(generation_mode: str):
+    try:
+        return load_pipeline(generation_mode, "sentence-transformers"), "sentence-transformers"
+    except Exception:
+        return load_pipeline(generation_mode, "tfidf"), "tfidf"
+
+
+pipeline, metode_aktif = load_pipeline_dengan_fallback(generation_mode)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
