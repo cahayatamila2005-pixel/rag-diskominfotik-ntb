@@ -1,210 +1,425 @@
 ﻿"""
-Antarmuka web untuk chatbot RAG, menggunakan Streamlit.
-
-Catatan desain: warga TIDAK perlu memilih metode pencarian (TF-IDF vs
-Sentence-Transformers) -- sistem otomatis memakai Sentence-Transformers
-(lebih akurat), dengan fallback otomatis ke TF-IDF kalau sentence-transformers
-gagal dimuat (misal karena keterbatasan resource di server cloud gratis).
-Fallback ini TIDAK ditampilkan sebagai pilihan ke siapapun -- murni jaring
-pengaman di belakang layar.
+Tanya NTB
+Chatbot RAG Layanan Publik Provinsi NTB
 """
 
-import os
 import streamlit as st
+
 from styles import CUSTOM_CSS, skor_ke_kelas
-from pipeline_loader import load_pipeline, KB_PATH
+from pipeline_loader import load_pipeline
 from logger import log_question
-from feedback_logger import log_feedback
-from kb_parser import parse_kb_file
 
-st.set_page_config(page_title="Tanya NTB — Layanan Publik", page_icon="🏛️", layout="centered")
-st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <div class="ntb-banner">
-        <div class="eyebrow">Portal Layanan Publik · Provinsi NTB</div>
-        <h1>Tanya NTB</h1>
-        <div class="subtitle">Asisten informasi layanan publik berbasis pencarian dokumen resmi (RAG)</div>
-    </div>
-    <div class="ntb-weave"></div>
-    """,
-    unsafe_allow_html=True,
+# ============================================================
+# KONFIGURASI
+# ============================================================
+
+st.set_page_config(
+    page_title="Tanya NTB — Layanan Publik",
+    page_icon="🏛️",
+    layout="centered"
 )
 
-with st.sidebar:
-    st.markdown("#### Pengaturan")
-    mode = st.radio(
-        "Mode jawaban",
-        options=["extractive (offline)", "llm (butuh API key)"],
-        help="Extractive: tampilkan potongan dokumen langsung. LLM: jawaban dirangkai natural oleh AI.",
-    )
-    generation_mode = "extractive" if mode.startswith("extractive") else "llm"
 
-    llm_api_key_sesi = None
-    if generation_mode == "llm":
-        llm_api_key_sesi = st.text_input("LLM_API_KEY", type="password")
+# ============================================================
+# CSS PROJECT
+# ============================================================
 
-    top_k = st.slider("Jumlah dokumen sumber yang dicari", 1, 5, 3)
-
-    st.divider()
-    st.caption("Basis pengetahuan: layanan Portal NTB")
-    st.caption("🔐 Panel admin ada di menu halaman (sidebar atas)")
+st.markdown(
+    CUSTOM_CSS,
+    unsafe_allow_html=True
+)
 
 
-@st.cache_resource
-def load_pipeline_dengan_fallback(generation_mode: str):
-    try:
-        return load_pipeline(generation_mode, "sentence-transformers"), "sentence-transformers"
-    except Exception:
-        return load_pipeline(generation_mode, "tfidf"), "tfidf"
+# ============================================================
+# HEADER
+# ============================================================
+
+st.markdown(
+"""<style>
+.ntb-banner-final {
+    background-color: #073b36;
+    padding: 30px 30px 28px 30px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.ntb-eyebrow-final {
+    color: #f0b84b !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 10px !important;
+    text-transform: uppercase !important;
+}
+
+.ntb-title-final {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 44px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ntb-subtitle-final {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    margin-top: 10px !important;
+}
+
+.ntb-weave-final {
+    height: 8px;
+    margin: 0;
+    background: repeating-linear-gradient(
+        -45deg,
+        #d9a441 0px,
+        #d9a441 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+.category-title-final {
+    color: #073b36 !important;
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    margin-top: 22px !important;
+    margin-bottom: 10px !important;
+}
+
+.quick-title-final {
+    color: #073b36 !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    margin-top: 18px !important;
+    margin-bottom: 8px !important;
+}
+</style>""",
+    unsafe_allow_html=True
+)
 
 
-pipeline, metode_aktif = load_pipeline_dengan_fallback(generation_mode)
+st.markdown(
+"""<div class="ntb-banner-final"><div class="ntb-eyebrow-final">PORTAL LAYANAN PUBLIK · PROVINSI NTB</div><div class="ntb-title-final">Tanya NTB</div><div class="ntb-subtitle-final">Asisten informasi layanan publik berbasis pencarian dokumen resmi (RAG)</div></div><div class="ntb-weave-final"></div>""",
+    unsafe_allow_html=True
+)
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
-try:
-    kb_entries = parse_kb_file(KB_PATH)
-except FileNotFoundError:
-    kb_entries = []
+# ============================================================
+# PENGATURAN INTERNAL
+# ============================================================
 
+GENERATION_MODE = "extractive"
+TOP_K = 3
+
+
+# ============================================================
+# LOAD PIPELINE
+# ============================================================
+
+pipeline = load_pipeline(GENERATION_MODE)
+
+
+# ============================================================
+# DATA KATEGORI
+# ============================================================
+
+kategori_pertanyaan = {
+    "Semua Kategori": [
+        "Apa saja layanan publik yang tersedia di Portal NTB?",
+        "Bagaimana cara mendapatkan informasi layanan pemerintah?"
+    ],
+
+    "Layanan Publik": [
+        "Apa saja layanan publik yang tersedia di Portal NTB?",
+        "Bagaimana cara mengakses layanan publik NTB?"
+    ],
+
+    "PPID & Informasi Publik": [
+        "Apa itu PPID?",
+        "Bagaimana cara meminta informasi publik?"
+    ],
+
+    "Pengaduan Masyarakat": [
+        "Bagaimana cara menyampaikan pengaduan?",
+        "Kalau ingin melaporkan masalah pelayanan pemerintah, ke mana?"
+    ],
+
+    "SPBE & Teknologi Informasi": [
+        "Apa itu SPBE?",
+        "Apa yang dimaksud dengan layanan SPBE?"
+    ],
+
+    "Data & NTB Satu Data": [
+        "Apa itu NTB Satu Data?",
+        "Di mana saya bisa melihat data Provinsi NTB?"
+    ],
+
+    "Layanan Digital": [
+        "Apa itu DDSS?",
+        "Apa saja layanan digital pemerintah yang tersedia?"
+    ],
+
+    "Kontak & Informasi Kantor": [
+        "Di mana lokasi kantor Diskominfotik NTB?",
+        "Berapa nomor kontak Diskominfotik NTB?"
+    ],
+
+    "Layanan Kesehatan": [
+        "Apa saja layanan kesehatan yang tersedia?",
+        "Bagaimana cara mendapatkan informasi layanan kesehatan?"
+    ],
+
+    "Layanan Pendidikan": [
+        "Apa saja layanan pendidikan yang tersedia?",
+        "Bagaimana cara mendapatkan informasi penerimaan pendidikan?"
+    ]
+}
+
+
+# ============================================================
+# PILIH KATEGORI
+# ============================================================
+
+st.markdown(
+"""<div class="category-title-final">🔎 Pilih Kategori Layanan</div>""",
+    unsafe_allow_html=True
+)
+
+selected_category = st.selectbox(
+    "Kategori layanan",
+    list(kategori_pertanyaan.keys()),
+    label_visibility="collapsed"
+)
+
+
+# ============================================================
+# PERTANYAAN CEPAT
+# ============================================================
+
+st.markdown(
+"""<div class="quick-title-final">💡 Pertanyaan Cepat</div>""",
+    unsafe_allow_html=True
+)
+
+questions = kategori_pertanyaan[selected_category]
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button(
+        questions[0],
+        use_container_width=True,
+        key="question_1"
+    ):
+        st.session_state["pending_question"] = questions[0]
+
+with col2:
+    if st.button(
+        questions[1],
+        use_container_width=True,
+        key="question_2"
+    ):
+        st.session_state["pending_question"] = questions[1]
+
+
+# ============================================================
+# FUNGSI MENAMPILKAN JAWABAN
+# ============================================================
 
 def render_answer(answer: str, sources: list[dict]):
-    if "tidak menemukan" in answer.lower() or "belum bisa dipakai" in answer.lower() or "terjadi masalah" in answer.lower():
+
+    if "tidak menemukan" in answer.lower():
+
         st.markdown(
-            f"""
-            <div class="kartu-kosong">
-                <span class="label">Info</span>
-                {answer}
-            </div>
-            """,
-            unsafe_allow_html=True,
+            f"""<div class="kartu-kosong"><span class="label">Tidak ditemukan</span><div>{answer}</div></div>""",
+            unsafe_allow_html=True
         )
+
         return
 
     st.write(answer)
 
-    with st.expander("📄 Lihat sumber dokumen yang digunakan"):
-        for src in sources:
-            kelas_skor = skor_ke_kelas(src["score"])
-            st.markdown(
-                f"""
-                <div class="kartu-sumber">
-                    <span class="sumber-label">{src['source']}</span>
-                    <span class="skor-badge {kelas_skor}">skor {src['score']}</span>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-            st.text(src["text"])
+    if sources:
+
+        with st.expander("📄 Lihat sumber dokumen yang digunakan"):
+
+            for src in sources:
+
+                score = src.get("score", 0.0)
+
+                source_name = src.get(
+                    "source",
+                    "Dokumen tidak diketahui"
+                )
+
+                source_text = src.get(
+                    "text",
+                    ""
+                )
+
+                kelas_skor = skor_ke_kelas(score)
+
+                st.markdown(
+                    f"""<div class="kartu-sumber"><span class="sumber-label">{source_name}</span><span class="skor-badge {kelas_skor}">skor {score}</span></div>""",
+                    unsafe_allow_html=True
+                )
+
+                st.text(source_text)
 
 
-def render_feedback_widget(idx: int):
-    msg = st.session_state.messages[idx]
+# ============================================================
+# SESSION STATE
+# ============================================================
 
-    if "tidak menemukan" in msg["content"].lower():
-        return
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-    if msg.get("feedback"):
-        emoji = "👍" if msg["feedback"] == "like" else "👎"
-        st.caption(f"Anda menilai jawaban ini {emoji} — terima kasih atas masukannya!")
-        return
-
-    col1, col2, _ = st.columns([1, 1, 8])
-    pertanyaan_terkait = st.session_state.messages[idx - 1]["content"] if idx > 0 else ""
-
-    with col1:
-        if st.button("👍", key=f"like_{idx}"):
-            msg["feedback"] = "like"
-            log_feedback(pertanyaan_terkait, msg["content"], "like")
-            st.rerun()
-    with col2:
-        if st.button("👎", key=f"dislike_{idx}"):
-            msg["feedback"] = "dislike"
-            log_feedback(pertanyaan_terkait, msg["content"], "dislike")
-            st.rerun()
+if "pending_question" not in st.session_state:
+    st.session_state.pending_question = None
 
 
-def ajukan_pertanyaan(pertanyaan: str, llm_api_key: str | None = None):
-    st.session_state.messages.append({"role": "user", "content": pertanyaan})
-    result = pipeline.generate_answer(pertanyaan, top_k=top_k, llm_api_key=llm_api_key)
+# ============================================================
+# RIWAYAT CHAT
+# ============================================================
 
-    terjawab = "tidak menemukan" not in result["answer"].lower()
-    skor_teratas = result["sources"][0]["score"] if result["sources"] else 0.0
-    sumber_teratas = result["sources"][0]["source"] if (terjawab and result["sources"]) else ""
-    log_question(pertanyaan, terjawab, skor_teratas, sumber_teratas)
+for msg in st.session_state.messages:
 
-    st.session_state.messages.append({
-        "role": "assistant",
-        "content": result["answer"],
-        "sources": result["sources"],
-        "feedback": None,
-    })
-
-
-with st.expander("📚 Jelajahi berdasarkan kategori"):
-    if not kb_entries:
-        st.caption("Basis pengetahuan belum tersedia.")
-    else:
-        kategori_list = sorted(set(e.category for e in kb_entries))
-        kategori_dipilih = st.selectbox(
-            "Pilih kategori layanan",
-            options=["-- Pilih kategori --"] + kategori_list,
-            key="jelajah_kategori",
-        )
-
-        if kategori_dipilih != "-- Pilih kategori --":
-            topik_kategori = [e for e in kb_entries if e.category == kategori_dipilih]
-            st.caption(f"{len(topik_kategori)} topik dalam kategori ini — klik untuk langsung bertanya:")
-
-            cols = st.columns(2)
-            for i, entry in enumerate(topik_kategori):
-                pertanyaan_wakil = entry.questions[0] if entry.questions else entry.title
-                with cols[i % 2]:
-                    if st.button(entry.title, key=f"topik_{entry.id}", use_container_width=True):
-                        st.session_state.pending_question = pertanyaan_wakil
-                        st.rerun()
-
-if not st.session_state.messages and kb_entries:
-    st.markdown("**💡 Pertanyaan populer:**")
-    suggested = []
-    seen_categories = set()
-    for e in kb_entries:
-        if e.category not in seen_categories and e.questions:
-            suggested.append(e.questions[0])
-            seen_categories.add(e.category)
-        if len(suggested) >= 4:
-            break
-
-    cols_sugg = st.columns(2)
-    for i, q in enumerate(suggested):
-        with cols_sugg[i % 2]:
-            if st.button(q, key=f"suggest_{i}", use_container_width=True):
-                st.session_state.pending_question = q
-                st.rerun()
-
-for i, msg in enumerate(st.session_state.messages):
     with st.chat_message(msg["role"]):
+
         if msg["role"] == "assistant":
-            render_answer(msg["content"], msg.get("sources", []))
-            render_feedback_widget(i)
+
+            render_answer(
+                msg["content"],
+                msg.get("sources", [])
+            )
+
         else:
+
             st.write(msg["content"])
 
-pertanyaan_ketik = st.chat_input("Tanyakan sesuatu, misal: 'Apa itu DDSS?'")
-pertanyaan_dari_klik = st.session_state.pop("pending_question", None)
-pertanyaan_final = pertanyaan_dari_klik or pertanyaan_ketik
 
-if pertanyaan_final:
+# ============================================================
+# INPUT CHAT
+# ============================================================
+
+chat_question = st.chat_input(
+    "Tanyakan sesuatu, misal: 'Apa itu DDSS?'"
+)
+
+
+# ============================================================
+# TENTUKAN PERTANYAAN
+# ============================================================
+
+question = None
+
+if st.session_state.get("pending_question"):
+
+    question = st.session_state["pending_question"]
+
+    st.session_state["pending_question"] = None
+
+elif chat_question:
+
+    question = chat_question
+
+
+# ============================================================
+# PROSES PERTANYAAN
+# ============================================================
+
+if question:
+
+    st.session_state.messages.append(
+        {
+            "role": "user",
+            "content": question
+        }
+    )
+
     with st.chat_message("user"):
-        st.write(pertanyaan_final)
+        st.write(question)
 
     with st.chat_message("assistant"):
+
         with st.spinner("Mencari jawaban..."):
-            ajukan_pertanyaan(pertanyaan_final, llm_api_key=llm_api_key_sesi)
-            idx_terbaru = len(st.session_state.messages) - 1
-            last_result = st.session_state.messages[idx_terbaru]
-            render_answer(last_result["content"], last_result.get("sources", []))
-            render_feedback_widget(idx_terbaru)
+
+            try:
+
+                result = pipeline.generate_answer(
+                    question,
+                    top_k=TOP_K
+                )
+
+                answer = result.get(
+                    "answer",
+                    "Maaf, sistem tidak menemukan jawaban."
+                )
+
+                sources = result.get(
+                    "sources",
+                    []
+                )
+
+                render_answer(
+                    answer,
+                    sources
+                )
+
+                terjawab = (
+                    "tidak menemukan"
+                    not in answer.lower()
+                )
+
+                if sources:
+
+                    skor_teratas = sources[0].get(
+                        "score",
+                        0.0
+                    )
+
+                else:
+
+                    skor_teratas = 0.0
+
+                if terjawab and sources:
+
+                    sumber_teratas = sources[0].get(
+                        "source",
+                        ""
+                    )
+
+                else:
+
+                    sumber_teratas = ""
+
+                log_question(
+                    question,
+                    terjawab,
+                    skor_teratas,
+                    sumber_teratas
+                )
+
+                st.session_state.messages.append(
+                    {
+                        "role": "assistant",
+                        "content": answer,
+                        "sources": sources
+                    }
+                )
+
+            except Exception as e:
+
+                st.error(
+                    "Maaf, terjadi kesalahan saat memproses pertanyaan."
+                )
+
+                with st.expander("Detail error"):
+
+                    st.code(str(e))
