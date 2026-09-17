@@ -1,9 +1,9 @@
 ﻿"""
 Tanya NTB
-Chatbot RAG Layanan Publik Provinsi NTB
+Chatbot informasi layanan publik berbasis Retrieval-Augmented Generation (RAG).
 
-Kategori dan pertanyaan dibaca otomatis dari:
-data/knowledge_ai_ntb.txt
+Cara menjalankan:
+    streamlit run src/app.py
 """
 
 import re
@@ -16,9 +16,9 @@ from pipeline_loader import load_pipeline
 from logger import log_question
 
 
-# ============================================================
+# =========================================================
 # KONFIGURASI HALAMAN
-# ============================================================
+# =========================================================
 
 st.set_page_config(
     page_title="Tanya NTB — Layanan Publik",
@@ -27,9 +27,266 @@ st.set_page_config(
 )
 
 
-# ============================================================
+# =========================================================
+# CSS TAMBAHAN
+# =========================================================
+
+st.markdown(
+    """
+<style>
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(
+        180deg,
+        #073b3a 0%,
+        #0a4643 55%,
+        #063331 100%
+    );
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 1rem;
+}
+
+
+/* =====================================================
+   BRAND SIDEBAR
+   ===================================================== */
+
+.sidebar-brand {
+    padding: 10px 8px 18px 8px;
+}
+
+.sidebar-logo {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.sidebar-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.sidebar-subtitle {
+    color: #d4e7e4;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   GARIS
+   ===================================================== */
+
+.sidebar-line {
+    height: 1px;
+    background: rgba(255,255,255,0.18);
+    margin: 4px 8px 18px 8px;
+}
+
+
+/* =====================================================
+   KARTU BANTUAN
+   ===================================================== */
+
+.sidebar-help {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 13px;
+    padding: 14px;
+    margin: 12px 4px;
+}
+
+.sidebar-help-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.sidebar-help-text {
+    color: #dcebea;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   KARTU INFORMASI
+   ===================================================== */
+
+.sidebar-info {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 13px;
+    padding: 13px;
+    margin: 12px 4px;
+}
+
+.sidebar-info-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.sidebar-info-item {
+    color: #d8e9e7;
+    font-size: 12px;
+    margin: 7px 0;
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.sidebar-footer {
+    color: rgba(255,255,255,0.55);
+    font-size: 10px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 18px 5px 8px 5px;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.ntb-banner-custom {
+    background: #073b3a;
+    padding: 28px 30px 25px 30px;
+    border-radius: 0 0 16px 16px;
+}
+
+.ntb-eyebrow-custom {
+    color: #e0ae43;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.ntb-title-custom {
+    color: white;
+    font-size: 38px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.ntb-subtitle-custom {
+    color: #d6e8e5;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 9px;
+    max-width: 700px;
+}
+
+.ntb-weave-custom {
+    height: 10px;
+    margin-bottom: 25px;
+    background: repeating-linear-gradient(
+        135deg,
+        #d8a847 0px,
+        #d8a847 7px,
+        transparent 7px,
+        transparent 15px
+    );
+}
+
+
+/* =====================================================
+   KATEGORI
+   ===================================================== */
+
+.category-intro {
+    background: #f7f8f5;
+    border: 1px solid #e4e8e4;
+    border-radius: 12px;
+    padding: 13px 15px;
+    margin: 10px 0 12px 0;
+}
+
+.category-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #254442;
+    margin-bottom: 3px;
+}
+
+.category-description {
+    font-size: 12px;
+    color: #697775;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   CONTOH PERTANYAAN
+   ===================================================== */
+
+.question-example {
+    background: #f8faf8;
+    border: 1px solid #e2e8e5;
+    border-radius: 9px;
+    padding: 9px 12px;
+    margin: 6px 0;
+    color: #294846;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   KETERANGAN KOSONG
+   ===================================================== */
+
+.question-empty {
+    background: #f8faf8;
+    border: 1px solid #e2e8e5;
+    border-radius: 9px;
+    padding: 11px 13px;
+    color: #697775;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .ntb-title-custom {
+        font-size: 30px;
+    }
+
+    .ntb-banner-custom {
+        padding: 22px 20px;
+    }
+
+}
+
+</style>
+""",
+    unsafe_allow_html=True
+)
+
+
+# =========================================================
 # CSS PROJECT
-# ============================================================
+# =========================================================
 
 st.markdown(
     CUSTOM_CSS,
@@ -37,505 +294,601 @@ st.markdown(
 )
 
 
-# ============================================================
-# CSS TAMBAHAN
-# ============================================================
-
-st.markdown(
-"""<style>
-
-.ntb-banner-final {
-    background-color: #073b36;
-    padding: 30px 30px 28px 30px;
-    margin: 0;
-    border-radius: 0;
-}
-
-.ntb-eyebrow-final {
-    color: #f0b84b !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    letter-spacing: 2px !important;
-    margin-bottom: 10px !important;
-    text-transform: uppercase !important;
-}
-
-.ntb-title-final {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    font-size: 44px !important;
-    font-weight: 800 !important;
-    line-height: 1.2 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.ntb-subtitle-final {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
-    margin-top: 10px !important;
-}
-
-.ntb-weave-final {
-    height: 8px;
-    margin: 0;
-    background: repeating-linear-gradient(
-        -45deg,
-        #d9a441 0px,
-        #d9a441 10px,
-        transparent 10px,
-        transparent 20px
-    );
-}
-
-.category-title-final {
-    color: #073b36 !important;
-    font-size: 19px !important;
-    font-weight: 700 !important;
-    margin-top: 22px !important;
-    margin-bottom: 10px !important;
-}
-
-.quick-title-final {
-    color: #073b36 !important;
-    font-size: 17px !important;
-    font-weight: 700 !important;
-    margin-top: 18px !important;
-    margin-bottom: 8px !important;
-}
-
-.category-info {
-    color: #666666 !important;
-    font-size: 13px !important;
-    margin-top: 5px !important;
-    margin-bottom: 10px !important;
-}
-
-</style>""",
-    unsafe_allow_html=True
-)
-
-
-# ============================================================
-# HEADER
-# ============================================================
-
-st.markdown(
-"""<div class="ntb-banner-final"><div class="ntb-eyebrow-final">PORTAL LAYANAN PUBLIK · PROVINSI NTB</div><div class="ntb-title-final">Tanya NTB</div><div class="ntb-subtitle-final">Asisten informasi layanan publik berbasis pencarian dokumen resmi (RAG)</div></div><div class="ntb-weave-final"></div>""",
-    unsafe_allow_html=True
-)
-
-
-# ============================================================
-# PENGATURAN INTERNAL
-# ============================================================
-
-GENERATION_MODE = "extractive"
-TOP_K = 3
-
-
-# ============================================================
-# LOKASI KNOWLEDGE BASE
-# ============================================================
+# =========================================================
+# PATH PROJECT
+# =========================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# =========================================================
+# FILE KNOWLEDGE BASE
+# =========================================================
 
 KB_FILE = BASE_DIR / "data" / "knowledge_ai_ntb.txt"
 
 
-# ============================================================
-# FUNGSI MEMBACA KNOWLEDGE BASE
-# ============================================================
+# =========================================================
+# FUNGSI MEMBERSIHKAN TEKS
+# =========================================================
 
-@st.cache_data
-def load_knowledge_base():
+def bersihkan_teks(teks):
+    """
+    Membersihkan teks dari Markdown dan karakter
+    yang tidak diperlukan.
+    """
+
+    if not teks:
+        return ""
+
+    teks = str(teks).strip()
+
+    # Hapus bold Markdown
+    teks = re.sub(r"\*+", "", teks)
+
+    # Hapus backtick
+    teks = teks.replace("`", "")
+
+    # Hapus bullet
+    teks = re.sub(
+        r"^\s*[-•]\s*",
+        "",
+        teks
+    )
+
+    # Hapus spasi berlebihan
+    teks = re.sub(
+        r"\s+",
+        " ",
+        teks
+    )
+
+    return teks.strip()
+
+
+# =========================================================
+# VALIDASI PERTANYAAN
+# =========================================================
+
+def pertanyaan_valid(teks):
+    """
+    Memastikan teks merupakan pertanyaan yang valid.
+    """
+
+    if not teks:
+        return False
+
+    teks = bersihkan_teks(teks)
+
+    if not teks:
+        return False
+
+    if len(teks) < 4:
+        return False
+
+    # Jangan tampilkan hanya karakter Markdown
+    if teks in [
+        "*",
+        "**",
+        "***"
+    ]:
+        return False
+
+    # Harus memiliki minimal satu huruf/angka
+    if not any(
+        karakter.isalnum()
+        for karakter in teks
+    ):
+        return False
+
+    return True
+
+
+# =========================================================
+# BACA KNOWLEDGE BASE
+# =========================================================
+
+def baca_kategori_kb():
+    """
+    Membaca kategori dan contoh pertanyaan
+    dari knowledge_ai_ntb.txt.
+
+    Format KB:
+
+    ## KATEGORI 1: APLIKASI & SISTEM
+
+    ### KB-004: DDSS
+
+    **Pertanyaan:**
+    - Apa itu DDSS?
+    - DDSS untuk apa?
+    - Bagaimana cara menggunakan DDSS?
+
+    **Jawaban:**
+    ...
+    """
+
+    kategori_data = {}
+
+    # -----------------------------------------------------
+    # CEK FILE
+    # -----------------------------------------------------
 
     if not KB_FILE.exists():
+        return kategori_data
 
-        return {}, 0
 
+    # -----------------------------------------------------
+    # BACA FILE
+    # -----------------------------------------------------
 
     try:
 
         text = KB_FILE.read_text(
             encoding="utf-8",
-            errors="replace"
+            errors="ignore"
         )
 
     except Exception:
 
-        text = KB_FILE.read_text(
-            errors="replace"
+        return kategori_data
+
+
+    # -----------------------------------------------------
+    # VARIABEL
+    # -----------------------------------------------------
+
+    current_category = None
+    sedang_baca_pertanyaan = False
+
+
+    # =====================================================
+    # BACA SETIAP BARIS
+    # =====================================================
+
+    for line in text.splitlines():
+
+        line = line.strip()
+
+
+        # -------------------------------------------------
+        # LEWATI BARIS KOSONG
+        # -------------------------------------------------
+
+        if not line:
+            continue
+
+
+        # =================================================
+        # DETEKSI KATEGORI
+        #
+        # ## KATEGORI 1: APLIKASI & SISTEM
+        # =================================================
+
+        match_kategori = re.match(
+            r"^##\s*KATEGORI\s+\d+\s*:\s*(.+?)\s*$",
+            line,
+            re.IGNORECASE
         )
 
 
-    # --------------------------------------------------------
-    # Cari semua kategori
-    # --------------------------------------------------------
+        if match_kategori:
 
-    category_pattern = re.compile(
-        r"^##\s*KATEGORI\s+\d+\s*:\s*(.+?)\s*$",
-        re.MULTILINE
+            current_category = bersihkan_teks(
+                match_kategori.group(1)
+            )
+
+            sedang_baca_pertanyaan = False
+
+
+            if current_category:
+
+                if current_category not in kategori_data:
+
+                    kategori_data[
+                        current_category
+                    ] = []
+
+
+            continue
+
+
+        # -------------------------------------------------
+        # JIKA BELUM ADA KATEGORI
+        # -------------------------------------------------
+
+        if not current_category:
+            continue
+
+
+        # =================================================
+        # DETEKSI HEADER PERTANYAAN
+        #
+        # **Pertanyaan:**
+        # =================================================
+
+        if re.match(
+            r"^\*{0,2}\s*Pertanyaan\s*:\s*\*{0,2}\s*$",
+            line,
+            re.IGNORECASE
+        ):
+
+            sedang_baca_pertanyaan = True
+
+            continue
+
+
+        # =================================================
+        # DETEKSI HEADER JAWABAN
+        #
+        # **Jawaban:**
+        # =================================================
+
+        if re.match(
+            r"^\*{0,2}\s*Jawaban\s*:\s*\*{0,2}\s*$",
+            line,
+            re.IGNORECASE
+        ):
+
+            sedang_baca_pertanyaan = False
+
+            continue
+
+
+        # =================================================
+        # DETEKSI KEYWORDS
+        #
+        # **Keywords:** ...
+        # =================================================
+
+        if re.match(
+            r"^\*{0,2}\s*Keywords\s*:",
+            line,
+            re.IGNORECASE
+        ):
+
+            sedang_baca_pertanyaan = False
+
+            continue
+
+
+        # =================================================
+        # AMBIL PERTANYAAN
+        #
+        # - Apa itu DDSS?
+        # - DDSS untuk apa?
+        # =================================================
+
+        if sedang_baca_pertanyaan:
+
+            # Hanya membaca bullet
+            if re.match(
+                r"^\s*[-•]\s+",
+                line
+            ):
+
+                pertanyaan = bersihkan_teks(
+                    line
+                )
+
+
+                if pertanyaan_valid(
+                    pertanyaan
+                ):
+
+                    if pertanyaan not in kategori_data[
+                        current_category
+                    ]:
+
+                        kategori_data[
+                            current_category
+                        ].append(
+                            pertanyaan
+                        )
+
+
+    return kategori_data
+
+
+# =========================================================
+# LOAD KATEGORI
+# =========================================================
+
+kategori_data = baca_kategori_kb()
+
+jumlah_kategori = len(
+    kategori_data
+)
+
+
+# =========================================================
+# SIDEBAR
+# =========================================================
+
+with st.sidebar:
+
+    # -----------------------------------------------------
+    # BRAND
+    # -----------------------------------------------------
+
+    st.markdown(
+        '<div class="sidebar-brand">'
+        '<div class="sidebar-logo">🏛️</div>'
+        '<div class="sidebar-title">Tanya NTB</div>'
+        '<div class="sidebar-subtitle">'
+        'Teman cari informasi<br>'
+        'seputar NTB'
+        '</div>'
+        '</div>',
+        unsafe_allow_html=True
     )
 
-    category_matches = list(
-        category_pattern.finditer(text)
+
+    # -----------------------------------------------------
+    # GARIS
+    # -----------------------------------------------------
+
+    st.markdown(
+        '<div class="sidebar-line"></div>',
+        unsafe_allow_html=True
     )
 
 
-    categories = {}
+    # -----------------------------------------------------
+    # BANTUAN
+    # -----------------------------------------------------
+
+    st.markdown(
+        '<div class="sidebar-help">'
+        '<div class="sidebar-help-title">'
+        '💬 Butuh info?'
+        '</div>'
+        '<div class="sidebar-help-text">'
+        'Tanya aja di kolom chat 😊<br>'
+        'Saya bantu menemukan informasi '
+        'dari dokumen resmi.'
+        '</div>'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 
-    # --------------------------------------------------------
-    # Proses setiap kategori
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # INFORMASI
+    # -----------------------------------------------------
 
-    for i, category_match in enumerate(category_matches):
+    st.markdown(
+        f'<div class="sidebar-info">'
+        f'<div class="sidebar-info-title">'
+        f'📚 Informasi'
+        f'</div>'
+        f'<div class="sidebar-info-item">'
+        f'• 🏛️ Layanan Pemerintah'
+        f'</div>'
+        f'<div class="sidebar-info-item">'
+        f'• 📊 Data & Informasi NTB'
+        f'</div>'
+        f'<div class="sidebar-info-item">'
+        f'• 📢 Bantuan & Pengaduan'
+        f'</div>'
+        f'<div class="sidebar-info-item">'
+        f'• 📑 Dokumen & Peraturan'
+        f'</div>'
+        f'<div class="sidebar-info-item">'
+        f'• ✨ {jumlah_kategori} kategori tersedia'
+        f'</div>'
+        f'</div>',
+        unsafe_allow_html=True
+    )
 
-        category_name = category_match.group(1).strip()
+
+    # -----------------------------------------------------
+    # CARA MENGGUNAKAN
+    # -----------------------------------------------------
+
+    st.markdown(
+        '<div class="sidebar-help">'
+        '<div class="sidebar-help-title">'
+        '💡 Cara menggunakan'
+        '</div>'
+        '<div class="sidebar-help-text">'
+        '1. Ketik pertanyaan kamu<br>'
+        '2. Tekan Enter<br>'
+        '3. Tanya NTB mencari informasi<br>'
+        '4. Lihat jawaban dan sumbernya'
+        '</div>'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 
-        start = category_match.end()
+    # -----------------------------------------------------
+    # FOOTER
+    # -----------------------------------------------------
+
+    st.markdown(
+        '<div class="sidebar-footer">'
+        'Tanya NTB · Layanan Informasi Publik<br>'
+        'Provinsi Nusa Tenggara Barat'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 
-        if i + 1 < len(category_matches):
+# =========================================================
+# HEADER UTAMA
+# =========================================================
 
-            end = category_matches[i + 1].start()
+st.markdown(
+    '<div class="ntb-banner-custom">'
+    '<div class="ntb-eyebrow-custom">'
+    'PORTAL LAYANAN PUBLIK · PROVINSI NTB'
+    '</div>'
+    '<div class="ntb-title-custom">'
+    'Tanya NTB'
+    '</div>'
+    '<div class="ntb-subtitle-custom">'
+    'Temukan informasi layanan publik NTB dengan mudah '
+    'melalui chatbot berbasis RAG.'
+    '</div>'
+    '</div>'
+    '<div class="ntb-weave-custom"></div>',
+    unsafe_allow_html=True
+)
 
-        else:
 
-            end = len(text)
+# =========================================================
+# KATEGORI
+# =========================================================
+
+if kategori_data:
+
+    st.markdown(
+        '<div class="category-intro">'
+        '<div class="category-title">'
+        '📚 Mau cari berdasarkan kategori?'
+        '</div>'
+        '<div class="category-description">'
+        f'Tersedia {jumlah_kategori} kategori informasi '
+        'dari Knowledge Base.'
+        '</div>'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 
-        category_text = text[
-            start:end
-        ]
+    # -----------------------------------------------------
+    # DAFTAR KATEGORI
+    # -----------------------------------------------------
+
+    daftar_kategori = list(
+        kategori_data.keys()
+    )
 
 
-        questions = []
+    # -----------------------------------------------------
+    # DROPDOWN
+    # -----------------------------------------------------
+
+    kategori_pilihan = st.selectbox(
+        "Pilih kategori",
+        daftar_kategori,
+        label_visibility="collapsed"
+    )
 
 
-        # ----------------------------------------------------
-        # Cari setiap KB dalam kategori
-        # ----------------------------------------------------
+    # -----------------------------------------------------
+    # AMBIL PERTANYAAN
+    # -----------------------------------------------------
 
-        kb_pattern = re.compile(
-            r"^###\s*KB-\d+\s*:\s*(.+?)\s*$",
-            re.MULTILINE
+    pertanyaan_kategori = kategori_data.get(
+        kategori_pilihan,
+        []
+    )
+
+
+    # -----------------------------------------------------
+    # TAMPILKAN CONTOH PERTANYAAN
+    # -----------------------------------------------------
+
+    if pertanyaan_kategori:
+
+        st.markdown(
+            f"**💬 Contoh pertanyaan tentang "
+            f"{kategori_pilihan}:**"
         )
 
-        kb_matches = list(
-            kb_pattern.finditer(category_text)
-        )
 
+        # Maksimal 4 pertanyaan
+        for pertanyaan in pertanyaan_kategori[:4]:
 
-        for j, kb_match in enumerate(kb_matches):
-
-            kb_title = kb_match.group(1).strip()
-
-
-            kb_start = kb_match.end()
-
-
-            if j + 1 < len(kb_matches):
-
-                kb_end = kb_matches[j + 1].start()
-
-            else:
-
-                kb_end = len(category_text)
-
-
-            kb_text = category_text[
-                kb_start:kb_end
-            ]
-
-
-            # ------------------------------------------------
-            # Cari bagian Pertanyaan
-            # ------------------------------------------------
-
-            question_match = re.search(
-                r"\*\*Pertanyaan:\*\*(.*?)(?=\n\s*\*\*Jawaban:|\Z)",
-                kb_text,
-                re.DOTALL | re.IGNORECASE
+            st.markdown(
+                f'<div class="question-example">'
+                f'💬 {pertanyaan}'
+                f'</div>',
+                unsafe_allow_html=True
             )
 
 
-            if question_match:
+    # -----------------------------------------------------
+    # JIKA KOSONG
+    # -----------------------------------------------------
 
-                question_text = question_match.group(1)
+    else:
 
-
-                found_questions = re.findall(
-                    r"^\s*-\s*(.+?)\s*$",
-                    question_text,
-                    re.MULTILINE
-                )
-
-
-                for q in found_questions:
-
-                    q = q.strip()
-
-                    if q and q not in questions:
-
-                        questions.append(q)
+        st.markdown(
+            f'<div class="question-empty">'
+            f'💡 Silakan langsung tanyakan '
+            f'informasi seputar {kategori_pilihan} '
+            f'melalui kolom chat di bawah.'
+            f'</div>',
+            unsafe_allow_html=True
+        )
 
 
-            # ------------------------------------------------
-            # Kalau tidak ada pertanyaan, gunakan judul KB
-            # ------------------------------------------------
-
-            if not questions and kb_title:
-
-                questions.append(
-                    kb_title
-                )
+    st.markdown("---")
 
 
-        categories[category_name] = questions
+# =========================================================
+# KONFIGURASI RAG
+# =========================================================
+
+# Pengaturan RAG tidak ditampilkan kepada pengguna.
+
+GENERATION_MODE = "extractive"
+
+TOP_K = 3
 
 
-    return categories, len(category_matches)
-
-
-# ============================================================
-# LOAD KATEGORI
-# ============================================================
-
-kategori_data, jumlah_kategori = load_knowledge_base()
-
-
-# ============================================================
-# LOAD PIPELINE RAG
-# ============================================================
+# =========================================================
+# LOAD PIPELINE
+# =========================================================
 
 pipeline = load_pipeline(
     GENERATION_MODE
 )
 
 
-# ============================================================
-# CEK KNOWLEDGE BASE
-# ============================================================
-
-if not kategori_data:
-
-    st.warning(
-        "Kategori Knowledge Base tidak ditemukan. "
-        "Pastikan file data/knowledge_ai_ntb.txt tersedia."
-    )
-
-    kategori_data = {
-        "Semua Kategori": [
-            "Apa saja layanan publik yang tersedia di NTB?"
-        ]
-    }
-
-
-# ============================================================
-# TAMBAHKAN SEMUA KATEGORI
-# ============================================================
-
-category_names = list(
-    kategori_data.keys()
-)
-
-
-# ============================================================
-# PILIH KATEGORI
-# ============================================================
-
-st.markdown(
-"""<div class="category-title-final">🔎 Pilih Kategori Layanan</div>""",
-    unsafe_allow_html=True
-)
-
-
-st.markdown(
-f"""<div class="category-info">Tersedia {jumlah_kategori} kategori layanan dari Knowledge Base.</div>""",
-    unsafe_allow_html=True
-)
-
-
-selected_category = st.selectbox(
-    "Kategori layanan",
-    category_names,
-    label_visibility="collapsed"
-)
-
-
-# ============================================================
-# PERTANYAAN DARI KATEGORI
-# ============================================================
-
-selected_questions = kategori_data.get(
-    selected_category,
-    []
-)
-
-
-# ============================================================
-# PERTANYAAN CEPAT
-# ============================================================
-
-if selected_questions:
-
-    st.markdown(
-"""<div class="quick-title-final">💡 Pertanyaan Cepat</div>""",
-        unsafe_allow_html=True
-    )
-
-
-    # Ambil maksimal 4 pertanyaan
-    quick_questions = selected_questions[:4]
-
-
-    # --------------------------------------------------------
-    # Jika hanya 1 pertanyaan
-    # --------------------------------------------------------
-
-    if len(quick_questions) == 1:
-
-        if st.button(
-            quick_questions[0],
-            use_container_width=True,
-            key="quick_0"
-        ):
-
-            st.session_state[
-                "pending_question"
-            ] = quick_questions[0]
-
-
-    # --------------------------------------------------------
-    # Jika 2 pertanyaan
-    # --------------------------------------------------------
-
-    elif len(quick_questions) == 2:
-
-        col1, col2 = st.columns(2)
-
-
-        with col1:
-
-            if st.button(
-                quick_questions[0],
-                use_container_width=True,
-                key="quick_0"
-            ):
-
-                st.session_state[
-                    "pending_question"
-                ] = quick_questions[0]
-
-
-        with col2:
-
-            if st.button(
-                quick_questions[1],
-                use_container_width=True,
-                key="quick_1"
-            ):
-
-                st.session_state[
-                    "pending_question"
-                ] = quick_questions[1]
-
-
-    # --------------------------------------------------------
-    # Jika 3 atau 4 pertanyaan
-    # --------------------------------------------------------
-
-    else:
-
-        col1, col2 = st.columns(2)
-
-
-        with col1:
-
-            if st.button(
-                quick_questions[0],
-                use_container_width=True,
-                key="quick_0"
-            ):
-
-                st.session_state[
-                    "pending_question"
-                ] = quick_questions[0]
-
-
-        with col2:
-
-            if st.button(
-                quick_questions[1],
-                use_container_width=True,
-                key="quick_1"
-            ):
-
-                st.session_state[
-                    "pending_question"
-                ] = quick_questions[1]
-
-
-        if len(quick_questions) > 2:
-
-            col3, col4 = st.columns(2)
-
-
-            with col3:
-
-                if st.button(
-                    quick_questions[2],
-                    use_container_width=True,
-                    key="quick_2"
-                ):
-
-                    st.session_state[
-                        "pending_question"
-                    ] = quick_questions[2]
-
-
-            with col4:
-
-                if len(quick_questions) > 3:
-
-                    if st.button(
-                        quick_questions[3],
-                        use_container_width=True,
-                        key="quick_3"
-                    ):
-
-                        st.session_state[
-                            "pending_question"
-                        ] = quick_questions[3]
-
-
-# ============================================================
+# =========================================================
 # FUNGSI MENAMPILKAN JAWABAN
-# ============================================================
+# =========================================================
 
 def render_answer(
     answer: str,
     sources: list[dict]
 ):
 
+    # -----------------------------------------------------
+    # TIDAK DITEMUKAN
+    # -----------------------------------------------------
+
     if "tidak menemukan" in answer.lower():
 
         st.markdown(
-            f"""<div class="kartu-kosong"><span class="label">Tidak ditemukan</span><div>{answer}</div></div>""",
+            f'<div class="kartu-kosong">'
+            f'<span class="label">'
+            f'Tidak ditemukan'
+            f'</span>'
+            f'<div>{answer}</div>'
+            f'</div>',
             unsafe_allow_html=True
         )
 
         return
 
 
-    st.write(answer)
+    # -----------------------------------------------------
+    # JAWABAN
+    # -----------------------------------------------------
 
+    st.write(
+        answer
+    )
+
+
+    # -----------------------------------------------------
+    # SUMBER
+    # -----------------------------------------------------
 
     if sources:
 
@@ -550,23 +903,34 @@ def render_answer(
                     0.0
                 )
 
-                source_name = src.get(
-                    "source",
-                    "Dokumen tidak diketahui"
-                )
-
-                source_text = src.get(
-                    "text",
-                    ""
-                )
 
                 kelas_skor = skor_ke_kelas(
                     score
                 )
 
 
+                source_name = src.get(
+                    "source",
+                    "Dokumen tidak diketahui"
+                )
+
+
+                source_text = src.get(
+                    "text",
+                    ""
+                )
+
+
                 st.markdown(
-                    f"""<div class="kartu-sumber"><span class="sumber-label">{source_name}</span><span class="skor-badge {kelas_skor}">skor {score}</span></div>""",
+                    f'<div class="kartu-sumber">'
+                    f'<span class="sumber-label">'
+                    f'{source_name}'
+                    f'</span>'
+                    f'<span class="skor-badge '
+                    f'{kelas_skor}">'
+                    f'skor {score}'
+                    f'</span>'
+                    f'</div>',
                     unsafe_allow_html=True
                 )
 
@@ -576,23 +940,18 @@ def render_answer(
                 )
 
 
-# ============================================================
+# =========================================================
 # SESSION STATE
-# ============================================================
+# =========================================================
 
 if "messages" not in st.session_state:
 
     st.session_state.messages = []
 
 
-if "pending_question" not in st.session_state:
-
-    st.session_state.pending_question = None
-
-
-# ============================================================
+# =========================================================
 # TAMPILKAN RIWAYAT CHAT
-# ============================================================
+# =========================================================
 
 for msg in st.session_state.messages:
 
@@ -617,49 +976,24 @@ for msg in st.session_state.messages:
             )
 
 
-# ============================================================
-# INPUT CHAT
-# ============================================================
+# =========================================================
+# INPUT PERTANYAAN
+# =========================================================
 
-chat_question = st.chat_input(
-    "Tanyakan sesuatu, misal: 'Apa itu DDSS?'"
+question = st.chat_input(
+    "Tanyakan sesuatu, misal: Apa itu DDSS?"
 )
 
 
-# ============================================================
-# TENTUKAN PERTANYAAN
-# ============================================================
-
-question = None
-
-
-if st.session_state.get(
-    "pending_question"
-):
-
-    question = st.session_state[
-        "pending_question"
-    ]
-
-    st.session_state[
-        "pending_question"
-    ] = None
-
-
-elif chat_question:
-
-    question = chat_question
-
-
-# ============================================================
+# =========================================================
 # PROSES PERTANYAAN
-# ============================================================
+# =========================================================
 
 if question:
 
-    # --------------------------------------------------------
-    # Simpan pertanyaan user
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # SIMPAN PERTANYAAN
+    # -----------------------------------------------------
 
     st.session_state.messages.append(
         {
@@ -669,9 +1003,9 @@ if question:
     )
 
 
-    # --------------------------------------------------------
-    # Tampilkan pertanyaan
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # TAMPILKAN PERTANYAAN
+    # -----------------------------------------------------
 
     with st.chat_message(
         "user"
@@ -682,19 +1016,23 @@ if question:
         )
 
 
-    # --------------------------------------------------------
-    # Proses RAG
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # JAWABAN
+    # -----------------------------------------------------
 
     with st.chat_message(
         "assistant"
     ):
 
         with st.spinner(
-            "Mencari jawaban..."
+            "🔎 Sedang mencari informasi..."
         ):
 
             try:
+
+                # -----------------------------------------
+                # PROSES RAG
+                # -----------------------------------------
 
                 result = pipeline.generate_answer(
                     question,
@@ -702,11 +1040,19 @@ if question:
                 )
 
 
+                # -----------------------------------------
+                # AMBIL JAWABAN
+                # -----------------------------------------
+
                 answer = result.get(
                     "answer",
                     "Maaf, sistem tidak menemukan jawaban."
                 )
 
+
+                # -----------------------------------------
+                # AMBIL SUMBER
+                # -----------------------------------------
 
                 sources = result.get(
                     "sources",
@@ -714,21 +1060,29 @@ if question:
                 )
 
 
+                # -----------------------------------------
+                # TAMPILKAN
+                # -----------------------------------------
+
                 render_answer(
                     answer,
                     sources
                 )
 
 
-                # ------------------------------------------------
-                # Logging
-                # ------------------------------------------------
+                # -----------------------------------------
+                # STATUS
+                # -----------------------------------------
 
                 terjawab = (
                     "tidak menemukan"
                     not in answer.lower()
                 )
 
+
+                # -----------------------------------------
+                # SKOR
+                # -----------------------------------------
 
                 if sources:
 
@@ -744,7 +1098,14 @@ if question:
                     skor_teratas = 0.0
 
 
-                if terjawab and sources:
+                # -----------------------------------------
+                # SUMBER UTAMA
+                # -----------------------------------------
+
+                if (
+                    terjawab
+                    and sources
+                ):
 
                     sumber_teratas = sources[
                         0
@@ -758,6 +1119,10 @@ if question:
                     sumber_teratas = ""
 
 
+                # -----------------------------------------
+                # LOGGING
+                # -----------------------------------------
+
                 log_question(
                     question,
                     terjawab,
@@ -766,9 +1131,9 @@ if question:
                 )
 
 
-                # ------------------------------------------------
-                # Simpan jawaban
-                # ------------------------------------------------
+                # -----------------------------------------
+                # SIMPAN JAWABAN
+                # -----------------------------------------
 
                 st.session_state.messages.append(
                     {
@@ -782,7 +1147,8 @@ if question:
             except Exception as e:
 
                 st.error(
-                    "Maaf, terjadi kesalahan saat memproses pertanyaan."
+                    "Maaf, terjadi kesalahan saat "
+                    "memproses pertanyaan."
                 )
 
 
