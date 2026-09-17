@@ -752,6 +752,42 @@ Smart Province NTB adalah inisiatif Pemerintah Provinsi NTB dalam memanfaatkan t
 
 **Keywords:** smart province, smart city, digitalisasi, teknologi, transformasi digital
 
+### KB-102: Kontak Diskominfotik
+
+**Pertanyaan:**
+- Bagaimana cara menghubungi Diskominfotik?
+- Dimana kontak Diskominfotik NTB?
+- Bagaimana menghubungi Kominfo NTB?
+
+**Jawaban:**
+Untuk informasi dan komunikasi resmi, masyarakat dapat menghubungi Diskominfotik NTB melalui kanal resmi pemerintah daerah, website resmi, media komunikasi resmi, atau layanan kontak yang tersedia.
+
+**Keywords:** kontak Diskominfotik, hubungi Kominfo NTB, informasi kontak, layanan Diskominfotik
+
+### KB-103: Website Resmi
+
+**Pertanyaan:**
+- Dimana website Diskominfotik NTB?
+- Bagaimana mencari informasi resmi NTB?
+- Dimana portal informasi pemerintah NTB?
+
+**Jawaban:**
+Informasi resmi mengenai kegiatan dan layanan pemerintah dapat diperoleh melalui website dan kanal digital resmi Pemerintah Provinsi Nusa Tenggara Barat maupun Diskominfotik NTB.
+
+**Keywords:** website Diskominfotik, portal NTB, informasi resmi, website pemerintah NTB
+
+### KB-104: Media Sosial Resmi
+
+**Pertanyaan:**
+- Dimana mendapatkan informasi terbaru Diskominfotik?
+- Apakah Diskominfotik memiliki media sosial?
+- Bagaimana mengikuti informasi pemerintah NTB?
+
+**Jawaban:**
+Informasi terbaru terkait kegiatan dan layanan pemerintah dapat diperoleh melalui kanal komunikasi resmi seperti website dan akun media sosial resmi yang dikelola oleh instansi terkait.
+
+**Keywords:** media sosial Diskominfotik, informasi terbaru NTB, kanal resmi, komunikasi publik
+
 ## KATEGORI 7: BANTUAN TEKNIS
 
 ### KB-030: Bantuan Teknis
@@ -1060,6 +1096,42 @@ PPID akan memproses permohonan sesuai waktu yang diatur dalam peraturan dan memb
 
 **Keywords:** permohonan informasi, cara mengajukan informasi, formulir ppid, layanan informasi ntb
 
+### KB-081: Informasi Publik
+
+**Pertanyaan:**
+- Apa itu informasi publik?
+- Informasi apa yang bisa diakses masyarakat?
+- Apa yang dimaksud keterbukaan informasi?
+
+**Jawaban:**
+Informasi publik adalah informasi yang dihasilkan, disimpan, dikelola, dikirim, atau diterima oleh badan publik yang berkaitan dengan penyelenggaraan pemerintahan dan dapat diakses oleh masyarakat sesuai dengan ketentuan yang berlaku.
+
+**Keywords:** informasi publik, keterbukaan informasi, informasi pemerintah, layanan informasi, transparansi
+
+### KB-082: Keterbukaan Informasi Publik
+
+**Pertanyaan:**
+- Apa itu keterbukaan informasi publik?
+- Mengapa informasi publik penting?
+- Apa tujuan keterbukaan informasi?
+
+**Jawaban:**
+Keterbukaan informasi publik merupakan upaya memberikan akses informasi kepada masyarakat untuk meningkatkan transparansi, akuntabilitas, dan partisipasi masyarakat dalam penyelenggaraan pemerintahan.
+
+**Keywords:** keterbukaan informasi, informasi publik, transparansi, akuntabilitas, pemerintah terbuka
+
+### KB-083: Permohonan Informasi Publik
+
+**Pertanyaan:**
+- Bagaimana cara meminta informasi publik?
+- Bagaimana mengajukan permohonan informasi?
+- Dimana saya bisa meminta informasi pemerintah?
+
+**Jawaban:**
+Masyarakat dapat mengajukan permohonan informasi kepada badan publik melalui mekanisme layanan informasi yang tersedia. Permohonan biasanya dilakukan dengan menyampaikan informasi yang dibutuhkan sesuai prosedur dan ketentuan yang berlaku.
+
+**Keywords:** permohonan informasi, meminta informasi publik, layanan informasi, PPID, keterbukaan informasi
+
 ## KATEGORI 13: PARIWISATA & KAWASAN
 
 ### KB-043: Layanan Pemesanan Tiket Kawasan Wisata
@@ -1256,6 +1328,18 @@ Sesuai UU Keterbukaan Informasi Publik, masyarakat berhak mengakses informasi pu
 
 **Keywords:** informasi publik, ppid, keterbukaan informasi, transparansi
 
+### KB-064: Layanan Digital Diskominfotik
+
+**Pertanyaan:**
+- Apa saja layanan Diskominfotik NTB?
+- Layanan apa yang tersedia di Diskominfotik?
+- Apa layanan digital pemerintah NTB?
+
+**Jawaban:**
+Diskominfotik NTB mendukung berbagai layanan yang berkaitan dengan informasi publik, teknologi informasi dan komunikasi, Sistem Pemerintahan Berbasis Elektronik, pengelolaan data, aplikasi pemerintahan, keamanan informasi, serta transformasi digital.
+
+**Keywords:** layanan Diskominfotik, layanan digital, layanan publik NTB, aplikasi pemerintah, teknologi informasi
+
 ## KATEGORI 17: TRANSPORTASI
 
 ### KB-052: Informasi Angkutan Umum di NTB
@@ -1326,36 +1410,7 @@ Organisasi Perangkat Daerah (OPD) Provinsi NTB terdiri dari Sekretariat Daerah, 
 
 **Keywords:** opd, dinas, struktur organisasi, pemprov, kelembagaan
 
-## KATEGORI 22: KEPENDUDUKAN
-
-### KB-057: Cara Mengurus KTP dan Dokumen Kependudukan
-
-**Pertanyaan:**
-- Bagaimana cara membuat KTP baru?
-- Syarat perpanjang KTP apa saja?
-- KTP hilang harus bagaimana?
-- Cara urus kartu keluarga?
-
-**Jawaban:**
-Pengurusan KTP, Kartu Keluarga, dan dokumen kependudukan lainnya dilayani oleh Dinas Kependudukan dan Catatan Sipil (Dukcapil) kabupaten/kota, bukan tingkat provinsi. Warga dapat datang langsung ke kantor Dukcapil atau kecamatan setempat, atau memanfaatkan layanan online jika tersedia di daerah masing-masing. Untuk KTP hilang, perlu membawa surat kehilangan dari kepolisian sebagai syarat tambahan.
-
-**Keywords:** ktp, kartu keluarga, dukcapil, kependudukan, e-ktp
-
-## KATEGORI 23: PENDIDIKAN
-
-### KB-058: Informasi PPDB Sekolah di NTB
-
-**Pertanyaan:**
-- Kapan PPDB SMA NTB dibuka?
-- Bagaimana cara daftar sekolah negeri di NTB?
-- Jalur zonasi PPDB NTB gimana?
-
-**Jawaban:**
-Penerimaan Peserta Didik Baru (PPDB) untuk jenjang SMA/SMK negeri di NTB dikelola oleh Dinas Pendidikan dan Kebudayaan Provinsi NTB, biasanya dibuka menjelang tahun ajaran baru (sekitar Juni-Juli). Terdapat beberapa jalur pendaftaran: zonasi, afirmasi (ekonomi tidak mampu), perpindahan orang tua, dan prestasi. Informasi resmi dan jadwal terbaru diumumkan melalui website Disdikbud NTB.
-
-**Keywords:** ppdb, sekolah, pendaftaran, sma, smk, zonasi, disdikbud
-
-## KATEGORI 24: KEBENCANAAN
+## KATEGORI 22: KEBENCANAAN
 
 ### KB-059: Layanan Pemadam Kebakaran NTB
 
@@ -1369,7 +1424,7 @@ Layanan pemadam kebakaran (Damkar) di NTB dikelola oleh masing-masing kabupaten/
 
 **Keywords:** damkar, pemadam kebakaran, darurat, 113
 
-## KATEGORI 25: LAYANAN BUDAYA & PERPUSTAKAAN
+## KATEGORI 23: LAYANAN BUDAYA & PERPUSTAKAAN
 
 ### KB-060: Layanan Perpustakaan Daerah Provinsi NTB
 
@@ -1382,3 +1437,503 @@ Layanan pemadam kebakaran (Damkar) di NTB dikelola oleh masing-masing kabupaten/
 Dinas Perpustakaan dan Kearsipan Provinsi NTB mengelola perpustakaan daerah yang terbuka untuk umum secara gratis. Warga dapat mendaftar jadi anggota dengan membawa KTP. Selain layanan fisik, tersedia juga layanan perpustakaan digital (e-library) yang bisa diakses melalui aplikasi resmi untuk membaca buku secara online.
 
 **Keywords:** perpustakaan, buku, e-library, kearsipan, baca
+
+## KATEGORI 24: PERDAGANGAN
+
+### KB-062: Pengawasan Pasar dan Distribusi Barang Kebutuhan Pokok
+
+**Pertanyaan:**
+- Kemana lapor harga sembako yang mencurigakan/mahal?
+- Dinas Perdagangan NTB ngurus apa?
+- Ada operasi pasar murah tidak?
+
+**Jawaban:**
+Dinas Perdagangan Provinsi NTB mengawasi stabilitas harga dan distribusi barang kebutuhan pokok, termasuk mengadakan operasi pasar murah menjelang hari besar keagamaan. Laporan terkait kelangkaan atau kenaikan harga tidak wajar dapat disampaikan ke Dinas Perdagangan setempat atau dipantau lewat layanan Panel Harga yang sudah ada di Portal NTB.
+
+**Keywords:** perdagangan, pasar murah, sembako, harga, distribusi
+
+## KATEGORI 25: PROFIL
+
+### KB-063: Tugas Diskominfotik NTB
+
+**Pertanyaan:**
+- Apa tugas Diskominfotik NTB?
+- Apa tugas utama Diskominfotik?
+- Diskominfotik NTB bertugas apa?
+- Apa fungsi utama Diskominfotik?
+
+**Jawaban:**
+Diskominfotik NTB memiliki tugas membantu penyelenggaraan urusan pemerintahan daerah yang berkaitan dengan komunikasi dan informatika, statistik, persandian, pengelolaan teknologi informasi, serta mendukung transformasi digital pemerintahan.
+
+**Keywords:** tugas Diskominfotik, fungsi Diskominfotik, Kominfo NTB, teknologi informasi, komunikasi informatika
+
+## KATEGORI 26: SPBE
+
+### KB-065: Pengertian SPBE
+
+**Pertanyaan:**
+- Apa itu SPBE?
+- Apa kepanjangan SPBE?
+- Jelaskan tentang SPBE
+- Apa yang dimaksud Sistem Pemerintahan Berbasis Elektronik?
+
+**Jawaban:**
+SPBE adalah Sistem Pemerintahan Berbasis Elektronik, yaitu penyelenggaraan pemerintahan yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan layanan kepada instansi pemerintah, aparatur, masyarakat, dan pihak lainnya secara efektif dan efisien.
+
+**Keywords:** SPBE, sistem pemerintahan berbasis elektronik, pemerintahan digital, digitalisasi pemerintah, transformasi digital
+
+### KB-066: Tujuan SPBE
+
+**Pertanyaan:**
+- Apa tujuan SPBE?
+- Mengapa SPBE diterapkan?
+- Apa manfaat penerapan SPBE?
+- Untuk apa SPBE dibuat?
+
+**Jawaban:**
+SPBE bertujuan untuk meningkatkan keterpaduan, efektivitas, efisiensi, transparansi, dan kualitas penyelenggaraan pemerintahan melalui pemanfaatan teknologi informasi dan komunikasi.
+
+**Keywords:** tujuan SPBE, manfaat SPBE, penerapan SPBE, pemerintahan digital, transformasi digital
+
+### KB-067: Manfaat SPBE
+
+**Pertanyaan:**
+- Apa manfaat SPBE?
+- Apa keuntungan menggunakan SPBE?
+- Bagaimana SPBE membantu pemerintahan?
+
+**Jawaban:**
+SPBE memberikan manfaat berupa peningkatan efisiensi proses pemerintahan, kemudahan akses layanan, integrasi informasi, peningkatan transparansi, serta mendukung pelayanan publik yang lebih cepat dan efektif.
+
+**Keywords:** manfaat SPBE, keuntungan SPBE, layanan digital, efisiensi pemerintah, pemerintahan elektronik
+
+### KB-068: Arsitektur SPBE
+
+**Pertanyaan:**
+- Apa itu arsitektur SPBE?
+- Apa fungsi arsitektur SPBE?
+- Bagaimana arsitektur SPBE?
+
+**Jawaban:**
+Arsitektur SPBE merupakan kerangka dasar yang menggambarkan keterkaitan antara proses bisnis, data dan informasi, aplikasi, infrastruktur, keamanan, serta layanan dalam penyelenggaraan Sistem Pemerintahan Berbasis Elektronik.
+
+**Keywords:** arsitektur SPBE, kerangka SPBE, proses bisnis, aplikasi pemerintah, infrastruktur SPBE
+
+### KB-069: Arsitektur SPBE
+
+**Pertanyaan:**
+- Apa itu manajemen SPBE?
+- Apa saja yang termasuk manajemen SPBE?
+- Mengapa manajemen SPBE penting?
+- Bagaimana pengelolaan SPBE dilakukan?
+- Apa fungsi manajemen dalam SPBE?
+
+**Jawaban:**
+Manajemen SPBE merupakan bagian dari penyelenggaraan SPBE yang mendukung pengelolaan pemerintahan digital. Manajemen SPBE mencakup berbagai aspek pengelolaan yang diperlukan untuk mendukung keberlangsungan layanan digital pemerintahan, seperti pengelolaan risiko, keamanan, pengetahuan, perubahan, aset teknologi informasi, dan layanan.
+
+**Keywords:** manajemen SPBE, pengelolaan SPBE, SPBE, sistem pemerintahan berbasis elektronik, pemerintahan digital, tata kelola pemerintahan, manajemen digital, transformasi digital
+
+### KB-070: Tata Kelola SPBE
+
+**Pertanyaan:**
+- Apa itu tata kelola SPBE?
+- Bagaimana tata kelola SPBE?
+- Mengapa tata kelola SPBE diperlukan?
+
+**Jawaban:**
+Tata kelola SPBE merupakan pengaturan dan pengendalian penyelenggaraan Sistem Pemerintahan Berbasis Elektronik agar pelaksanaannya terarah, terintegrasi, aman, dan sesuai dengan tujuan transformasi digital pemerintahan.
+
+**Keywords:** tata kelola SPBE, governance SPBE, pengelolaan digital, pemerintahan elektronik, transformasi digital
+
+### KB-071: Transformasi Digital Pemerintahan
+
+**Pertanyaan:**
+- Apa itu transformasi digital pemerintahan?
+- Apa tujuan digitalisasi pemerintahan?
+- Bagaimana transformasi digital pemerintah?
+
+**Jawaban:**
+Transformasi digital pemerintahan adalah proses pemanfaatan teknologi digital untuk meningkatkan kualitas proses kerja, pelayanan publik, pengelolaan data, komunikasi, dan pengambilan keputusan dalam penyelenggaraan pemerintahan.
+
+**Keywords:** transformasi digital, digitalisasi pemerintah, pemerintahan digital, SPBE, teknologi digital
+
+### KB-115: Domain SPBE
+
+**Pertanyaan:**
+- Apa saja domain SPBE?
+- Apa yang dimaksud domain SPBE?
+- Komponen SPBE apa saja?
+
+**Jawaban:**
+Penyelenggaraan SPBE mencakup berbagai aspek yang saling berkaitan, antara lain tata kelola, manajemen, layanan, aplikasi, infrastruktur, data dan informasi, serta keamanan. Keseluruhan aspek tersebut mendukung penyelenggaraan pemerintahan berbasis elektronik.
+
+**Keywords:** domain SPBE, komponen SPBE, tata kelola SPBE, layanan SPBE, infrastruktur SPBE
+
+### KB-116: Layanan SPBE
+
+**Pertanyaan:**
+- Apa itu layanan SPBE?
+- Apa saja layanan SPBE?
+- Apa fungsi layanan SPBE?
+
+**Jawaban:**
+Layanan SPBE merupakan layanan yang diselenggarakan dengan memanfaatkan teknologi informasi untuk mendukung layanan administrasi pemerintahan dan pelayanan publik secara elektronik.
+
+**Keywords:** layanan SPBE, SPBE, layanan elektronik, layanan pemerintah, pemerintahan digital
+
+### KB-117: Evaluasi SPBE
+
+**Pertanyaan:**
+- Apa itu evaluasi SPBE?
+- Mengapa SPBE perlu dievaluasi?
+- Bagaimana evaluasi SPBE dilakukan?
+
+**Jawaban:**
+Evaluasi SPBE dilakukan untuk mengetahui tingkat kematangan dan kualitas penyelenggaraan SPBE serta mengidentifikasi aspek yang perlu ditingkatkan dalam pengelolaan pemerintahan berbasis elektronik.
+
+**Keywords:** evaluasi SPBE, penilaian SPBE, indeks SPBE, kualitas SPBE, pemerintahan digital
+
+### KB-118: Indeks SPBE
+
+**Pertanyaan:**
+- Apa itu indeks SPBE?
+- Apa fungsi indeks SPBE?
+- Mengapa indeks SPBE penting?
+
+**Jawaban:**
+Indeks SPBE merupakan ukuran yang digunakan untuk menggambarkan tingkat penerapan dan kematangan Sistem Pemerintahan Berbasis Elektronik pada suatu instansi pemerintah.
+
+**Keywords:** indeks SPBE, nilai SPBE, evaluasi SPBE, kematangan SPBE
+
+### KB-119: Proses Bisnis SPBE
+
+**Pertanyaan:**
+- Apa itu proses bisnis SPBE?
+- Apa fungsi proses bisnis?
+- Mengapa proses bisnis penting dalam SPBE?
+
+**Jawaban:**
+Proses bisnis SPBE menggambarkan rangkaian aktivitas dan hubungan kerja dalam penyelenggaraan pemerintahan yang menjadi dasar untuk pengembangan layanan, aplikasi, dan sistem digital secara terintegrasi.
+
+**Keywords:** proses bisnis SPBE, bisnis proses, SPBE, layanan pemerintah, sistem digital
+
+## KATEGORI 27: DATA
+
+### KB-072: NTB Satu Data
+
+**Pertanyaan:**
+- Apa itu NTB Satu Data?
+- Apa fungsi NTB Satu Data?
+- Untuk apa NTB Satu Data?
+- Jelaskan NTB Satu Data
+
+**Jawaban:**
+NTB Satu Data merupakan inisiatif pengelolaan dan penyediaan data pemerintah yang bertujuan mendukung ketersediaan data yang terintegrasi, akurat, dan dapat digunakan sebagai dasar dalam perencanaan serta pengambilan kebijakan pembangunan di Provinsi Nusa Tenggara Barat.
+
+**Keywords:** NTB Satu Data, satu data, data NTB, data pemerintah, dataset, informasi pembangunan
+
+### KB-073: Tujuan Satu Data
+
+**Pertanyaan:**
+- Apa tujuan Satu Data?
+- Mengapa pemerintah membutuhkan Satu Data?
+- Apa manfaat integrasi data pemerintah?
+
+**Jawaban:**
+Tujuan Satu Data adalah menciptakan data pemerintah yang berkualitas, terintegrasi, mudah diakses, dan dapat digunakan bersama untuk mendukung perencanaan, pelaksanaan, evaluasi, serta pengambilan kebijakan.
+
+**Keywords:** satu data, integrasi data, data pemerintah, kualitas data, kebijakan berbasis data
+
+### KB-074: Pengelolaan Data Pemerintah
+
+**Pertanyaan:**
+- Bagaimana data pemerintah dikelola?
+- Apa itu pengelolaan data pemerintah?
+- Mengapa data pemerintah penting?
+
+**Jawaban:**
+Pengelolaan data pemerintah meliputi proses pengumpulan, penyimpanan, pemutakhiran, pengamanan, integrasi, dan penyediaan data agar dapat digunakan secara efektif dalam mendukung penyelenggaraan pemerintahan dan pelayanan publik.
+
+**Keywords:** pengelolaan data, data pemerintah, integrasi data, data digital, informasi pemerintah
+
+### KB-113: Database
+
+**Pertanyaan:**
+- Apa itu database?
+- Apa fungsi database?
+- Untuk apa database digunakan?
+- Apa fungsi database dalam sistem informasi?
+
+**Jawaban:**
+Database atau basis data merupakan kumpulan data yang disimpan dan dikelola secara terstruktur sehingga dapat dicari, diolah, diperbarui, dan digunakan oleh sistem sesuai kebutuhan.
+
+**Keywords:** database, basis data, penyimpanan data, data digital, sistem informasi
+
+### KB-120: Metadata
+
+**Pertanyaan:**
+- Apa itu metadata?
+- Apa fungsi metadata?
+- Mengapa metadata penting?
+
+**Jawaban:**
+Metadata adalah informasi yang menjelaskan karakteristik atau konteks suatu data, seperti nama data, sumber data, waktu pembuatan, format, dan informasi lain yang membantu memahami serta mengelola data.
+
+**Keywords:** metadata, informasi data, data pemerintah, pengelolaan data, kualitas data
+
+### KB-121: Kualitas Data
+
+**Pertanyaan:**
+- Apa itu kualitas data?
+- Mengapa kualitas data penting?
+- Bagaimana mengetahui data berkualitas?
+
+**Jawaban:**
+Kualitas data menunjukkan tingkat ketepatan dan kelayakan data untuk digunakan. Data yang berkualitas perlu memiliki informasi yang akurat, lengkap, konsisten, relevan, dan dapat diperbarui sesuai kebutuhan.
+
+**Keywords:** kualitas data, data akurat, data lengkap, data konsisten, pengelolaan data
+
+### KB-122: Integrasi Data
+
+**Pertanyaan:**
+- Apa itu integrasi data?
+- Bagaimana integrasi data dilakukan?
+- Apa manfaat integrasi data?
+
+**Jawaban:**
+Integrasi data merupakan proses menggabungkan atau menghubungkan data dari berbagai sumber agar dapat digunakan secara terpadu. Integrasi membantu mengurangi duplikasi dan memudahkan pemanfaatan data untuk kebutuhan pemerintahan.
+
+**Keywords:** integrasi data, data terintegrasi, pertukaran data, satu data, interoperabilitas
+
+## KATEGORI 28: LAYANAN DIGITAL
+
+### KB-075: Layanan Digital Pemerintah
+
+**Pertanyaan:**
+- Apa itu layanan digital pemerintah?
+- Apa saja layanan digital pemerintah?
+- Bagaimana layanan pemerintah secara online?
+
+**Jawaban:**
+Layanan digital pemerintah merupakan layanan yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan kemudahan akses kepada masyarakat maupun aparatur dalam memperoleh informasi dan layanan pemerintahan secara elektronik.
+
+**Keywords:** layanan digital, layanan pemerintah online, pemerintahan elektronik, aplikasi pemerintah, SPBE
+
+### KB-076: Integrasi Sistem Pemerintah
+
+**Pertanyaan:**
+- Apa itu integrasi aplikasi pemerintah?
+- Mengapa aplikasi pemerintah perlu terintegrasi?
+- Apa manfaat integrasi sistem?
+
+**Jawaban:**
+Integrasi sistem merupakan proses menghubungkan berbagai aplikasi dan layanan agar dapat saling bertukar data serta mendukung proses kerja yang lebih efisien. Integrasi membantu mengurangi duplikasi data dan meningkatkan keterpaduan layanan digital.
+
+**Keywords:** integrasi sistem, integrasi aplikasi, interoperabilitas, pertukaran data, aplikasi pemerintah
+
+### KB-077: Interoperabilitas Sistem
+
+**Pertanyaan:**
+- Apa itu interoperabilitas?
+- Apa fungsi interoperabilitas sistem?
+- Mengapa sistem pemerintah harus interoperabel?
+
+**Jawaban:**
+Interoperabilitas adalah kemampuan antar sistem atau aplikasi untuk saling berkomunikasi, bertukar data, dan menggunakan informasi secara bersama sesuai dengan standar yang telah ditetapkan.
+
+**Keywords:** interoperabilitas, integrasi sistem, pertukaran data, aplikasi terintegrasi, sistem pemerintah
+
+### KB-088: Tanda Tangan Elektronik
+
+**Pertanyaan:**
+- Apa itu tanda tangan elektronik?
+- Apa fungsi TTE?
+- Untuk apa tanda tangan elektronik digunakan?
+
+**Jawaban:**
+Tanda Tangan Elektronik atau TTE merupakan tanda tangan dalam bentuk elektronik yang digunakan untuk melakukan autentikasi dan verifikasi terhadap identitas penanda tangan serta menjamin keaslian dokumen elektronik sesuai ketentuan yang berlaku.
+
+**Keywords:** TTE, tanda tangan elektronik, dokumen elektronik, digital signature, sertifikat elektronik
+
+## KATEGORI 29: KEAMANAN INFORMASI
+
+### KB-078: Keamanan Informasi
+
+**Pertanyaan:**
+- Apa itu keamanan informasi?
+- Mengapa keamanan informasi penting?
+- Bagaimana menjaga keamanan informasi?
+
+**Jawaban:**
+Keamanan informasi adalah upaya untuk melindungi data dan informasi dari akses, penggunaan, perubahan, pengungkapan, atau kerusakan yang tidak sah sehingga kerahasiaan, integritas, dan ketersediaan informasi tetap terjaga.
+
+**Keywords:** keamanan informasi, keamanan data, cyber security, perlindungan data, keamanan digital
+
+### KB-079: Keamanan Siber
+
+**Pertanyaan:**
+- Apa itu keamanan siber?
+- Apa fungsi keamanan siber?
+- Mengapa cybersecurity penting?
+
+**Jawaban:**
+Keamanan siber merupakan upaya perlindungan sistem, jaringan, perangkat, dan data digital dari ancaman atau serangan yang dapat mengganggu kerahasiaan, integritas, dan ketersediaan informasi.
+
+**Keywords:** keamanan informasi, keamanan data, cyber security, perlindungan data, keamanan digital
+
+### KB-080: Perlindungan Data
+
+**Pertanyaan:**
+- Bagaimana cara melindungi data?
+- Mengapa data perlu dilindungi?
+- Apa itu perlindungan data?
+
+**Jawaban:**
+Perlindungan data dilakukan melalui pengelolaan akses, penggunaan autentikasi, pengamanan sistem, pencadangan data, serta penerapan kebijakan keamanan untuk mengurangi risiko kehilangan, kebocoran, atau penyalahgunaan informasi.
+
+**Keywords:** perlindungan data, keamanan data, privasi data, backup data, akses data
+
+## KATEGORI 30: PENGADUAN
+
+### KB-084: Layanan Pengaduan Masyarakat
+
+**Pertanyaan:**
+- Bagaimana cara mengadu ke pemerintah?
+- Dimana saya bisa menyampaikan pengaduan?
+- Bagaimana layanan pengaduan masyarakat?
+
+**Jawaban:**
+Masyarakat dapat menyampaikan aspirasi atau pengaduan terkait pelayanan publik melalui kanal pengaduan resmi yang disediakan oleh pemerintah. Pengaduan sebaiknya disampaikan dengan informasi yang jelas agar dapat diteruskan kepada pihak yang berwenang.
+
+**Keywords:** pengaduan masyarakat, layanan pengaduan, aspirasi masyarakat, keluhan publik, pelayanan publik
+
+### KB-085: SP4N-LAPOR
+
+**Pertanyaan:**
+- Apa itu SP4N LAPOR?
+- Apa fungsi LAPOR?
+- Bagaimana cara menyampaikan pengaduan melalui LAPOR?
+
+**Jawaban:**
+SP4N-LAPOR merupakan sistem pengelolaan pengaduan pelayanan publik yang digunakan sebagai sarana penyampaian aspirasi dan pengaduan masyarakat kepada instansi pemerintah sesuai dengan mekanisme yang berlaku.
+
+**Keywords:** SP4N LAPOR, LAPOR, pengaduan online, aspirasi masyarakat, pengaduan publik
+
+## KATEGORI 31: APLIKASI PEMERINTAH
+
+### KB-086: Aplikasi SRIKANDI
+
+**Pertanyaan:**
+- Apa itu SRIKANDI?
+- Aplikasi SRIKANDI untuk apa?
+- Apa fungsi aplikasi SRIKANDI?
+
+**Jawaban:**
+SRIKANDI merupakan aplikasi yang digunakan untuk mendukung pengelolaan arsip dan persuratan secara elektronik dalam lingkungan instansi pemerintah sebagai bagian dari transformasi digital administrasi pemerintahan.
+
+**Keywords:** SRIKANDI, arsip digital, persuratan elektronik, administrasi pemerintah, aplikasi pemerintah
+
+### KB-087: JDIH
+
+**Pertanyaan:**
+- Apa itu JDIH?
+- Apa fungsi JDIH?
+- Dimana mencari dokumen hukum pemerintah?
+
+**Jawaban:**
+JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyediakan akses terhadap dokumen dan informasi hukum, seperti peraturan dan produk hukum, untuk memudahkan masyarakat memperoleh informasi hukum.
+
+**Keywords:** JDIH, jaringan dokumentasi hukum, informasi hukum, peraturan daerah, dokumen hukum
+
+## KATEGORI 32: TEKNOLOGI INFORMASI
+
+### KB-089: Infrastruktur TIK
+
+**Pertanyaan:**
+- Apa itu infrastruktur TIK?
+- Apa yang dimaksud infrastruktur teknologi informasi?
+- Mengapa infrastruktur TIK penting?
+
+**Jawaban:**
+Infrastruktur TIK merupakan perangkat dan sumber daya teknologi yang mendukung operasional sistem informasi, seperti jaringan komputer, server, pusat data, perangkat keras, perangkat lunak, dan fasilitas komunikasi.
+
+**Keywords:** infrastruktur TIK, teknologi informasi, server, jaringan komputer, pusat data
+
+### KB-090: Sistem Informasi
+
+**Pertanyaan:**
+- Apa itu sistem informasi?
+- Apa fungsi sistem informasi?
+- Mengapa sistem informasi diperlukan?
+
+**Jawaban:**
+Sistem informasi adalah kombinasi dari manusia, teknologi, prosedur, data, dan proses yang digunakan untuk mengumpulkan, mengolah, menyimpan, dan menyajikan informasi guna mendukung kegiatan organisasi dan pengambilan keputusan.
+
+**Keywords:** sistem informasi, informasi digital, aplikasi, pengolahan data, teknologi informasi
+
+## KATEGORI 33: ADMINISTRASI DIGITAL
+
+### KB-106: Digitalisasi Administrasi
+
+**Pertanyaan:**
+- Apa itu digitalisasi administrasi?
+- Mengapa administrasi pemerintah didigitalisasi?
+- Apa manfaat administrasi digital?
+
+**Jawaban:**
+Digitalisasi administrasi merupakan proses mengubah atau mengembangkan proses administrasi konvensional menjadi berbasis teknologi digital untuk meningkatkan efisiensi, kecepatan, ketepatan, dan kemudahan pengelolaan informasi.
+
+**Keywords:** digitalisasi administrasi, administrasi digital, transformasi digital, pemerintahan elektronik
+
+## KATEGORI 34: INFRASTRUKTUR
+
+### KB-107: Pusat Data
+
+**Pertanyaan:**
+- Apa itu pusat data?
+- Apa fungsi data center?
+- Mengapa pemerintah membutuhkan pusat data?
+
+**Jawaban:**
+Pusat data atau data center merupakan fasilitas yang digunakan untuk menyimpan, mengelola, dan menjalankan sistem serta data digital. Pusat data mendukung ketersediaan layanan teknologi informasi secara terpusat dan berkelanjutan.
+
+**Keywords:** pusat data, data center, server, penyimpanan data, infrastruktur digital
+
+## KATEGORI 35: PTIK
+
+### KB-109: Bidang PTIK
+
+**Pertanyaan:**
+- Apa itu bidang PTIK?
+- Apa tugas bidang PTIK?
+- PTIK menangani apa?
+- Apa fungsi PTIK di Diskominfotik?
+
+**Jawaban:**
+Bidang PTIK merupakan bagian yang berkaitan dengan pengelolaan dan pemanfaatan teknologi informasi dan komunikasi untuk mendukung penyelenggaraan pemerintahan dan layanan digital.
+
+**Keywords:** PTIK, bidang PTIK, teknologi informasi, komunikasi, Diskominfotik
+
+### KB-110: Infrastruktur Digital
+
+**Pertanyaan:**
+- Apa itu infrastruktur digital?
+- Apa fungsi infrastruktur digital pemerintah?
+- Mengapa infrastruktur digital penting?
+
+**Jawaban:**
+Infrastruktur digital merupakan berbagai perangkat, jaringan, server, pusat data, perangkat lunak, dan teknologi pendukung yang digunakan untuk menjalankan layanan digital pemerintahan.
+
+**Keywords:** infrastruktur digital, infrastruktur TIK, server, jaringan, layanan digital
+
+### KB-111: Jaringan Internet
+
+**Pertanyaan:**
+- Apa fungsi jaringan internet pemerintah?
+- Mengapa jaringan internet penting?
+- Apa itu jaringan pemerintah?
+
+**Jawaban:**
+Jaringan internet mendukung komunikasi, pertukaran data, akses aplikasi, dan penggunaan berbagai layanan digital dalam lingkungan pemerintahan.
+
+**Keywords:** jaringan internet, jaringan pemerintah, internet, konektivitas, TIK
