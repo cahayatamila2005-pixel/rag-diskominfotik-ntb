@@ -1,7 +1,13 @@
 ﻿"""
 Tanya NTB
 Chatbot RAG Layanan Publik Provinsi NTB
+
+Kategori dan pertanyaan dibaca otomatis dari:
+data/knowledge_ai_ntb.txt
 """
+
+import re
+from pathlib import Path
 
 import streamlit as st
 
@@ -11,7 +17,7 @@ from logger import log_question
 
 
 # ============================================================
-# KONFIGURASI
+# KONFIGURASI HALAMAN
 # ============================================================
 
 st.set_page_config(
@@ -32,11 +38,12 @@ st.markdown(
 
 
 # ============================================================
-# HEADER
+# CSS TAMBAHAN
 # ============================================================
 
 st.markdown(
 """<style>
+
 .ntb-banner-final {
     background-color: #073b36;
     padding: 30px 30px 28px 30px;
@@ -99,10 +106,22 @@ st.markdown(
     margin-top: 18px !important;
     margin-bottom: 8px !important;
 }
+
+.category-info {
+    color: #666666 !important;
+    font-size: 13px !important;
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+}
+
 </style>""",
     unsafe_allow_html=True
 )
 
+
+# ============================================================
+# HEADER
+# ============================================================
 
 st.markdown(
 """<div class="ntb-banner-final"><div class="ntb-eyebrow-final">PORTAL LAYANAN PUBLIK · PROVINSI NTB</div><div class="ntb-title-final">Tanya NTB</div><div class="ntb-subtitle-final">Asisten informasi layanan publik berbasis pencarian dokumen resmi (RAG)</div></div><div class="ntb-weave-final"></div>""",
@@ -119,67 +138,212 @@ TOP_K = 3
 
 
 # ============================================================
-# LOAD PIPELINE
+# LOKASI KNOWLEDGE BASE
 # ============================================================
 
-pipeline = load_pipeline(GENERATION_MODE)
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+KB_FILE = BASE_DIR / "data" / "knowledge_ai_ntb.txt"
 
 
 # ============================================================
-# DATA KATEGORI
+# FUNGSI MEMBACA KNOWLEDGE BASE
 # ============================================================
 
-kategori_pertanyaan = {
-    "Semua Kategori": [
-        "Apa saja layanan publik yang tersedia di Portal NTB?",
-        "Bagaimana cara mendapatkan informasi layanan pemerintah?"
-    ],
+@st.cache_data
+def load_knowledge_base():
 
-    "Layanan Publik": [
-        "Apa saja layanan publik yang tersedia di Portal NTB?",
-        "Bagaimana cara mengakses layanan publik NTB?"
-    ],
+    if not KB_FILE.exists():
 
-    "PPID & Informasi Publik": [
-        "Apa itu PPID?",
-        "Bagaimana cara meminta informasi publik?"
-    ],
+        return {}, 0
 
-    "Pengaduan Masyarakat": [
-        "Bagaimana cara menyampaikan pengaduan?",
-        "Kalau ingin melaporkan masalah pelayanan pemerintah, ke mana?"
-    ],
 
-    "SPBE & Teknologi Informasi": [
-        "Apa itu SPBE?",
-        "Apa yang dimaksud dengan layanan SPBE?"
-    ],
+    try:
 
-    "Data & NTB Satu Data": [
-        "Apa itu NTB Satu Data?",
-        "Di mana saya bisa melihat data Provinsi NTB?"
-    ],
+        text = KB_FILE.read_text(
+            encoding="utf-8",
+            errors="replace"
+        )
 
-    "Layanan Digital": [
-        "Apa itu DDSS?",
-        "Apa saja layanan digital pemerintah yang tersedia?"
-    ],
+    except Exception:
 
-    "Kontak & Informasi Kantor": [
-        "Di mana lokasi kantor Diskominfotik NTB?",
-        "Berapa nomor kontak Diskominfotik NTB?"
-    ],
+        text = KB_FILE.read_text(
+            errors="replace"
+        )
 
-    "Layanan Kesehatan": [
-        "Apa saja layanan kesehatan yang tersedia?",
-        "Bagaimana cara mendapatkan informasi layanan kesehatan?"
-    ],
 
-    "Layanan Pendidikan": [
-        "Apa saja layanan pendidikan yang tersedia?",
-        "Bagaimana cara mendapatkan informasi penerimaan pendidikan?"
-    ]
-}
+    # --------------------------------------------------------
+    # Cari semua kategori
+    # --------------------------------------------------------
+
+    category_pattern = re.compile(
+        r"^##\s*KATEGORI\s+\d+\s*:\s*(.+?)\s*$",
+        re.MULTILINE
+    )
+
+    category_matches = list(
+        category_pattern.finditer(text)
+    )
+
+
+    categories = {}
+
+
+    # --------------------------------------------------------
+    # Proses setiap kategori
+    # --------------------------------------------------------
+
+    for i, category_match in enumerate(category_matches):
+
+        category_name = category_match.group(1).strip()
+
+
+        start = category_match.end()
+
+
+        if i + 1 < len(category_matches):
+
+            end = category_matches[i + 1].start()
+
+        else:
+
+            end = len(text)
+
+
+        category_text = text[
+            start:end
+        ]
+
+
+        questions = []
+
+
+        # ----------------------------------------------------
+        # Cari setiap KB dalam kategori
+        # ----------------------------------------------------
+
+        kb_pattern = re.compile(
+            r"^###\s*KB-\d+\s*:\s*(.+?)\s*$",
+            re.MULTILINE
+        )
+
+        kb_matches = list(
+            kb_pattern.finditer(category_text)
+        )
+
+
+        for j, kb_match in enumerate(kb_matches):
+
+            kb_title = kb_match.group(1).strip()
+
+
+            kb_start = kb_match.end()
+
+
+            if j + 1 < len(kb_matches):
+
+                kb_end = kb_matches[j + 1].start()
+
+            else:
+
+                kb_end = len(category_text)
+
+
+            kb_text = category_text[
+                kb_start:kb_end
+            ]
+
+
+            # ------------------------------------------------
+            # Cari bagian Pertanyaan
+            # ------------------------------------------------
+
+            question_match = re.search(
+                r"\*\*Pertanyaan:\*\*(.*?)(?=\n\s*\*\*Jawaban:|\Z)",
+                kb_text,
+                re.DOTALL | re.IGNORECASE
+            )
+
+
+            if question_match:
+
+                question_text = question_match.group(1)
+
+
+                found_questions = re.findall(
+                    r"^\s*-\s*(.+?)\s*$",
+                    question_text,
+                    re.MULTILINE
+                )
+
+
+                for q in found_questions:
+
+                    q = q.strip()
+
+                    if q and q not in questions:
+
+                        questions.append(q)
+
+
+            # ------------------------------------------------
+            # Kalau tidak ada pertanyaan, gunakan judul KB
+            # ------------------------------------------------
+
+            if not questions and kb_title:
+
+                questions.append(
+                    kb_title
+                )
+
+
+        categories[category_name] = questions
+
+
+    return categories, len(category_matches)
+
+
+# ============================================================
+# LOAD KATEGORI
+# ============================================================
+
+kategori_data, jumlah_kategori = load_knowledge_base()
+
+
+# ============================================================
+# LOAD PIPELINE RAG
+# ============================================================
+
+pipeline = load_pipeline(
+    GENERATION_MODE
+)
+
+
+# ============================================================
+# CEK KNOWLEDGE BASE
+# ============================================================
+
+if not kategori_data:
+
+    st.warning(
+        "Kategori Knowledge Base tidak ditemukan. "
+        "Pastikan file data/knowledge_ai_ntb.txt tersedia."
+    )
+
+    kategori_data = {
+        "Semua Kategori": [
+            "Apa saja layanan publik yang tersedia di NTB?"
+        ]
+    }
+
+
+# ============================================================
+# TAMBAHKAN SEMUA KATEGORI
+# ============================================================
+
+category_names = list(
+    kategori_data.keys()
+)
 
 
 # ============================================================
@@ -191,10 +355,27 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
+st.markdown(
+f"""<div class="category-info">Tersedia {jumlah_kategori} kategori layanan dari Knowledge Base.</div>""",
+    unsafe_allow_html=True
+)
+
+
 selected_category = st.selectbox(
     "Kategori layanan",
-    list(kategori_pertanyaan.keys()),
+    category_names,
     label_visibility="collapsed"
+)
+
+
+# ============================================================
+# PERTANYAAN DARI KATEGORI
+# ============================================================
+
+selected_questions = kategori_data.get(
+    selected_category,
+    []
 )
 
 
@@ -202,37 +383,146 @@ selected_category = st.selectbox(
 # PERTANYAAN CEPAT
 # ============================================================
 
-st.markdown(
+if selected_questions:
+
+    st.markdown(
 """<div class="quick-title-final">💡 Pertanyaan Cepat</div>""",
-    unsafe_allow_html=True
-)
+        unsafe_allow_html=True
+    )
 
-questions = kategori_pertanyaan[selected_category]
 
-col1, col2 = st.columns(2)
+    # Ambil maksimal 4 pertanyaan
+    quick_questions = selected_questions[:4]
 
-with col1:
-    if st.button(
-        questions[0],
-        use_container_width=True,
-        key="question_1"
-    ):
-        st.session_state["pending_question"] = questions[0]
 
-with col2:
-    if st.button(
-        questions[1],
-        use_container_width=True,
-        key="question_2"
-    ):
-        st.session_state["pending_question"] = questions[1]
+    # --------------------------------------------------------
+    # Jika hanya 1 pertanyaan
+    # --------------------------------------------------------
+
+    if len(quick_questions) == 1:
+
+        if st.button(
+            quick_questions[0],
+            use_container_width=True,
+            key="quick_0"
+        ):
+
+            st.session_state[
+                "pending_question"
+            ] = quick_questions[0]
+
+
+    # --------------------------------------------------------
+    # Jika 2 pertanyaan
+    # --------------------------------------------------------
+
+    elif len(quick_questions) == 2:
+
+        col1, col2 = st.columns(2)
+
+
+        with col1:
+
+            if st.button(
+                quick_questions[0],
+                use_container_width=True,
+                key="quick_0"
+            ):
+
+                st.session_state[
+                    "pending_question"
+                ] = quick_questions[0]
+
+
+        with col2:
+
+            if st.button(
+                quick_questions[1],
+                use_container_width=True,
+                key="quick_1"
+            ):
+
+                st.session_state[
+                    "pending_question"
+                ] = quick_questions[1]
+
+
+    # --------------------------------------------------------
+    # Jika 3 atau 4 pertanyaan
+    # --------------------------------------------------------
+
+    else:
+
+        col1, col2 = st.columns(2)
+
+
+        with col1:
+
+            if st.button(
+                quick_questions[0],
+                use_container_width=True,
+                key="quick_0"
+            ):
+
+                st.session_state[
+                    "pending_question"
+                ] = quick_questions[0]
+
+
+        with col2:
+
+            if st.button(
+                quick_questions[1],
+                use_container_width=True,
+                key="quick_1"
+            ):
+
+                st.session_state[
+                    "pending_question"
+                ] = quick_questions[1]
+
+
+        if len(quick_questions) > 2:
+
+            col3, col4 = st.columns(2)
+
+
+            with col3:
+
+                if st.button(
+                    quick_questions[2],
+                    use_container_width=True,
+                    key="quick_2"
+                ):
+
+                    st.session_state[
+                        "pending_question"
+                    ] = quick_questions[2]
+
+
+            with col4:
+
+                if len(quick_questions) > 3:
+
+                    if st.button(
+                        quick_questions[3],
+                        use_container_width=True,
+                        key="quick_3"
+                    ):
+
+                        st.session_state[
+                            "pending_question"
+                        ] = quick_questions[3]
 
 
 # ============================================================
 # FUNGSI MENAMPILKAN JAWABAN
 # ============================================================
 
-def render_answer(answer: str, sources: list[dict]):
+def render_answer(
+    answer: str,
+    sources: list[dict]
+):
 
     if "tidak menemukan" in answer.lower():
 
@@ -243,15 +533,22 @@ def render_answer(answer: str, sources: list[dict]):
 
         return
 
+
     st.write(answer)
+
 
     if sources:
 
-        with st.expander("📄 Lihat sumber dokumen yang digunakan"):
+        with st.expander(
+            "📄 Lihat sumber dokumen yang digunakan"
+        ):
 
             for src in sources:
 
-                score = src.get("score", 0.0)
+                score = src.get(
+                    "score",
+                    0.0
+                )
 
                 source_name = src.get(
                     "source",
@@ -263,14 +560,20 @@ def render_answer(answer: str, sources: list[dict]):
                     ""
                 )
 
-                kelas_skor = skor_ke_kelas(score)
+                kelas_skor = skor_ke_kelas(
+                    score
+                )
+
 
                 st.markdown(
                     f"""<div class="kartu-sumber"><span class="sumber-label">{source_name}</span><span class="skor-badge {kelas_skor}">skor {score}</span></div>""",
                     unsafe_allow_html=True
                 )
 
-                st.text(source_text)
+
+                st.text(
+                    source_text
+                )
 
 
 # ============================================================
@@ -278,30 +581,40 @@ def render_answer(answer: str, sources: list[dict]):
 # ============================================================
 
 if "messages" not in st.session_state:
+
     st.session_state.messages = []
 
+
 if "pending_question" not in st.session_state:
+
     st.session_state.pending_question = None
 
 
 # ============================================================
-# RIWAYAT CHAT
+# TAMPILKAN RIWAYAT CHAT
 # ============================================================
 
 for msg in st.session_state.messages:
 
-    with st.chat_message(msg["role"]):
+    with st.chat_message(
+        msg["role"]
+    ):
 
         if msg["role"] == "assistant":
 
             render_answer(
                 msg["content"],
-                msg.get("sources", [])
+                msg.get(
+                    "sources",
+                    []
+                )
             )
 
         else:
 
-            st.write(msg["content"])
+            st.write(
+                msg["content"]
+            )
 
 
 # ============================================================
@@ -319,11 +632,19 @@ chat_question = st.chat_input(
 
 question = None
 
-if st.session_state.get("pending_question"):
 
-    question = st.session_state["pending_question"]
+if st.session_state.get(
+    "pending_question"
+):
 
-    st.session_state["pending_question"] = None
+    question = st.session_state[
+        "pending_question"
+    ]
+
+    st.session_state[
+        "pending_question"
+    ] = None
+
 
 elif chat_question:
 
@@ -336,6 +657,10 @@ elif chat_question:
 
 if question:
 
+    # --------------------------------------------------------
+    # Simpan pertanyaan user
+    # --------------------------------------------------------
+
     st.session_state.messages.append(
         {
             "role": "user",
@@ -343,12 +668,31 @@ if question:
         }
     )
 
-    with st.chat_message("user"):
-        st.write(question)
 
-    with st.chat_message("assistant"):
+    # --------------------------------------------------------
+    # Tampilkan pertanyaan
+    # --------------------------------------------------------
 
-        with st.spinner("Mencari jawaban..."):
+    with st.chat_message(
+        "user"
+    ):
+
+        st.write(
+            question
+        )
+
+
+    # --------------------------------------------------------
+    # Proses RAG
+    # --------------------------------------------------------
+
+    with st.chat_message(
+        "assistant"
+    ):
+
+        with st.spinner(
+            "Mencari jawaban..."
+        ):
 
             try:
 
@@ -357,29 +701,40 @@ if question:
                     top_k=TOP_K
                 )
 
+
                 answer = result.get(
                     "answer",
                     "Maaf, sistem tidak menemukan jawaban."
                 )
+
 
                 sources = result.get(
                     "sources",
                     []
                 )
 
+
                 render_answer(
                     answer,
                     sources
                 )
+
+
+                # ------------------------------------------------
+                # Logging
+                # ------------------------------------------------
 
                 terjawab = (
                     "tidak menemukan"
                     not in answer.lower()
                 )
 
+
                 if sources:
 
-                    skor_teratas = sources[0].get(
+                    skor_teratas = sources[
+                        0
+                    ].get(
                         "score",
                         0.0
                     )
@@ -388,9 +743,12 @@ if question:
 
                     skor_teratas = 0.0
 
+
                 if terjawab and sources:
 
-                    sumber_teratas = sources[0].get(
+                    sumber_teratas = sources[
+                        0
+                    ].get(
                         "source",
                         ""
                     )
@@ -399,12 +757,18 @@ if question:
 
                     sumber_teratas = ""
 
+
                 log_question(
                     question,
                     terjawab,
                     skor_teratas,
                     sumber_teratas
                 )
+
+
+                # ------------------------------------------------
+                # Simpan jawaban
+                # ------------------------------------------------
 
                 st.session_state.messages.append(
                     {
@@ -414,12 +778,18 @@ if question:
                     }
                 )
 
+
             except Exception as e:
 
                 st.error(
                     "Maaf, terjadi kesalahan saat memproses pertanyaan."
                 )
 
-                with st.expander("Detail error"):
 
-                    st.code(str(e))
+                with st.expander(
+                    "Detail error"
+                ):
+
+                    st.code(
+                        str(e)
+                    )
