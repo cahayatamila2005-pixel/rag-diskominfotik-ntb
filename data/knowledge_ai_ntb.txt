@@ -1871,6 +1871,19 @@ JDIH atau Jaringan Dokumentasi dan Informasi Hukum merupakan sistem yang menyedi
 
 **Keywords:** JDIH, jaringan dokumentasi hukum, informasi hukum, peraturan daerah, dokumen hukum
 
+### KB-127: Sistem Informasi Survei Kepuasan Masyarakat (SIMASKOT)
+
+**Pertanyaan:**
+- Apa itu SIMASKOT?
+- Apa fungsi SIMASKOT Diskominfotik NTB?
+- Untuk apa SIMASKOT digunakan?
+- Bagaimana cara mengisi survei kepuasan masyarakat?
+
+**Jawaban:**
+SIMASKOT merupakan Sistem Informasi Survei Kepuasan Masyarakat yang digunakan untuk mendukung pengumpulan penilaian masyarakat terhadap pelayanan. Masyarakat dapat mengikuti petunjuk pada layanan resmi SIMASKOT untuk memberikan penilaian atau mengisi survei yang tersedia.
+
+**Keywords:** SIMASKOT, survei kepuasan masyarakat, SKM, penilaian pelayanan, survei
+
 ## KATEGORI 32: TEKNOLOGI INFORMASI
 
 ### KB-089: Infrastruktur TIK
