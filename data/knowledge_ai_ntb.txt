@@ -1963,3 +1963,18 @@ Infrastruktur digital merupakan berbagai perangkat, jaringan, server, pusat data
 Jaringan internet mendukung komunikasi, pertukaran data, akses aplikasi, dan penggunaan berbagai layanan digital dalam lingkungan pemerintahan.
 
 **Keywords:** jaringan internet, jaringan pemerintah, internet, konektivitas, TIK
+
+## KATEGORI 36: STRUKTUR DAN UNIT KERJA
+
+### KB-125: Unit Kerja Diskominfotik NTB
+
+**Pertanyaan:**
+- Apa saja unit kerja Diskominfotik NTB?
+- Bidang apa saja yang ada di Diskominfotik NTB?
+- Apakah Diskominfotik NTB memiliki UPTD?
+- Apa saja bagian dalam Diskominfotik NTB?
+
+**Jawaban:**
+Diskominfotik NTB memiliki unit kerja dan bidang yang menjalankan tugas sesuai dengan struktur organisasi dan ketentuan yang berlaku. Informasi mengenai bidang, bagian, dan UPTD dapat diperiksa melalui halaman struktur organisasi atau profil resmi Diskominfotik NTB agar data yang diperoleh sesuai dengan susunan organisasi terbaru.
+
+**Keywords:** unit kerja, bidang Diskominfotik, struktur organisasi, UPTD NTB
