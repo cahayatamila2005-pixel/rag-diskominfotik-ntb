@@ -1340,6 +1340,19 @@ Diskominfotik NTB mendukung berbagai layanan yang berkaitan dengan informasi pub
 
 **Keywords:** layanan Diskominfotik, layanan digital, layanan publik NTB, aplikasi pemerintah, teknologi informasi
 
+### KB-123: Prosedur Permohonan Informasi Publik
+
+**Pertanyaan:**
+- Bagaimana cara mengajukan permohonan informasi publik?
+- Bagaimana cara meminta dokumen kepada PPID?
+- Di mana formulir permohonan informasi?
+- Apa yang diperlukan untuk meminta informasi publik?
+
+**Jawaban:**
+Masyarakat yang ingin mengajukan permohonan informasi publik dapat mengakses portal resmi PPID Diskominfotik NTB dan mengikuti prosedur permohonan yang tersedia. Pemohon perlu melengkapi data atau persyaratan sesuai petunjuk pada formulir dan ketentuan pelayanan informasi publik yang berlaku.
+
+**Keywords:** permohonan informasi, formulir PPID, prosedur informasi, pengajuan informasi
+
 ## KATEGORI 17: TRANSPORTASI
 
 ### KB-052: Informasi Angkutan Umum di NTB
