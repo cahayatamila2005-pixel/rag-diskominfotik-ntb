@@ -39,25 +39,6 @@ Anda dapat mengakses JDIH melalui portal ini untuk mencari, membaca, dan mengund
 
 **Keywords:** jdih, hukum, peraturan, dokumentasi hukum, produk hukum
 
-### KB-006: LESTARI NTB (Platform Persampahan)
-
-**Pertanyaan:**
-- Apa itu Lestari NTB?
-- Bagaimana cara mengelola sampah di NTB?
-- Dimana lokasi bank sampah?
-
-**Jawaban:**
-Lestari NTB adalah platform manajemen dan visualisasi data persampahan Nusa Tenggara Barat. Platform ini menyediakan informasi transparan tentang pengelolaan sampah, lokasi bank sampah, TPS, dan statistik persampahan di seluruh wilayah NTB.
-
-Fitur Lestari NTB:
-
-- Peta bank sampah
-- Statistik persampahan
-- Informasi TPS
-- Data pengolahan sampah
-
-**Keywords:** lestari, sampah, persampahan, lingkungan, bank sampah
-
 ### KB-007: SPAB (Sistem Pengelolaan Aset)
 
 **Pertanyaan:**
