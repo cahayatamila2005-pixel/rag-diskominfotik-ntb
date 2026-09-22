@@ -1010,30 +1010,6 @@ Untuk informasi rinci mengenai jenis layanan, jadwal dokter, dan fasilitas masin
 
 **Keywords:** rsup ntb, layanan rumah sakit, igd, rawat jalan, rawat inap, fasilitas kesehatan
 
-### KB-040: Cara Mendaftar Berobat di Rumah Sakit
-
-**Pertanyaan:**
-- Bagaimana cara mendaftar berobat?
-- Apakah bisa daftar online?
-
-**Jawaban:**
-Cara pendaftaran berobat di rumah sakit milik Pemprov NTB dapat berbeda-beda, namun secara umum:
-
-1. **Pendaftaran langsung (offline):**
-   - Datang ke loket pendaftaran.
-   - Bawa KTP atau identitas diri.
-   - Bawa kartu BPJS atau asuransi lain (jika ada).
-   - Bawa surat rujukan (jika diperlukan).
-
-2. **Pendaftaran online (jika tersedia):**
-   - Masuk ke website atau aplikasi resmi rumah sakit.
-   - Isi data diri dan pilih poliklinik serta jadwal.
-   - Ikuti petunjuk hingga mendapatkan nomor antrean.
-
-Untuk kepastian cara pendaftaran, silakan cek informasi pada portal rumah sakit yang bersangkutan atau hubungi nomor layanan informasi rumah sakit tersebut.
-
-**Keywords:** daftar berobat, pendaftaran rumah sakit, bpjs, rujukan, daftar online
-
 ## KATEGORI 12: INFORMASI PUBLIK (PPID)
 
 ### KB-041: Fungsi PPID Provinsi NTB
