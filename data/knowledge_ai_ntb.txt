@@ -1978,3 +1978,16 @@ Jaringan internet mendukung komunikasi, pertukaran data, akses aplikasi, dan pen
 Diskominfotik NTB memiliki unit kerja dan bidang yang menjalankan tugas sesuai dengan struktur organisasi dan ketentuan yang berlaku. Informasi mengenai bidang, bagian, dan UPTD dapat diperiksa melalui halaman struktur organisasi atau profil resmi Diskominfotik NTB agar data yang diperoleh sesuai dengan susunan organisasi terbaru.
 
 **Keywords:** unit kerja, bidang Diskominfotik, struktur organisasi, UPTD NTB
+
+### KB-126: UPTD Pusat Layanan Digital Diskominfotik NTB
+
+**Pertanyaan:**
+- Apa itu UPTD Pusat Layanan Digital?
+- Apa tugas Pusat Layanan Digital NTB?
+- Apa fungsi UPTD Pusat Layanan Digital?
+- Apa saja layanan yang ditangani UPTD Pusat Layanan Digital?
+
+**Jawaban:**
+UPTD Pusat Layanan Digital merupakan unit pelaksana teknis yang menangani urusan layanan digital sesuai tugas dan fungsi yang ditetapkan. Informasi mengenai tugas, struktur, serta layanan UPTD Pusat Layanan Digital dapat dilihat pada halaman resmi Diskominfotik NTB. Rincian layanan harus mengacu pada informasi resmi terbaru.
+
+**Keywords:** UPTD Pusat Layanan Digital, layanan digital, layanan publik digital, layanan pemerintahan digital
