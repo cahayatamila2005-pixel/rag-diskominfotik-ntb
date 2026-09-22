@@ -1132,6 +1132,19 @@ Masyarakat dapat mengajukan permohonan informasi kepada badan publik melalui mek
 
 **Keywords:** permohonan informasi, meminta informasi publik, layanan informasi, PPID, keterbukaan informasi
 
+### KB-128: Daftar Informasi Publik (DIP) Diskominfotik NTB
+
+**Pertanyaan:**
+- Apa itu Daftar Informasi Publik?
+- Di mana saya bisa melihat DIP Diskominfotik NTB?
+- Apa fungsi Daftar Informasi Publik?
+- Bagaimana cara mencari dokumen informasi publik?
+
+**Jawaban:**
+Daftar Informasi Publik atau DIP merupakan daftar informasi yang tersedia untuk masyarakat sesuai dengan klasifikasi dan ketentuan keterbukaan informasi publik. Masyarakat dapat mengakses halaman Daftar Informasi Publik pada portal resmi Diskominfotik NTB untuk mencari informasi dan dokumen yang tersedia.
+
+**Keywords:** DIP, Daftar Informasi Publik, dokumen publik, informasi publik NTB
+
 ## KATEGORI 13: PARIWISATA & KAWASAN
 
 ### KB-043: Layanan Pemesanan Tiket Kawasan Wisata
