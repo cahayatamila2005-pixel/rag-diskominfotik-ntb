@@ -1,4 +1,4 @@
-﻿"""
+"""
 Tanya NTB
 Chatbot informasi layanan publik berbasis Retrieval-Augmented Generation (RAG).
 
@@ -7,6 +7,7 @@ Cara menjalankan:
 """
 
 import re
+import time
 from pathlib import Path
 
 import streamlit as st
@@ -25,8 +26,6 @@ st.set_page_config(
     page_icon="🏛️",
     layout="centered"
 )
-
-
 # =========================================================
 # CSS TAMBAHAN
 # =========================================================
@@ -306,6 +305,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =========================================================
 
 KB_FILE = BASE_DIR / "data" / "knowledge_ai_ntb.txt"
+
+# ============================================================
+# EFEK MENGETIK JAWABAN
+# ============================================================
+
+def stream_jawaban(teks, kecepatan=0.015):
+    """
+    Menampilkan jawaban secara bertahap seperti sedang diketik.
+    """
+    for karakter in str(teks):
+        yield karakter
+        time.sleep(kecepatan)
+
 
 
 # =========================================================
@@ -738,20 +750,32 @@ st.markdown(
 
 
 # =========================================================
-# KATEGORI
+# KATEGORI & CONTOH PERTANYAAN
 # =========================================================
 
+# Variabel untuk menyimpan pertanyaan
+# yang dipilih melalui tombol.
+pertanyaan_dipilih = None
+
+
 if kategori_data:
+
+    # -----------------------------------------------------
+    # INFORMASI KATEGORI
+    # -----------------------------------------------------
 
     st.markdown(
         '<div class="category-intro">'
         '<div class="category-title">'
-        '📚 Mau cari berdasarkan kategori?'
+        '🔎 Jelajahi informasi layanan'
         '</div>'
         '<div class="category-description">'
-        f'Tersedia {jumlah_kategori} kategori informasi '
-        'dari Knowledge Base.'
+        'Pilih kategori layanan yang ingin kamu cari, '
+        'atau langsung tanyakan melalui kolom chat.'
         '</div>'
+        f'<div class="category-badge">'
+        f'📚 {jumlah_kategori} kategori tersedia'
+        f'</div>'
         '</div>',
         unsafe_allow_html=True
     )
@@ -766,19 +790,15 @@ if kategori_data:
     )
 
 
-    # -----------------------------------------------------
-    # DROPDOWN
-    # -----------------------------------------------------
-
     kategori_pilihan = st.selectbox(
-        "Pilih kategori",
+        "Pilih kategori layanan",
         daftar_kategori,
         label_visibility="collapsed"
     )
 
 
     # -----------------------------------------------------
-    # AMBIL PERTANYAAN
+    # PERTANYAAN BERDASARKAN KATEGORI
     # -----------------------------------------------------
 
     pertanyaan_kategori = kategori_data.get(
@@ -788,48 +808,89 @@ if kategori_data:
 
 
     # -----------------------------------------------------
-    # TAMPILKAN CONTOH PERTANYAAN
+    # CONTOH PERTANYAAN
     # -----------------------------------------------------
 
     if pertanyaan_kategori:
 
         st.markdown(
-            f"**💬 Contoh pertanyaan tentang "
-            f"{kategori_pilihan}:**"
+            f'<div class="question-section-title">'
+            f'💬 Contoh pertanyaan · {kategori_pilihan}'
+            f'</div>',
+            unsafe_allow_html=True
         )
 
 
-        # Maksimal 4 pertanyaan
-        for pertanyaan in pertanyaan_kategori[:4]:
+        # Maksimal 4 contoh pertanyaan
+        contoh = pertanyaan_kategori[:4]
 
-            st.markdown(
-                f'<div class="question-example">'
-                f'💬 {pertanyaan}'
-                f'</div>',
-                unsafe_allow_html=True
-            )
+
+        # Dua kolom
+        col1, col2 = st.columns(2)
+
+
+        for i, pertanyaan in enumerate(contoh):
+
+            # Tentukan kolom
+            if i % 2 == 0:
+                kolom = col1
+            else:
+                kolom = col2
+
+
+            with kolom:
+
+                # -------------------------------------------------
+                # TOMBOL PERTANYAAN
+                # -------------------------------------------------
+
+                tombol_diklik = st.button(
+                    f"💬 {pertanyaan}",
+                    key=f"contoh_pertanyaan_{i}_{kategori_pilihan}",
+                    use_container_width=True
+                )
+
+
+                # -------------------------------------------------
+                # JIKA TOMBOL DIKLIK
+                # -------------------------------------------------
+
+                if tombol_diklik:
+
+                    pertanyaan_dipilih = pertanyaan
 
 
     # -----------------------------------------------------
-    # JIKA KOSONG
+    # JIKA TIDAK ADA CONTOH PERTANYAAN
     # -----------------------------------------------------
 
     else:
 
         st.markdown(
             f'<div class="question-empty">'
-            f'💡 Silakan langsung tanyakan '
-            f'informasi seputar {kategori_pilihan} '
-            f'melalui kolom chat di bawah.'
+            f'💡 Belum ada contoh pertanyaan untuk '
+            f'<b>{kategori_pilihan}</b>. '
+            f'Kamu tetap bisa langsung mengetik pertanyaan '
+            f'pada kolom chat di bawah.'
             f'</div>',
             unsafe_allow_html=True
         )
 
 
-    st.markdown("---")
+    # -----------------------------------------------------
+    # JARAK
+    # -----------------------------------------------------
+
+    st.markdown(
+        '<div style="height: 10px;"></div>',
+        unsafe_allow_html=True
+    )
 
 
 # =========================================================
+# KONFIGURASI RAG
+# =========================================================
+# =========================================================# =========================================================
 # KONFIGURASI RAG
 # =========================================================
 
@@ -859,17 +920,98 @@ def render_answer(
 ):
 
     # -----------------------------------------------------
+    # BERSIHKAN JAWABAN
+    # -----------------------------------------------------
+
+    jawaban = str(answer).strip()
+
+
+    # -----------------------------------------------------
+    # AMBIL ISI SETELAH "Jawaban:"
+    # -----------------------------------------------------
+
+    pola_jawaban = re.search(
+        r"(?:\*\*Jawaban:\*\*|Jawaban:)\s*(.*)",
+        jawaban,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+
+
+    if pola_jawaban:
+
+        jawaban = pola_jawaban.group(1).strip()
+
+
+    # -----------------------------------------------------
+    # HAPUS BAGIAN KEYWORDS
+    # -----------------------------------------------------
+
+    jawaban = re.sub(
+        r"\n\s*(?:\*\*Keywords:\*\*|Keywords:).*",
+        "",
+        jawaban,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+
+
+    # -----------------------------------------------------
+    # HAPUS BAGIAN TOPIK
+    # -----------------------------------------------------
+
+    jawaban = re.sub(
+        r"^\s*Topik\s*:.*?\n",
+        "",
+        jawaban,
+        flags=re.IGNORECASE
+    )
+
+
+    # -----------------------------------------------------
+    # HAPUS BAGIAN KATEGORI
+    # -----------------------------------------------------
+
+    jawaban = re.sub(
+        r"^\s*Kategori\s*:.*?\n",
+        "",
+        jawaban,
+        flags=re.IGNORECASE
+    )
+
+
+    # -----------------------------------------------------
+    # HAPUS VARIASI PERTANYAAN
+    # -----------------------------------------------------
+
+    jawaban = re.sub(
+        r"Variasi pertanyaan terkait\s*:.*?(?=\n\s*Jawaban\s*:|\Z)",
+        "",
+        jawaban,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+
+
+    # -----------------------------------------------------
+    # BERSIHKAN SPASI
+    # -----------------------------------------------------
+
+    jawaban = jawaban.strip()
+
+
+    # -----------------------------------------------------
     # TIDAK DITEMUKAN
     # -----------------------------------------------------
 
-    if "tidak menemukan" in answer.lower():
+    if (
+        not jawaban
+        or "tidak menemukan" in jawaban.lower()
+    ):
 
         st.markdown(
             f'<div class="kartu-kosong">'
             f'<span class="label">'
             f'Tidak ditemukan'
             f'</span>'
-            f'<div>{answer}</div>'
+            f'<div>{jawaban}</div>'
             f'</div>',
             unsafe_allow_html=True
         )
@@ -878,11 +1020,18 @@ def render_answer(
 
 
     # -----------------------------------------------------
-    # JAWABAN
+    # TAMPILKAN JAWABAN SAJA
     # -----------------------------------------------------
 
-    st.write(
-        answer
+    # -----------------------------------------------------
+    # TAMPILKAN JAWABAN DENGAN EFEK MENGETIK
+    # -----------------------------------------------------
+
+    st.write_stream(
+        stream_jawaban(
+            jawaban,
+            kecepatan=0.015
+        )
     )
 
 
@@ -898,48 +1047,77 @@ def render_answer(
 
             for src in sources:
 
+                # -----------------------------------------
+                # SKOR
+                # -----------------------------------------
+
                 score = src.get(
                     "score",
                     0.0
                 )
 
 
+                try:
+
+                    score = float(score)
+
+                except (TypeError, ValueError):
+
+                    score = 0.0
+
+
+                # -----------------------------------------
+                # KELAS SKOR
+                # -----------------------------------------
+
                 kelas_skor = skor_ke_kelas(
                     score
                 )
 
 
+                # -----------------------------------------
+                # NAMA SUMBER / KB
+                # -----------------------------------------
+
                 source_name = src.get(
                     "source",
-                    "Dokumen tidak diketahui"
+                    "Knowledge Base"
                 )
 
 
-                source_text = src.get(
-                    "text",
-                    ""
-                )
+                source_name = str(
+                    source_name
+                ).strip()
 
+
+                # -----------------------------------------
+                # TAMPILKAN IDENTITAS KB SAJA
+                # -----------------------------------------
 
                 st.markdown(
                     f'<div class="kartu-sumber">'
                     f'<span class="sumber-label">'
-                    f'{source_name}'
+                    f'📚 {source_name}'
                     f'</span>'
                     f'<span class="skor-badge '
                     f'{kelas_skor}">'
-                    f'skor {score}'
+                    f'skor {score:.3f}'
                     f'</span>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
 
-
-                st.text(
-                    source_text
-                )
-
-
+                # ------------------------------------------------
+                # source_text SENGAJA TIDAK DITAMPILKAN
+                # ------------------------------------------------
+                #
+                # Sebelumnya:
+                #
+                # st.text(source_text)
+                #
+                # Sekarang dihapus agar seluruh isi KB
+                # tidak muncul kepada pengguna.
+                #
 # =========================================================
 # SESSION STATE
 # =========================================================
@@ -980,9 +1158,22 @@ for msg in st.session_state.messages:
 # INPUT PERTANYAAN
 # =========================================================
 
+# =========================================================
+# INPUT PERTANYAAN
+# =========================================================
+
 question = st.chat_input(
     "Tanyakan sesuatu, misal: Apa itu DDSS?"
 )
+
+
+# ---------------------------------------------------------
+# PERTANYAAN DARI TOMBOL CONTOH
+# ---------------------------------------------------------
+
+if pertanyaan_dipilih:
+
+    question = pertanyaan_dipilih
 
 
 # =========================================================
@@ -1159,3 +1350,11 @@ if question:
                     st.code(
                         str(e)
                     )
+
+
+
+
+
+
+
+
