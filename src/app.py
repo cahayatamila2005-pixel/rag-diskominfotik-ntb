@@ -902,6 +902,31 @@ TOP_K = 3
 
 
 # =========================================================
+
+def get_llm_config():
+    """Membaca konfigurasi LLM tanpa mewajibkan API key."""
+    try:
+        secrets = st.secrets
+        api_key = secrets.get("LLM_API_KEY", "")
+        api_base = secrets.get(
+            "LLM_API_BASE",
+            "https://api.openai.com/v1",
+        )
+        model = secrets.get(
+            "LLM_MODEL",
+            "gpt-4o-mini",
+        )
+    except Exception:
+        api_key = ""
+        api_base = "https://api.openai.com/v1"
+        model = "gpt-4o-mini"
+
+    return {
+        "llm_api_key": str(api_key).strip(),
+        "llm_api_base": str(api_base).strip(),
+        "llm_model": str(model).strip(),
+    }
+
 # LOAD PIPELINE
 # =========================================================
 
@@ -1225,9 +1250,12 @@ if question:
                 # PROSES RAG
                 # -----------------------------------------
 
+                llm_config = get_llm_config()
+
                 result = pipeline.generate_answer(
                     question,
-                    top_k=TOP_K
+                    top_k=TOP_K,
+                    **llm_config,
                 )
 
 
